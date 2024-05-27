@@ -37,7 +37,7 @@ class GatewaysServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
 
-        $info = include('Modules/Gateways/Addon/info.php');
+        $info = include(base_path('Modules/Gateways/Addon/info.php'));
         if ($info['is_published']) {
             foreach ($info['migrations'] as $increment => $migration) {
                 if ($migration['value'] == 0) {
