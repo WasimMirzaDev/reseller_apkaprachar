@@ -11,15 +11,15 @@
             <div class="page-header pb-0 mb-0 border-0">
                 <div class="flex-between align-items-center">
                     <div>
-                        <h1 class="page-header-title">{{translate('dashboard')}}</h1>
+                        <h1 class="page-header-title">{{translate('Dashboard')}}</h1>
                         <p>{{ translate('welcome_message')}}.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="card mb-2 remove-card-shadow">
+            <div class="card mb-4 remove-card-shadow">
                 <div class="card-body">
-                    <div class="row flex-between align-items-center g-2 mb-3">
+                    <div class="row flex-between align-items-center g-2">
                         <div class="col-sm-6">
                             <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
                                 <img src="{{asset('/public/assets/back-end/img/business_analytics.png')}}"
@@ -42,11 +42,16 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row g-2" id="order_stats">
-                        @include('admin-views.partials._dashboard-order-stats',['data'=>$data])
-                    </div>
                 </div>
             </div>
+
+            <div class=" mb-4 remove-card-shadow px-3">
+            <div class=" ">
+                <!-- <div class="row " id="order_stats"> -->
+                    @include('admin-views.partials._dashboard-order-stats', ['data' => $data])
+                <!-- </div> -->
+            </div>
+        </div>
 
             <div class="card mb-3 remove-card-shadow">
                 <div class="card-body">

@@ -7421,4 +7421,6 @@
   'Vendor_has_been_suspended_successfully' => 'Vendor has been suspended successfully',
   'Sent to Seller' => 'Sent to Seller',
   'Order sent to seller successfully.' => 'Order sent to seller successfully.',
+  'dashard' => 'Dashard',
+  'QWERTY' => 'QWERTY',
 );
