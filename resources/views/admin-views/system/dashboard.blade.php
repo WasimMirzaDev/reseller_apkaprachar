@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-            <div class="card mb-4 remove-card-shadow">
+            <div class="card mb-4 remove-card-shadow" style="border-radius: 0%;" >
                 <div class="card-body">
                     <div class="row flex-between align-items-center g-2">
                         <div class="col-sm-6">
@@ -45,32 +45,30 @@
                 </div>
             </div>
 
-            <div class=" mb-4 remove-card-shadow px-3">
-            <div class=" ">
-                <!-- <div class="row " id="order_stats"> -->
+            <div class="mb-4 remove-card-shadow px-3">
                     @include('admin-views.partials._dashboard-order-stats', ['data' => $data])
-                <!-- </div> -->
             </div>
-        </div>
 
-            <div class="card mb-3 remove-card-shadow">
+            <div class="card mb-3 remove-card-shadow"  style="border-radius: 0%;">
                 <div class="card-body">
-                    <h4 class="d-flex align-items-center text-capitalize gap-10 mb-3">
+                    <h4 class="d-flex align-items-center text-capitalize gap-10 my-2">
                         <img width="20" class="mb-1" src="{{asset('/public/assets/back-end/img/admin-wallet.png')}}"
                              alt="">
                         {{translate('admin_wallet')}}
                     </h4>
-
-                    <div class="row g-2" id="order_stats">
-                        @include('admin-views.partials._dashboard-wallet-stats',['data'=>$data])
-                    </div>
                 </div>
             </div>
 
-            <div class="row g-1">
+            <div class="mb-3">
+                <div class="row g-2" id="order_stats">
+                    @include('admin-views.partials._dashboard-wallet-stats',['data'=>$data])
+                </div>
+            </div>
+
+            <div class="row g-2">
                 <div class="col-12">
 
-                    <div class="card remove-card-shadow">
+                    <div class="card remove-card-shadow" style="border-radius: 0%;" >
 
                         <div class="card-body">
                             <div class="row g-2 align-items-center">
@@ -198,39 +196,41 @@
 
                 <div class="col-md-6 col-xl-4">
 
-                    <div class="card h-100 remove-card-shadow">
+                    <div class="card h-100 remove-card-shadow" style="border-radius: 0%;" >
                         @include('admin-views.partials._top-customer',['top_customer'=>$data['top_customer']])
+                        <!-- Done -->
                     </div>
 
                 </div>
 
 
                 <div class="col-md-6 col-xl-4">
-                    <div class="card h-100 remove-card-shadow">
+                    <div class="card h-100 remove-card-shadow" style="border-radius: 0%;" >
                         @include('admin-views.partials._top-store-by-order',['top_store_by_order_received'=>$data['top_store_by_order_received']])
                     </div>
                 </div>
 
                 <div class="col-md-6 col-xl-4">
-                    <div class="card h-100 remove-card-shadow">
+                    <div class="card h-100 remove-card-shadow" style="border-radius: 0%;" >
                         @include('admin-views.partials._top-selling-store',['topVendorByEarning'=>$data['topVendorByEarning']])
                     </div>
                 </div>
 
                 <div class="col-md-6 col-xl-4">
-                    <div class="card h-100 remove-card-shadow">
+                    <div class="card h-100 remove-card-shadow" style="border-radius: 0%;" >
                         @include('admin-views.partials._most-rated-products',['mostRatedProducts'=>$data['mostRatedProducts']])
                     </div>
+                    <!-- Done -->
                 </div>
 
                 <div class="col-md-6 col-xl-4">
-                    <div class="card h-100 remove-card-shadow">
+                    <div class="card h-100 remove-card-shadow" style="border-radius: 0%;" >
                         @include('admin-views.partials._top-selling-products',['topSellProduct'=>$data['topSellProduct']])
                     </div>
                 </div>
 
                 <div class="col-md-6 col-xl-4">
-                    <div class="card h-100 remove-card-shadow">
+                    <div class="card h-100 remove-card-shadow" style="border-radius: 0%;" >
                         @include('admin-views.partials._top-delivery-man',['topRatedDeliveryMan'=>$data['topRatedDeliveryMan']])
                     </div>
                 </div>
