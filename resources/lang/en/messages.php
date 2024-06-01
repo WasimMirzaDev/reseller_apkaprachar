@@ -7423,4 +7423,5 @@
   'Order sent to seller successfully.' => 'Order sent to seller successfully.',
   'dashard' => 'Dashard',
   'QWERTY' => 'QWERTY',
+  'dasrd' => 'Dasrd',
 );

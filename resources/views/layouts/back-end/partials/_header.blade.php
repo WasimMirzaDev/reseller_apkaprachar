@@ -1,58 +1,95 @@
+<style>
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #dbdbdb;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #a9a9a9;
+    }
+
+    .custom-icon {
+        font-size: 24px;
+        color: #fff;
+    }
+
+    .navbar {
+        background-color: #248dff;
+    }
+
+    .custom-status {
+        padding: 2px;
+        background-color: #FF5722;
+        color: #fff;
+    }
+
+    .btn.rounded-circle .btn-sm-status {
+        top: -8px;
+        right: -8px;
+    }
+</style>
+
 @php
-use Illuminate\Support\Facades\Session;
+    use Illuminate\Support\Facades\Session;
 @endphp
 @php($direction = Session::get('direction'))
 <div id="headerMain" class="d-none">
-    <header id="header" class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-flush navbar-container shadow">
+    <header id="header"
+        class="456 navbar navbar-expand-lg navbar-fixed navbar-height navbar-flush navbar-container shadow">
 
         <div class="navbar-nav-wrap">
             <div class="navbar-brand-wrapper">
                 @php($ecommerceLogo = getWebConfig('company_web_logo'))
                 <a class="navbar-brand" href="{{route('admin.dashboard.index')}}" aria-label="">
                     <img class="navbar-brand-logo"
-                         src="{{getValidImage('storage/app/public/company/'.$ecommerceLogo,type: 'backend-logo')}}" alt="{{ translate('logo') }}">
+                        src="{{getValidImage('storage/app/public/company/' . $ecommerceLogo, type: 'backend-logo')}}"
+                        alt="{{ translate('logo') }}">
                     <img class="navbar-brand-logo-mini"
-                         src="{{getValidImage('storage/app/public/company/'.$ecommerceLogo,type: 'backend-logo')}}"
-                         alt="{{ translate('logo') }}">
+                        src="{{getValidImage('storage/app/public/company/' . $ecommerceLogo, type: 'backend-logo')}}"
+                        alt="{{ translate('logo') }}">
                 </a>
             </div>
             <div class="navbar-nav-wrap-content-left">
                 <button type="button" class="js-navbar-vertical-aside-toggle-invoker close mr-3 d-xl-none">
                     <i class="tio-first-page navbar-vertical-aside-toggle-short-align"></i>
-                    <i class="tio-last-page navbar-vertical-aside-toggle-full-align"
-                       data-template='<div class="tooltip d-none d-sm-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
-                       data-toggle="tooltip" data-placement="right" title="Expand"></i>
+                    <i class="tio-last-page navbar-vertical-aside-toggle-full-align text-white"
+                        data-template='<div class="tooltip d-none d-sm-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+                        data-toggle="tooltip" data-placement="right" title="Expand"></i>
                 </button>
             </div>
             <div class="navbar-nav-wrap-content-right"
-                 style="{{$direction == "rtl" ? 'margin-left:unset; margin-right: auto' : 'margin-right:unset; margin-left: auto'}}">
+                style="{{$direction == "rtl" ? 'margin-left:unset; margin-right: auto' : 'margin-right:unset; margin-left: auto'}}">
                 <ul class="navbar-nav align-items-center flex-row">
                     <li class="nav-item d-none d-md-inline-block">
                         <div class="hs-unfold">
                             <div>
                                 @php( $local = session()->has('local')?session('local'):'en')
                                 @php($lang = \App\Models\BusinessSetting::where('type', 'language')->first())
-                                <div class="topbar-text dropdown disable-autohide {{$direction == "rtl" ? 'ml-3' : 'm-1'}} text-capitalize">
-                                    <a class="topbar-link dropdown-toggle d-flex align-items-center title-color"
-                                       href="javascript:" data-toggle="dropdown">
-                                        @foreach(json_decode($lang['value'],true) as $data)
-                                            @if($data['code']==$local)
+                                <div
+                                    class="topbar-text dropdown disable-autohide {{$direction == "rtl" ? 'ml-3' : 'm-1'}} text-capitalize">
+                                    <a class="topbar-link dropdown-toggle d-flex align-items-center title-color text-white"
+                                        href="javascript:" data-toggle="dropdown">
+                                        @foreach(json_decode($lang['value'], true) as $data)
+                                            @if($data['code'] == $local)
                                                 <img class="{{$direction == "rtl" ? 'ml-2' : 'mr-2'}}" width="20"
-                                                     src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
-                                                     alt="{{$data['name']}}">
+                                                    src="{{asset('public/assets/front-end/img/flags/' . $data['code'] . '.png')}}"
+                                                    alt="{{$data['name']}}">
                                                 {{$data['name']}}
                                             @endif
                                         @endforeach
                                     </a>
                                     <ul class="dropdown-menu">
-                                        @foreach(json_decode($lang['value'],true) as $key =>$data)
-                                            @if($data['status']==1)
-                                                <li class="change-language" data-action="{{route('change-language')}}" data-language-code="{{$data['code']}}">
-                                                    <a class="dropdown-item py-1"
-                                                       href="javascript:">
+                                        @foreach(json_decode($lang['value'], true) as $key => $data)
+                                            @if($data['status'] == 1)
+                                                <li class="change-language" data-action="{{route('change-language')}}"
+                                                    data-language-code="{{$data['code']}}">
+                                                    <a class="dropdown-item py-1" href="javascript:">
                                                         <img class="{{$direction == "rtl" ? 'ml-2' : 'mr-2'}}" width="20"
-                                                                src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
-                                                                alt="{{$data['name']}}"/>
+                                                            src="{{asset('public/assets/front-end/img/flags/' . $data['code'] . '.png')}}"
+                                                            alt="{{$data['name']}}" />
                                                         <span class="text-capitalize">{{$data['name']}}</span>
                                                     </a>
                                                 </li>
@@ -67,37 +104,38 @@ use Illuminate\Support\Facades\Session;
                     <li class="nav-item d-none d-md-inline-block">
                         <div class="hs-unfold">
                             <a title="Website home"
-                               class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
-                               href="{{route('home')}}" target="_blank">
-                                <i class="tio-globe"></i>
+                                class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
+                                href="{{route('home')}}" target="_blank">
+                                <i class="tio-globe custom-icon"></i>
                             </a>
                         </div>
                     </li>
 
                     @if(\App\Utils\Helpers::module_permission_check('support_section'))
-                        <li class="nav-item d-none d-md-inline-block">
-                            <!-- Notification -->
-                            <div class="hs-unfold">
-                                <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
-                                   href="{{route('admin.contact.list')}}">
-                                    <i class="tio-email"></i>
-                                    @php($message=\App\Models\Contact::where('seen',0)->count())
-                                    @if($message!=0)
-                                        <span class="btn-status btn-sm-status btn-status-danger">{{ $message }}</span>
-                                    @endif
-                                </a>
-                            </div>
-                        </li>
+                    <li class="nav-item d-none d-md-inline-block">
+                        <!-- Notification -->
+                        <div class="hs-unfold">
+                            <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
+                                href="{{route('admin.contact.list')}}">
+                                <i class="tio-email custom-icon"></i>
+                                @php($message=\App\Models\Contact::where('seen',0)->count())
+                                @if($message != 0)
+                                    <span
+                                        class="btn-status btn-sm-status btn-status-danger custom-status">{{ $message }}</span>
+                                @endif
+                            </a>
+                        </div>
+                    </li>
                     @endif
 
                     @if(\App\Utils\Helpers::module_permission_check('order_management'))
                         <li class="nav-item d-none d-md-inline-block">
                             <div class="hs-unfold">
                                 <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
-                                   href="{{route('admin.orders.list',['status'=>'pending'])}}">
-                                    <i class="tio-shopping-cart-outlined"></i>
+                                    href="{{route('admin.orders.list', ['status' => 'pending'])}}">
+                                    <i class="tio-shopping-cart-outlined custom-icon"></i>
                                     <span
-                                            class="btn-status btn-sm-status btn-status-danger">{{\App\Models\Order::where('order_status','pending')->count()}}</span>
+                                        class="btn-status btn-sm-status btn-status-danger custom-status">{{\App\Models\Order::where('order_status', 'pending')->count()}}</span>
                                 </a>
                             </div>
                         </li>
@@ -106,8 +144,8 @@ use Illuminate\Support\Facades\Session;
                     <li class="nav-item view-web-site-info">
                         <div class="hs-unfold">
                             <a href="javascript:"
-                               class="bg-white js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle open-info-web">
-                                <i class="tio-info"></i>
+                                class="bg-white js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle open-info-web">
+                                <i class="tio-info custom-icon"></i>
                             </a>
                         </div>
                     </li>
@@ -115,29 +153,29 @@ use Illuminate\Support\Facades\Session;
                     <li class="nav-item">
                         <div class="hs-unfold">
                             <a class="js-hs-unfold-invoker media align-items-center gap-3 navbar-dropdown-account-wrapper dropdown-toggle dropdown-toggle-left-arrow"
-                               href="javascript:"
-                               data-hs-unfold-options='{
+                                href="javascript:" data-hs-unfold-options='{
                                      "target": "#accountNavbarDropdown",
                                      "type": "css-animation"
                                    }'>
-                                <div class="d-none d-md-block media-body text-right">
-                                    <h5 class="profile-name mb-0">{{auth('admin')->user()->name}}</h5>
+                                <div class="d-none d-md-block media-body text-right text-white">
+                                    <h5 class="profile-name mb-0 text-white">{{auth('admin')->user()->name}}</h5>
                                     <span class="fz-12">{{ auth('admin')->user()->role->name ?? '' }}</span>
                                 </div>
                                 <div class="avatar border avatar-circle">
                                     <img class="avatar-img"
-                                         src="{{getValidImage('storage/app/public/admin/'.auth('admin')->user()->image,type: 'backend-profile')}}"
-                                         alt="{{translate('image_description')}}">
+                                        src="{{getValidImage('storage/app/public/admin/' . auth('admin')->user()->image, type: 'backend-profile')}}"
+                                        alt="{{translate('image_description')}}">
                                     <span class="d-none avatar-status avatar-sm-status avatar-status-success"></span>
                                 </div>
                             </a>
                             <div id="accountNavbarDropdown"
-                                 class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account">
+                                class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account">
                                 <div class="dropdown-item-text">
                                     <div class="media align-items-center text-break">
                                         <div class="avatar avatar-sm avatar-circle mr-2">
-                                            <img class="avatar-img" src="{{getValidImage('storage/app/public/admin/'.auth('admin')->user()->image,type: 'backend-profile')}}"
-                                                 alt="{{translate('image_description')}}">
+                                            <img class="avatar-img"
+                                                src="{{getValidImage('storage/app/public/admin/' . auth('admin')->user()->image, type: 'backend-profile')}}"
+                                                alt="{{translate('image_description')}}">
                                         </div>
                                         <div class="media-body">
                                             <span class="card-title h5">{{auth('admin')->user()->name}}</span>
@@ -147,12 +185,13 @@ use Illuminate\Support\Facades\Session;
                                 </div>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item"
-                                   href="{{route('admin.profile.update',auth('admin')->user()->id)}}">
+                                    href="{{route('admin.profile.update', auth('admin')->user()->id)}}">
                                     <span class="text-truncate pr-2" title="Settings">{{ translate('settings')}}</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
 
-                                <a class="dropdown-item logout" href="javascript:" data-action="{{route('admin.logout')}}">
+                                <a class="dropdown-item logout" href="javascript:"
+                                    data-action="{{route('admin.logout')}}">
                                     <span class="text-truncate pr-2" title="Sign out">{{ translate('sign_out')}}</span>
                                 </a>
                             </div>
@@ -165,26 +204,28 @@ use Illuminate\Support\Facades\Session;
             <div class="p-3">
                 <div class="bg-white p-1 rounded">
                     @php( $local = session()->has('local')?session('local'):'en')
-                    <div class="topbar-text dropdown disable-autohide {{$direction == "rtl" ? 'ml-3' : 'm-1'}} text-capitalize">
+                    <div
+                        class="topbar-text dropdown disable-autohide {{$direction == "rtl" ? 'ml-3' : 'm-1'}} text-capitalize">
                         <a class="topbar-link dropdown-toggle title-color d-flex align-items-center" href="#"
-                           data-toggle="dropdown">
-                            @foreach(json_decode($lang['value'],true) as $data)
-                                @if($data['code']==$local)
+                            data-toggle="dropdown">
+                            @foreach(json_decode($lang['value'], true) as $data)
+                                @if($data['code'] == $local)
                                     <img class="{{$direction == "rtl" ? 'ml-2' : 'mr-2'}}" width="20"
-                                         src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
-                                         alt="{{$data['name']}}">
+                                        src="{{asset('public/assets/front-end/img/flags/' . $data['code'] . '.png')}}"
+                                        alt="{{$data['name']}}">
                                     {{$data['name']}}
                                 @endif
                             @endforeach
                         </a>
                         <ul class="dropdown-menu">
-                            @foreach(json_decode($lang['value'],true) as $key =>$data)
-                                @if($data['status']==1)
-                                    <li class="change-language" data-action="{{route('change-language')}}" data-language-code="{{$data['code']}}">
+                            @foreach(json_decode($lang['value'], true) as $key => $data)
+                                @if($data['status'] == 1)
+                                    <li class="change-language" data-action="{{route('change-language')}}"
+                                        data-language-code="{{$data['code']}}">
                                         <a class="dropdown-item pb-1" href="javascript:">
                                             <img class="{{$direction == "rtl" ? 'ml-2' : 'mr-2'}}" width="20"
-                                                 src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
-                                                    alt="{{$data['name']}}"/>
+                                                src="{{asset('public/assets/front-end/img/flags/' . $data['code'] . '.png')}}"
+                                                alt="{{$data['name']}}" />
                                             <span class="text-capitalize">{{$data['name']}}</span>
                                         </a>
                                     </li>
@@ -194,29 +235,26 @@ use Illuminate\Support\Facades\Session;
                     </div>
                 </div>
                 <div class="bg-white p-1 rounded mt-2">
-                    <a title="Website home" class="p-2 title-color"
-                       href="{{route('home')}}" target="_blank">
+                    <a title="Website home" class="p-2 title-color" href="{{route('home')}}" target="_blank">
                         <i class="tio-globe"></i>
                         {{translate('view_website')}}
                     </a>
                 </div>
                 @if(\App\Utils\Helpers::module_permission_check('support_section'))
-                    <div class="bg-white p-1 rounded mt-2">
-                        <a class="p-2  title-color"
-                           href="{{route('admin.contact.list')}}">
-                            <i class="tio-email"></i>
-                            {{translate('message')}}
-                            @php($message=\App\Models\Contact::where('seen',0)->count())
-                            @if($message!=0)
-                                <span>({{ $message }})</span>
-                            @endif
-                        </a>
-                    </div>
+                <div class="bg-white p-1 rounded mt-2">
+                    <a class="p-2  title-color" href="{{route('admin.contact.list')}}">
+                        <i class="tio-email"></i>
+                        {{translate('message')}}
+                        @php($message=\App\Models\Contact::where('seen',0)->count())
+                        @if($message != 0)
+                            <span>({{ $message }})</span>
+                        @endif
+                    </a>
+                </div>
                 @endif
                 @if(\App\Utils\Helpers::module_permission_check('order_management'))
                     <div class="bg-white p-1 rounded mt-2">
-                        <a class="p-2  title-color"
-                           href="{{route('admin.orders.list',['status'=>'pending'])}}">
+                        <a class="p-2  title-color" href="{{route('admin.orders.list', ['status' => 'pending'])}}">
                             <i class="tio-shopping-cart-outlined"></i>
                             {{translate('order_list')}}
                         </a>
@@ -228,4 +266,3 @@ use Illuminate\Support\Facades\Session;
 </div>
 <div id="headerFluid" class="d-none"></div>
 <div id="headerDouble" class="d-none"></div>
-

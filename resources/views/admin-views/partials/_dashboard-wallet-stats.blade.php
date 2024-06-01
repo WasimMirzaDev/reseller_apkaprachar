@@ -8,7 +8,7 @@
     }
 
     .border-color {
-        border-top: 2px solid #0f0;
+        border-top: 2px solid #248dff;
     }
     .card-body.graph{
         position: absolute;
@@ -18,7 +18,7 @@
 
 <div class="col-lg-4">
     <div class="card h-100 d-flex justify-content-center align-items-center no-radius border-color">
-        <div class="card-body d-flex flex-column align-items-center justify-content-center pt-0">
+        <div class="card-body pt-0 h-50 flex-grow-0">
             <h3 class="for-card-count mb-0 fz-24">
                 {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $data['inhouse_earning']), currencyCode: getCurrencyCode())}}
             </h3>
@@ -26,7 +26,7 @@
                 {{translate('in-house_earning')}}
             </div>
         </div>
-        <div class="card-body p-0  graph">
+        <div class="card-body p-0 graph">
                 <img class="mb-0 w-100 img" src="{{asset('/public/assets/wave.png')}}" alt="">
         </div>
     </div>

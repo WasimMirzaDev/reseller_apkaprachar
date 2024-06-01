@@ -7,7 +7,7 @@
         border-radius: 0px;
     }
     .card-border-color{
-        border-top: 2px solid #0f0;
+        border-top: 2px solid #248dff;
         height: 100%;
     }
     .custom-card-2{
