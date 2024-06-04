@@ -1,8 +1,9 @@
 @php use App\Utils\Helpers;use App\Utils\ProductManager;use Illuminate\Support\Str; @endphp
 @php($overallRating = $product->reviews ? getOverallRating($product->reviews) : 0)
-<div class="product border rounded text-center d-flex flex-column gap-10 ov-hidden cursor-pointer get-view-by-onclick"
+<div class="product text-center gap-10 ov-hidden cursor-pointer get-view-by-onclick  col-12 col-sm-6 col-md-4 col-lg-3 p-0"
+style="background-color: #fff0;"
      data-link="{{route('product',$product->slug)}}">
-    <div class="product__top width--100 aspect-1">
+    <div class="product__top width--100 aspect-1 px-0">
         @if($product->discount > 0)
             <span class="product__discount-badge">
                 <span>
@@ -23,7 +24,7 @@
         @endif
         @php($wishlist = count($product->wishList)>0 ? 1 : 0)
         @php($compare_list = count($product->compareList)>0 ? 1 : 0)
-        <div class="product__actions d-flex flex-column gap-2">
+        <div class="product__actions d-flex flex-column">
             <a href="javascript:"
                data-action="{{route('store-wishlist')}}"
                data-product-id="{{$product['id']}}"
@@ -66,7 +67,30 @@
             </div>
         @endif
     </div>
-    <div class="product__summary d-flex flex-column align-items-center gap-1 pb-3 cursor-pointer">
+    <div class="product__summary d-flex flex-column align-items-center gap-1 py-3 cursor-pointer">
+       
+
+        <div class="text-muted fs-12">
+            @if($product->added_by=='seller')
+                {{ isset($product->seller->shop->name) ? Str::limit($product->seller->shop->name, 20) : '' }}
+            @elseif($product->added_by=='admin')
+                {{$web_config['name']->value}}
+            @endif
+        </div>
+
+        <h6 class="product__title text-truncate">
+            {{ Str::limit($product['name'], 25) }}
+        </h6>
+
+        <div class="product__price d-flex justify-content-center flex-wrap column-gap-2">
+            @if($product->discount > 0)
+                <del class="product__old-price">{{Helpers::currency_converter($product->unit_price)}}</del>
+            @endif
+            <ins class="product__new-price">
+                {{Helpers::currency_converter($product->unit_price-Helpers::get_product_discount($product,$product->unit_price))}}
+            </ins>
+        </div>
+
         <div class="d-flex gap-2 align-items-center">
             <div class="star-rating text-gold fs-12">
                 @for ($index = 1; $index <= 5; $index++)
@@ -80,26 +104,6 @@
                 @endfor
             </div>
             <span>( {{count($product->reviews)}} )</span>
-        </div>
-
-        <div class="text-muted fs-12">
-            @if($product->added_by=='seller')
-                {{ isset($product->seller->shop->name) ? Str::limit($product->seller->shop->name, 20) : '' }}
-            @elseif($product->added_by=='admin')
-                {{$web_config['name']->value}}
-            @endif
-        </div>
-        <h6 class="product__title text-truncate">
-            {{ Str::limit($product['name'], 25) }}
-        </h6>
-
-        <div class="product__price d-flex justify-content-center flex-wrap column-gap-2">
-            @if($product->discount > 0)
-                <del class="product__old-price">{{Helpers::currency_converter($product->unit_price)}}</del>
-            @endif
-            <ins class="product__new-price">
-                {{Helpers::currency_converter($product->unit_price-Helpers::get_product_discount($product,$product->unit_price))}}
-            </ins>
         </div>
     </div>
 </div>

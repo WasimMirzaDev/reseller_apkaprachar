@@ -1,4 +1,4 @@
-<section class="feature-secton">
+<!-- <section class="feature-secton">
     <div class="container py-3">
         <div class="feature-section-inner">
             <div class="row g-3 g-lg-4">
@@ -49,4 +49,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
+
+

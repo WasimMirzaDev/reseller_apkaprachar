@@ -6,6 +6,8 @@
     --text-color: #5b6777;
     --border-color: rgba(180, 208, 224, 0.5);
     --font: "Inter", sans-serif;
+    --head-color: #2565ad;
+    --side-nav-color: #3c99dc;
 }
 
 body {

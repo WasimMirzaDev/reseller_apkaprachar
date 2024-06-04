@@ -7424,4 +7424,8 @@
   'dashard' => 'Dashard',
   'QWERTY' => 'QWERTY',
   'dasrd' => 'Dasrd',
+  'Browse By Category' => 'Browse By Category',
+  'best_selling_products' => 'Best selling products',
+  'Enhance Your Experience' => 'Enhance Your Experience',
+  'Enhance Your Experience With Us!!!' => 'Enhance Your Experience With Us!!!',
 );

@@ -3,12 +3,12 @@
 @endphp
 <section class="banner">
     <div class="container">
-        <div class="card moble-border-0">
+        <div class="moble-border-0">
             <div class="p-0 p-sm-3 m-sm-1">
                 <div class="row g-3">
                     <div class="col-xl-3 col-lg-4 d-none d-xl-block">
                         <div class="">
-                            <ul class="dropdown-menu dropdown-menu--static bs-dropdown-min-width--auto">
+                            <ul class="dropdown-menu dropdown-menu--static bs-dropdown-min-width--auto" style="background-color: #fff0;">
                                 @foreach($categories as $key=>$category)
                                     <li class="{{ $category->childes->count() > 0 ? 'menu-item-has-children' : '' }}">
                                         <a href="{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}">
@@ -38,40 +38,40 @@
                                         @endif
                                     </li>
                                 @endforeach
-                                <li class="d-flex justify-content-center mt-3 py-0">
+                                <!-- <li class="d-flex justify-content-center mt-3 py-0">
                                     <a href="{{route('products',['data_from'=>'latest'])}}"
                                        class="btn-link text-primary">
                                         {{ translate('view_all') }}
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-6">
+                    <div class="col-xl-9 col-lg-8">
                         <div class="row g-2 g-sm-3 mt-lg-0">
                             <div class="col-12">
-                                <div class="swiper-container shadow-sm rounded">
-                                    <div class="swiper" data-swiper-loop="true"
+                                <div class="swiper-container">
+                                    <div class="swiper w-100 ps-3 gap-3" data-swiper-loop="true" 
                                          data-swiper-navigation-next="null" data-swiper-navigation-prev="null">
-                                        <div class="swiper-wrapper">
+                                        <div class="swiper-wrapper w-100">
                                             @foreach($main_banner as $key=>$banner)
                                                 <div class="swiper-slide">
-                                                    <a href="{{ $banner['url'] }}" class="h-100">
-                                                        <img loading="lazy" alt="" class="dark-support rounded"
+                                                    <a href="{{ $banner['url'] }}" class="h-100 w-100">
+                                                        <img loading="lazy" alt="" style="width: 100%; " class="dark-support w-100"
                                                             src="{{ getValidImage(path: 'storage/app/public/banner/'.$banner['photo'], type:'banner') }}">
                                                     </a>
                                                 </div>
                                             @endforeach
                                             @if(count($main_banner)==0)
                                                 <img src="{{ theme_asset('assets/img/image-place-holder-2_1.png') }}"
-                                                     loading="lazy" alt="" class="dark-support rounded">
+                                                     loading="lazy" alt="" class="dark-support gap-3">
                                             @endif
                                         </div>
                                         <div class="swiper-pagination"></div>
                                     </div>
                                 </div>
                             </div>
-                            @foreach($footer_banner as $key=>$banner)
+                            <!-- @foreach($footer_banner as $key=>$banner)
                                 <div class="col-6 d-none d-sm-block">
                                     <a href="{{ $banner['url'] }}" class="ad-hover h-100">
                                         <img src="{{ getValidImage(path: 'storage/app/public/banner/'.$banner['photo'], type:'banner') }}"
@@ -103,11 +103,11 @@
                                              class="dark-support rounded w-100">
                                     </span>
                                 </div>
-                            @endif
+                            @endif -->
                         </div>
                     </div>
 
-                    @if(count($random_coupon)>0)
+                    <!-- @if(count($random_coupon)>0)
                         <div class="col-xl-3 d-none d-sm-block">
                             <div class="bg-primary-light rounded p-3 mt-lg-3">
                                 <h3 class="text-primary my-3">{{ translate('Happy_Club') }}</h3>
@@ -166,7 +166,7 @@
                                      class="dark-support rounded w-100" alt="">
                             @endif
                         </div>
-                    @endif
+                    @endif -->
                 </div>
             </div>
         </div>

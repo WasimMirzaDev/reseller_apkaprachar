@@ -31,8 +31,6 @@
         color: #fff;
     }
 
-
-
     .nav-subtitle {
         color: #fff;
     }
@@ -87,7 +85,7 @@
         class="bg-white js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl text-start">
         <div class="navbar-vertical-container">
             <div class="navbar-vertical-footer-offset pb-0">
-                <div class="navbar-brand-wrapper justify-content-between side-logo" style="background-color: #248dff;">
+                <div class="navbar-brand-wrapper justify-content-between side-logo" style="background-color: var(--head-color);">
                     @php($eCommerceLogo = getWebConfig(name: 'company_web_logo'))
                     <a class="navbar-brand" href="{{route('admin.dashboard.index')}}" aria-label="Front">
                         <img class="navbar-brand-logo-mini for-web-logo max-h-30"
@@ -105,8 +103,8 @@
                             data-template="<div class=&quot;tooltip d-none d-sm-block&quot; role=&quot;tooltip&quot;><div class=&quot;arrow&quot;></div><div class=&quot;tooltip-inner&quot;></div></div>"></i>
                     </button>
                 </div>
-                <div class="navbar-vertical-content" style="background-color: #248dff;">
-                    <div class="sidebar--search-form pb-3 pt-4" style="background-color: #248dff;">
+                <div class="navbar-vertical-content" style="background-color: var(--side-nav-color);">
+                    <div class="sidebar--search-form pb-3 pt-4" style="background-color: var(--side-nav-color);">
                         <div class="search--form-group">
                             <button type="button" class="btn"><i class="tio-search text-white"></i></button>
                             <input type="text" class="js-form-search form-control form--control" id="search-bar-input"

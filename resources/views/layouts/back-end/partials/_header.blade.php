@@ -15,9 +15,8 @@
         font-size: 24px;
         color: #fff;
     }
-
     .navbar {
-        background-color: #248dff;
+        background-color: var(--head-color);
     }
 
     .custom-status {
@@ -177,7 +176,7 @@
                                                 src="{{getValidImage('storage/app/public/admin/' . auth('admin')->user()->image, type: 'backend-profile')}}"
                                                 alt="{{translate('image_description')}}">
                                         </div>
-                                        <div class="media-body">
+                                        <div class="media-body text-dark">
                                             <span class="card-title h5">{{auth('admin')->user()->name}}</span>
                                             <span class="card-text">{{auth('admin')->user()->email}}</span>
                                         </div>

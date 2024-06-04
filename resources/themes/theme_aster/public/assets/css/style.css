@@ -136,6 +136,10 @@ body {
     outline: 0 !important;
 }
 
+.contaniner{
+    max-width: 1440px !important;
+}
+
 label {
     text-transform: capitalize;
     color: var(--title-color);
@@ -751,12 +755,19 @@ a,
     background-color: rgba(var(--bg-color), var(--opacity));
 }
 
-.img-fit,
 .img-fit-contain {
     inline-size: 100%;
     block-size: 100%;
     -o-object-fit: cover;
     object-fit: cover;
+    display: block;
+}
+
+.img-fit {
+    inline-size: 100%;
+    block-size: 100%;
+    /* -o-object-fit: cover; */
+    /* object-fit: cover; */
     display: block;
 }
 
