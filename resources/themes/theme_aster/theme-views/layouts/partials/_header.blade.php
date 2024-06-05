@@ -3,6 +3,11 @@
     use App\Models\Category;
     use App\Utils\Helpers;
 @endphp
+
+<style>
+
+</style>
+
 @if (isset($web_config['announcement']) && $web_config['announcement']['status'] == 1)
     <div class="offer-bar py-3 announcement-color" data-bg-img="{{theme_asset('assets/img/media/top-offer-bg.png')}}">
         <div class="d-flex gap-2 align-items-center">
@@ -18,40 +23,15 @@
 @php($categories = Category::with('childes.childes')->where(['position'=> 0])->priority()->take(11)->get())
 @php($brands = Brand::active()->take(15)->get())
 <header class="header">
-    <div class="header-top py-2 bg-black text-light">
+    <div class=" header-top py-2 bg-black text-light">
         <div class="container">
-            <div class="d-flex align-items-center flex-wrap justify-content-between gap-2">
-                <!-- <a href="tel:+{{ $web_config['phone']->value }}" class="d-flex gap-2 align-items-center">
-                    <i class="bi bi-telephone text-primary"></i>
-                    {{ $web_config['phone']->value }}
-                </a> -->
-                <p class="nav justify-content-center justify-content-sm-end align-items-center gap-4">Lorem ipsum dolor,
-                    sit amet consectetur adipisicing elit. Esse autem ad consectetur voluptas obcaecati possimus
-                    recusanda</p>
+            <div class="px-4 d-flex align-items-center flex- justify-content-between gap-2">
+                <span class="d-flex gap-2 align-items-center text-light">Summer Sale For All Swim Suits And Free Express
+                    Delivery - OFF 50%!<a href="#" class="text-light">
+                        ShopNow
+                    </a></span>
 
                 <ul class="nav justify-content-center justify-content-sm-end align-items-center gap-4">
-                    <!-- <li>
-                        <div class="language-dropdown">
-                            @if($web_config['currency_model']=='multi_currency')
-                                <button
-                                    type="button"
-                                    class="border-0 bg-transparent d-flex gap-2 align-items-center dropdown-toggle text-dark p-0"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    {{session('currency_code')}} {{session('currency_symbol')}}
-                                </button>
-                                <ul class="dropdown-menu bs-dropdown-min-width--10rem">
-                                    @foreach ($web_config['currencies'] as $key => $currency)
-                                        <li class="currency-change" data-currency-code="{{$currency['code']}}">
-                                            <a href="javascript:">{{ $currency->name }}</a>
-                                        </li>
-                                    @endforeach
-                                    <span id="currency-route" data-currency-route="{{route('currency.change')}}"></span>
-                                </ul>
-                            @endif
-                        </div>
-                    </li> -->
                     <li>
                         <div class="language-dropdown">
                             <button type="button "
@@ -83,84 +63,12 @@
                             </ul>
                         </div>
                     </li>
-                    <!-- @if($web_config['business_mode'] == 'multi' && $web_config['seller_registration'])
-                        <li class="d-none d-xl-block">
-                            <a href="{{route('shop.apply')}}" class="d-flex">
-                                <div class="fz-16 text-capitalize">{{ translate('become_a_vendor')}}</div>
-                            </a>
-                        </li>
-                    @endif -->
                 </ul>
             </div>
         </div>
     </div>
-    <!-- <div class="header-middle border-bottom py-2 d-none d-xl-block">
+    <div class="header-main love-sticky py-2 py-lg-3 py-xl-0 ">
         <div class="container">
-            <div class="d-flex align-items-center justify-content-between gap-3">
-                <a class="logo" href="{{route('home')}}">
-                    <img class="dark-support svg h-45" alt="{{ translate('Logo') }}"
-                        src="{{ getValidImage(path: 'storage/app/public/company/' . ($web_config['web_logo']->value), type: 'logo') }}">
-                </a>
-                <div class="search-box position-relative">
-                    <form action="{{route('products')}}" type="submit">
-                        <div class="d-flex">
-                            <div class="select-wrap focus-border border border-end-logical-0 d-flex align-items-center">
-                                <div class="border-end">
-                                    <div class="dropdown search_dropdown">
-                                        <button type="button"
-                                            class="border-0 px-3 bg-transparent dropdown-toggle text-dark py-0 text-capitalize"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            {{ translate('all_categories') }}
-                                        </button>
-                                        <input type="hidden" name="search_category_value" id="search_category_value"
-                                            value="all">
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a class="d-flex text-capitalize" data-value="all" href="javascript:">
-                                                    {{ translate('all_categories') }}
-                                                </a>
-                                            </li>
-                                            @if($categories)
-                                                @foreach($categories as $category)
-                                                    <li>
-                                                        <a class="d-flex" data-value="{{ $category->id }}" href="javascript:">
-                                                            {{ $category['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @endforeach
-                                            @endif
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <input type="search" class="form-control border-0 focus-input search-bar-input"
-                                    name="name" id="global-search"
-                                    placeholder="{{ translate('search_for_items') . '...' }}" />
-                            </div>
-                            <input name="data_from" value="search" hidden>
-                            <input name="page" value="1" hidden>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="bi bi-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                    <div
-                        class="card search-card __inline-13 position-absolute z-99 w-100 bg-white top-100 start-0 search-result-box">
-                    </div>
-                </div>
-                <div class="offer-btn">
-                    @if($web_config['header_banner'])
-                        <a href="{{ $web_config['header_banner']['url'] }}">
-                            <img width="180" loading="lazy" class="dark-support" alt="{{ translate('image') }}"
-                                src="{{ getValidImage(path: 'storage/app/public/banner/' . ($web_config['header_banner']['photo']), type: 'wide-banner') }}">
-                        </a>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <div class="header-main love-sticky py-2 py-lg-3 py-xl-0 shadow-sm">
-        <div class="container-fluid">
             <aside class="aside d-flex flex-column d-xl-none">
                 <div class="aside-close p-3 pb-2">
                     <i class="bi bi-x-lg"></i>
@@ -318,61 +226,14 @@
             <div class="d-flex justify-content-between gap-3 align-items-center position-relative py-2">
                 <div class="d-flex align-items-center gap-3">
                     <div class="dropdown d-none d-xl-block">
-                        <!-- <button
-                            class="btn btn-primary rounded-0 text-uppercase fw-bold fs-14 dropdown-toggle select-category-button text-capitalize"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-list fs-4"></i>
-                            {{ translate('select_category')}}
-                        </button>
-                        <ul class="dropdown-menu dropdown--menu">
-                            @foreach($categories as $key => $category)
-                                @if($key < 8)
-                                    <li class="{{ $category->childes->count() > 0 ? 'menu-item-has-children' : '' }}">
-                                        <a
-                                            href="{{route('products', ['id' => $category['id'], 'data_from' => 'category', 'page' => 1])}}">
-                                            {{$category['name']}}
-                                        </a>
-                                        @if ($category->childes->count() > 0)
-                                            <ul class="sub-menu">
-                                                @foreach($category['childes'] as $subCategory)
-                                                    <li class="{{ $subCategory->childes->count() > 0 ? 'menu-item-has-children' : '' }}">
-                                                        <a
-                                                            href="{{route('products', ['id' => $subCategory['id'], 'data_from' => 'category', 'page' => 1])}}">
-                                                            {{$subCategory['name']}}
-                                                        </a>
-                                                        @if($subCategory->childes->count() > 0)
-                                                            <ul class="sub-menu">
-                                                                @foreach($subCategory['childes'] as $subSubCategory)
-                                                                    <li>
-                                                                        <a
-                                                                            href="{{route('products', ['id' => $subSubCategory['id'], 'data_from' => 'category', 'page' => 1])}}">
-                                                                            {{$subSubCategory['name']}}
-                                                                        </a>
-                                                                    </li>
-                                                                @endforeach
-                                                            </ul>
-                                                        @endif
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
-                                    </li>
-                                @endif
-                            @endforeach
-                            <li>
-                                <a href="{{route('products', ['data_from' => 'latest'])}}" class="btn-link text-primary">
-                                    {{ translate('view_all') }}
-                                </a>
-                            </li>
-                        </ul> -->
                         <a class="logo" href="{{route('home')}}">
                             <img class="dark-support svg h-45" alt="{{ translate('Logo') }}"
                                 src="{{ getValidImage(path: 'storage/app/public/company/' . ($web_config['web_logo']->value), type: 'logo') }}">
                         </a>
                     </div>
                 </div>
-                <!-- style="left: 50%; transform: translate(-50%);" position-absolute -->
-                <div class="d-flex align-items-center text-center gap-3 "  >
+                <!-- style="left: 50%; transform: translate(-50%); z-index: 3;" position-absolute -->
+                <div class="d-flex align-items-center text-center gap-3 ">
                     <div class="nav-wrapper">
                         <div class="d-xl-none">
                             <a class="logo" href="{{route('home')}}">
@@ -487,7 +348,7 @@
                     </div>
                 </div>
                 <ul class="list-unstyled list-separator mb-0 pe-2">
-                    @if(auth('customer')->check())
+                    <!-- @if(auth('customer')->check())
                         <li class="login-register d-flex align-items-center gap-4">
                             <div class="profile-dropdown">
                                 <button type="button"
@@ -523,8 +384,8 @@
                                 <i class="bi bi-list fs-30"></i>
                             </div>
                         </li>
-                    @endif
-                    <li class="d-none d-xl-block">
+                    @endif -->
+                    <!-- <li class="d-none d-xl-block">
                         @if(auth('customer')->check())
                             <a href="{{ route('product-compare.index') }}" class="position-relative">
                                 <i class="bi bi-repeat fs-18"></i>
@@ -537,6 +398,9 @@
                                 <i class="bi bi-repeat fs-18"></i>
                             </a>
                         @endif
+                    </li> -->
+                    <li class="d-none d-xl-block">
+                        ssearch input
                     </li>
                     <li class="d-none d-xl-block">
                         @if(auth('customer')->check())
@@ -554,6 +418,13 @@
                     </li>
                     <li class="d-none d-xl-block" id="cart_items">
                         @include('theme-views.layouts.partials._cart')
+                    </li>
+                    <li class="d-none d-xl-block">
+                        <span class="avatar header-avatar rounded-circle size-1-5rem">
+                            <img loading="lazy"
+                                src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/user.png"
+                                class="img-fit rounded-circle" alt="Image">
+                        </span>
                     </li>
                 </ul>
             </div>

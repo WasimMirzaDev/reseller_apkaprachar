@@ -1,12 +1,28 @@
 @php
     use App\Utils\Helpers;
 @endphp
+
+<style>
+    .border-right{
+        border-right: 1px solid #d9d9d9;
+        margin-top: 11px;
+        padding-top: 30px;
+    }
+    .image-slider{
+        padding-top: 40px;
+    }
+    .image-slider img{
+        height: 350px;
+        width: 100%;
+    }
+</style>
+
 <section class="banner">
     <div class="container">
         <div class="moble-border-0">
             <div class="p-0 p-sm-3 m-sm-1">
-                <div class="row g-3">
-                    <div class="col-xl-3 col-lg-4 d-none d-xl-block">
+                <div class="row g-5">
+                    <div class="col-md-2 d-none d-xl-block pe-2 border-right text-dark">
                         <div class="">
                             <ul class="dropdown-menu dropdown-menu--static bs-dropdown-min-width--auto" style="background-color: #fff0;">
                                 @foreach($categories as $key=>$category)
@@ -47,17 +63,17 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-9 col-lg-8">
+                    <div class="col-12 col-md-10 ps-md-5 mt-0 image-slider">
                         <div class="row g-2 g-sm-3 mt-lg-0">
                             <div class="col-12">
                                 <div class="swiper-container">
-                                    <div class="swiper w-100 ps-3 gap-3" data-swiper-loop="true" 
+                                    <div class="swiper w-100 gap-3" data-swiper-loop="true" 
                                          data-swiper-navigation-next="null" data-swiper-navigation-prev="null">
                                         <div class="swiper-wrapper w-100">
                                             @foreach($main_banner as $key=>$banner)
                                                 <div class="swiper-slide">
-                                                    <a href="{{ $banner['url'] }}" class="h-100 w-100">
-                                                        <img loading="lazy" alt="" style="width: 100%; " class="dark-support w-100"
+                                                    <a href="{{ $banner['url'] }}" class="w-100">
+                                                        <img loading="lazy" alt="" class="dark-support w-100"
                                                             src="{{ getValidImage(path: 'storage/app/public/banner/'.$banner['photo'], type:'banner') }}">
                                                     </a>
                                                 </div>

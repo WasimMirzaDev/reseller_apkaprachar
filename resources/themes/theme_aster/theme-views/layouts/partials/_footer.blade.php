@@ -1,15 +1,14 @@
-<footer class="footer">
-    <div class="footer-bg-img" data-bg-img="{{theme_asset('assets/img/background/footer-bg.png')}}">
-    </div>
-    <div class="footer-top">
+<footer class="footer mt-5">
+    <!-- <div class="footer-bg-img" data-bg-img="{{theme_asset('assets/img/background/footer-bg.png')}}"> -->
+    <!-- </div> -->
+    <!-- <div class="footer-top">
         <div class="container">
             <div class="row gy-3 align-items-center">
                 <div class="col-lg-3 col-sm-3 text-center text-lg-start">
                     <img width="180" loading="lazy" alt="{{translate('image')}}"
                          src="{{ getValidImage(path: 'storage/app/public/company/'.($web_config['footer_logo']->value), type:'logo') }}">
                 </div>
-                <div
-                    class="col-lg-6 col-sm-6 d-flex justify-content-center justify-content-sm-start justify-content-lg-center">
+                <div class="col-lg-6 col-sm-6 d-flex justify-content-center justify-content-sm-start justify-content-lg-center">
                     <ul class="list-socials list-socials--white gap-4 fs-18">
                         @if($web_config['social_media'])
                             @foreach ($web_config['social_media'] as $item)
@@ -62,51 +61,10 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="footer-main px-2  px-lg-0">
+    </div> -->
+    <div class="footer-main px-2  pt-5 px-lg-0 bg-dark">
         <div class="container">
             <div class="row gy-5">
-                <div class="col-lg-4">
-                    <div class="widget widget--about text-center text-lg-start absolute-white">
-                        <p>{{ getWebConfig(name: 'shop_address')}}</p>
-                        <a href="mailto:{{$web_config['email']->value}}">{{$web_config['email']->value}}</a>
-
-                        <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap mt-4">
-                            @if($web_config['android']['status'])
-                                <a href="{{ $web_config['android']['link'] }}">
-                                    <img
-                                        src="{{ theme_asset('assets/img/media/google-play.png') }}" loading="lazy"
-                                        alt="{{translate('image')}}">
-                                </a>
-                            @endif
-                            @if($web_config['ios']['status'])
-                                <a href="{{ $web_config['ios']['link'] }}">
-                                    <img
-                                        src="{{ theme_asset('assets/img/media/app-store.png') }}" loading="lazy"
-                                        alt="{{translate('image')}}">
-                                </a>
-                            @endif
-                        </div>
-                        <div class="mt-4 mb-3">
-                            <div class="d-flex gap-2">
-                                <h6 class="text-uppercase mb-2 font-weight-bold footer-heder">{{translate('newsletter')}}</h6>
-                                <i class="bi bi-send-fill mt-n1"></i>
-                            </div>
-                            <p>{{translate('subscribe_our_newsletter_to_get_latest_updates')}}</p>
-                        </div>
-                        <form class="newsletter-form" action="{{ route('subscription') }}" method="post">
-                            @csrf
-                            <div class="position-relative">
-                                <label class="position-relative m-0 d-block">
-                                    <i class="bi bi-envelope envelop-icon text-muted fs-18"></i>
-                                    <input type="text" placeholder="{{ translate('enter_your_email') }}"
-                                           class="form-control" name="subscription_email" required>
-                                </label>
-                                <button type="submit" class="btn btn-primary">{{ translate('submit') }}</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
                 <div class="col-lg-8">
                     <div class="row gy-5">
                         <div class="col-sm-4 col-6">
@@ -207,10 +165,51 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4">
+                    <div class="widget widget--about text-center text-lg-start absolute-white">
+                        <p>{{ getWebConfig(name: 'shop_address')}}</p>
+                        <a href="mailto:{{$web_config['email']->value}}">{{$web_config['email']->value}}</a>
+
+                        <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap mt-4">
+                            @if($web_config['android']['status'])
+                                <a href="{{ $web_config['android']['link'] }}">
+                                    <img
+                                        src="{{ theme_asset('assets/img/media/google-play.png') }}" loading="lazy"
+                                        alt="{{translate('image')}}">
+                                </a>
+                            @endif
+                            @if($web_config['ios']['status'])
+                                <a href="{{ $web_config['ios']['link'] }}">
+                                    <img
+                                        src="{{ theme_asset('assets/img/media/app-store.png') }}" loading="lazy"
+                                        alt="{{translate('image')}}">
+                                </a>
+                            @endif
+                        </div>
+                        <div class="mt-4 mb-3">
+                            <div class="d-flex gap-2">
+                                <h6 class="text-uppercase mb-2 font-weight-bold footer-heder">{{translate('newsletter')}}</h6>
+                                <i class="bi bi-send-fill mt-n1"></i>
+                            </div>
+                            <p>{{translate('subscribe_our_newsletter_to_get_latest_updates')}}</p>
+                        </div>
+                        <form class="newsletter-form" action="{{ route('subscription') }}" method="post">
+                            @csrf
+                            <div class="position-relative">
+                                <label class="position-relative m-0 d-block">
+                                    <i class="bi bi-envelope envelop-icon text-muted fs-18"></i>
+                                    <input type="text" placeholder="{{ translate('enter_your_email') }}"
+                                           class="form-control" name="subscription_email" required>
+                                </label>
+                                <button type="submit" class="btn btn-primary">{{ translate('submit') }}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="footer-bottom absolute-white">
+    <div class="footer-bottom bg-dark">
         <div class="container">
             <div class="text-center copyright-text">
                 {{ $web_config['copyright_text']->value }}

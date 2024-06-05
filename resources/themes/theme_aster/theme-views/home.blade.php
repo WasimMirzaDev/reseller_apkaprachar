@@ -111,7 +111,7 @@
             border: none;
             text-align: center;
             box-shadow: none;
-            
+
         }
 
         .feature-card .icon {
@@ -130,15 +130,31 @@
             font-size: 26px;
             color: #fff;
         }
+
+        .product-card {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: none;
+            border: none;
+            border-radius: 0px;
+            padding-bottom: 20px;
+        }
+        .product-card img{
+            background-color: #ebebeb;
+            padding: 25px;
+            width: 100%;
+        }
     </style>
 
     <section class="container-fluid">
         <div class="container">
             <div class="">
                 <div class="py-4">
-                    <h5 class="text-danger mb-2 ps-2 py-2 mb-4" style="border-left: 12px solid #db4444;">Our Products
-                    </h5>
-                    <div class="d-flex flex-wrap justify-content-between gap-3 mb-5">
+                    <span class="text-danger mb-2 ps-2 py-2"
+                        style="border-left: 12px solid #db4444; font-weight: 700;">Our Products
+                    </span>
+                    <div class="d-flex flex-wrap justify-content-between gap-3 mb-5 mt-4">
                         <h2 class="text-capitalize">{{ translate('top_rated_products') }}</h2>
                         <div class="swiper-nav d-flex gap-2 align-items-center">
                             <div class="nav-arrows top-rated-nav-prev position-static rounded-circle">
@@ -225,14 +241,14 @@
 
     <section class=" mt-5">
         <div class="container mt-4">
-            <div class="py-5 rounded position-relative" style="height: 600px;">
+            <div class="py-5 rounded position-relative" style="height: 440px;">
                 <img height="100%"
-                    src="{{ getValidImage(path: 'storage/app/public/banner/' . ($main_section_banner ? $main_section_banner['photo'] : ''), type: 'banner') }}"
+                    src="https://i.pinimg.com/originals/be/f5/11/bef5119b310a72b48e88ef40fcf2d9a9.jpg"
                     alt="" class="position-absolute dark-support img-fit start-0 top-0 index-n1 flipX-in-rtl h-100">
-                <div class="row justify-content-center h-100">
-                    <div class=" ps-5 align-items-center py-4">
+                <div class="row justify-content-center h-100" style="padding-left: 40px;" >
+                    <div class=" ps-5 align-items-center">
                         <h6 class="text-primary mb-5 text-capitalize text-success">{{ translate('Category') }}!</h6>
-                        <h2 class="fs-2 mb-5 absolute-dark text-capitalize text-light">
+                        <h2 class="fs-2 mb-5 text-capitalize text-light">
                             {{ translate('Enhance Your Experience With Us!!!') }}
                         </h2>
                         <div class="d-flex gap-3 mb-5">
@@ -271,20 +287,21 @@
         <div class="container">
             <div class="row g-4 mt-5 products-new">
                 <div class="col-12">
-                    <h5 class="text-danger mb-2 ps-2 py-2" style="border-left: 12px solid #db4444;">Our Products</h5>
+                    <span class="text-danger mb-2 ps-2 py-2"
+                        style="border-left: 12px solid #db4444; font-weight: 700">Our Products</span>
                 </div>
                 <div class="col-12">
                     <h2>Explore Our Products</h2>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card " style="background-color: #fff0;">
+                    <div class="card product-card" style="background-color: #fff0;">
                         <div class="view">
                             <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
                             <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
                         </div>
                         <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
+                            class="w-100" alt="...">
+                        <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -297,14 +314,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card " style="background-color: #fff0;">
+                    <div class="card product-card" style="background-color: #fff0;">
                         <div class="view">
                             <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
                             <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
                         </div>
                         <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
+                            class="w-100" alt="...">
+                        <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -317,14 +334,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card " style="background-color: #fff0;">
+                    <div class="card product-card" style="background-color: #fff0;">
                         <div class="view">
                             <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
                             <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
                         </div>
                         <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
+                            class="w-100" alt="...">
+                        <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -337,14 +354,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card " style="background-color: #fff0;">
+                    <div class="card product-card" style="background-color: #fff0;">
                         <div class="view">
                             <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
                             <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
                         </div>
                         <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
+                            class="w-100" alt="...">
+                        <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -357,14 +374,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card " style="background-color: #fff0;">
+                    <div class="card product-card" style="background-color: #fff0;">
                         <div class="view">
                             <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
                             <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
                         </div>
                         <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
+                            class="w-100" alt="...">
+                        <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -377,14 +394,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card " style="background-color: #fff0;">
+                    <div class="card product-card" style="background-color: #fff0;">
                         <div class="view">
                             <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
                             <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
                         </div>
                         <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
+                            class="w-100" alt="...">
+                        <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -397,14 +414,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card " style="background-color: #fff0;">
+                    <div class="card product-card" style="background-color: #fff0;">
                         <div class="view">
                             <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
                             <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
                         </div>
                         <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
+                            class="w-100" alt="...">
+                        <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -417,14 +434,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card " style="background-color: #fff0;">
+                    <div class="card product-card" style="background-color: #fff0;">
                         <div class="view">
                             <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
                             <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
                         </div>
                         <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
+                            class="w-100" alt="...">
+                        <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
                             <i class="bi bi-star-fill text-warning"></i>
@@ -445,19 +462,40 @@
 
     <section class="container-fluid mb-5">
         <div class="container">
-            <div class="row g-4 mt-5 products-new">
+            <div class="row g-4 my-5 products-new">
                 <div class="col-12">
-                    <h5 class="text-danger mb-2 ps-2 py-2" style="border-left: 12px solid #db4444;">Our Products</h5>
+                    <span class="text-danger mb-2 ps-2 py-2"
+                        style="border-left: 12px solid #db4444; font-weight: 700;">Features</span>
                 </div>
                 <div class="col-12">
-                    <h2>Explore Our Products</h2>
+                    <h2>New Arrival</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-sm-12 col-md-6">
+                    <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png" alt="" class="w-100">
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <img src="https://i.pinimg.com/564x/39/64/de/3964de7982d181507a5efefdef8ccbf7.jpg" alt="" class="w-100">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png" alt="" class="w-100">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png" alt="" class="w-100">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
 
-    <section class="container mb-4">
+    <section class="container my-5">
         <div class="row">
             <div class="col-md-4">
                 <div class="feature-card card text-center">

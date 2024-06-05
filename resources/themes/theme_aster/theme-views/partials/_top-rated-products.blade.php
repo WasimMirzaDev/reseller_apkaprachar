@@ -2,8 +2,8 @@
     <div class="container">
         <div class="">
             <div class="py-4">
-                <h5 class="py-2 mb-4 ps-3" style="border-left: 12px solid #db4444; color: #db4444;">This Month</h5>
-                <div class="d-flex flex-wrap justify-content-between gap-3 mb-4">
+                <span class="py-2 ps-2" style="border-left: 12px solid #db4444; color: #db4444; font-weight: 700;">This Month</span>
+                <div class="d-flex flex-wrap justify-content-between gap-3 my-4">
                     <h2 class="text-capitalize">{{ translate('best_selling_products') }}</h2>
                     <div class="swiper-nav d-flex gap-2 align-items-center">
                         <buttton class="btn btn-danger">View All</buttton>
@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="container">
-                    <div class="row gap-3">
+                    <div class="row">
                         @foreach($topRated as $key => $product)
                             @if($product->product)
                                 <!-- <div class="swiper-slide"> -->
