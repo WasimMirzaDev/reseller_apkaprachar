@@ -331,22 +331,22 @@ We may release future updates so it will overwrite this file. it's better and sa
             $(value)
                 .find(".days")
                 .html(
-                    `<span class="countdown-count">${days}</span><span class="countdown-text">Days</span>`
+                    `<span class="countdown-count" style="font-size: 18px; font-weight: 700; "><span class="countdown-text d-block" style="font-size: 10px; font-weight:700;">Days</span> ${days} :</span>`
                 );
             $(value)
                 .find(".hours")
                 .html(
-                    `<span class="countdown-count">${hours}</span><span class="countdown-text">Hours</span>`
+                    `<span class="countdown-count" style="font-size: 18px; font-weight: 700; "><span class="countdown-text d-block" style="font-size: 10px; font-weight:700;">Hours</span> ${hours} :</span>`
                 );
             $(value)
                 .find(".minutes")
                 .html(
-                    `<span class="countdown-count">${minutes}</span><span class="countdown-text">Mins</span>`
+                    `<span class="countdown-count" style="font-size: 18px; font-weight: 700; "><span class="countdown-text d-block" style="font-size: 10px; font-weight:700;">Mins</span> ${minutes} :</span>`
                 );
             $(value)
                 .find(".seconds")
                 .html(
-                    `<span class="countdown-count">${seconds}</span><span class="countdown-text">Sec</span>`
+                    `<span class="countdown-count" style="font-size: 18px; font-weight: 700; "><span class="countdown-text d-block" style="font-size: 10px; font-weight:700;">Sec</span> ${seconds}</span>`
                 );
         }
 

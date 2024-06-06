@@ -24,136 +24,15 @@
         @include('theme-views.partials._flash-deals')
     @endif
 
-    <!-- @include('theme-views.partials._find-what-you-need') -->
-
-    @if ($web_config['business_mode'] == 'multi' && count($top_sellers) > 0)
-        <!-- @include('theme-views.partials._top-stores') -->
-    @endif
-
-    @if ($web_config['featured_deals']->count() > 0 && $featured_deals->count() > 0)
-        <!-- @include('theme-views.partials._featured-deals') -->
-    @endif
-
-    <!-- @include('theme-views.partials._recommended-product') -->
-    @if($web_config['business_mode'] == 'multi')
-        <!-- @include('theme-views.partials._more-stores') -->
-    @endif
-
-    <style>
-        .view {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-        }
-
-        .view a {
-            padding: 5px 8px 4px;
-            border: 1px solid #a2a2a2;
-            border-radius: 50%;
-            margin-bottom: 3px;
-            display: none;
-        }
-
-        .card:hover .view a {
-            display: block;
-            transition: 2s;
-        }
-
-        .view a i {
-            color: #a2a2a2;
-        }
-
-        .products-new .button {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .category-card {
-            background-color: #fff0;
-            border: 1px solid #a2a2a2;
-            border-radius: 0px;
-            padding: 30px;
-            min-width: 180px;
-            color: #222;
-        }
-
-        .category-card img {
-            text-align: center;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-
-        .category-card i {
-            text-align: center;
-            width: 100px;
-            height: 100px;
-            font-size: 50px;
-            margin-bottom: 10px;
-            color: #222;
-        }
-
-        .category-card:hover,
-        .category-card:hover i {
-            background-color: #db4444;
-            color: #fff;
-        }
-
-        .nav-arrows {
-            padding: 10px 12px;
-            border-radius: 5px;
-            background-color: #d3d3d3;
-        }
-
-        .feature-card {
-            background-color: #fff0;
-            border: none;
-            text-align: center;
-            box-shadow: none;
-
-        }
-
-        .feature-card .icon {
-            background-color: #000;
-            padding: 15px 20px;
-            border: 8px solid #c1c0c1;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            margin: 0 auto;
-        }
-
-        .feature-card i {
-            font-size: 26px;
-            color: #fff;
-        }
-
-        .product-card {
-            display: flex;
-            justify-content: center;
-            margin: 0 auto;
-            box-shadow: none;
-            border: none;
-            border-radius: 0px;
-            padding-bottom: 20px;
-        }
-        .product-card img{
-            background-color: #ebebeb;
-            padding: 25px;
-            width: 100%;
-        }
-    </style>
-
-    <section class="container-fluid">
+    <section class="container-fluid my-5">
         <div class="container">
-            <div class="">
-                <div class="py-4">
+            <div class="row pb-5">
+                <div class="col-12">
                     <span class="text-danger mb-2 ps-2 py-2"
                         style="border-left: 12px solid #db4444; font-weight: 700;">Our Products
                     </span>
+                </div>
+                <div class="col-12">
                     <div class="d-flex flex-wrap justify-content-between gap-3 mb-5 mt-4">
                         <h2 class="text-capitalize">{{ translate('top_rated_products') }}</h2>
                         <div class="swiper-nav d-flex gap-2 align-items-center">
@@ -165,12 +44,14 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-12">
                     <div class="swiper-container">
                         <div class="position-relative">
-                            <div class="swiper" data-swiper-loop="true" data-swiper-margin="10"
+                            <div class="swiper" data-swiper-loop="true" data-swiper-margin="20"
                                 data-swiper-pagination-el="null" data-swiper-navigation-next=".top-rated-nav-next"
                                 data-swiper-navigation-prev=".top-rated-nav-prev"
-                                data-swiper-breakpoints='{"0": {"slidesPerView": "1"}, "370": {"slidesPerView": "2"}, "560": {"slidesPerView": "3"}, "750": {"slidesPerView": "4"}, "970": {"slidesPerView": "5"}, "1200": {"slidesPerView": "6"}}'>
+                                data-swiper-breakpoints='{"0": {"slidesPerView": "1"}, "410": {"slidesPerView": "2"}, "768": {"slidesPerView": "3"}, "993": {"slidesPerView": "4"}, "1200": {"slidesPerView": "5"}, "1440": {"slidesPerView": "6"}}'>
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="category-card text-center">
@@ -232,50 +113,51 @@
                     </div>
                 </div>
             </div>
+            <hr>
         </div>
     </section>
-
 
     @include('theme-views.partials._top-rated-products')
 
 
-    <section class=" mt-5">
+    <section class="mt-5">
         <div class="container mt-4">
             <div class="py-5 rounded position-relative" style="height: 440px;">
-                <img height="100%"
-                    src="https://i.pinimg.com/originals/be/f5/11/bef5119b310a72b48e88ef40fcf2d9a9.jpg"
+                <img height="100%" src="https://i.pinimg.com/originals/be/f5/11/bef5119b310a72b48e88ef40fcf2d9a9.jpg"
                     alt="" class="position-absolute dark-support img-fit start-0 top-0 index-n1 flipX-in-rtl h-100">
-                <div class="row justify-content-center h-100" style="padding-left: 40px;" >
-                    <div class=" ps-5 align-items-center">
-                        <h6 class="text-primary mb-5 text-capitalize text-success">{{ translate('Category') }}!</h6>
-                        <h2 class="fs-2 mb-5 text-capitalize text-light">
-                            {{ translate('Enhance Your Experience With Us!!!') }}
-                        </h2>
-                        <div class="d-flex gap-3 mb-5">
-                            <div class="flex-column bg-light rounded-circle p-3 text-center align-items-center"
-                                style="width: 80px; height: 80px">
-                                <h2>23</h2>
-                                <small>Days</small>
+                <div class="row h-100 ps-0 ps-md-3">
+                    <div class="col-6">
+                        <div class=" ps-3 ps-md-5 align-items-center">
+                            <h6 class="text-primary mb-5 text-capitalize text-success">{{ translate('Category') }}!</h6>
+                            <h2 class="fs-2 mb-5 text-capitalize text-light">
+                                {{ translate('Enhance Your Experience With Us!!!') }}
+                            </h2>
+                            <div class="d-flex gap-2 mb-5">
+                                <div class="flex-column bg-light rounded-circle p-2 text-center align-items-center"
+                                    style="width: 55px;">
+                                    <h4>23</h4>
+                                    <small>Days</small>
+                                </div>
+                                <div class="flex-column bg-light rounded-circle p-2 text-center align-items-center"
+                                    style="width: 55px;">
+                                    <h4>12</h4>
+                                    <small>Hours</small>
+                                </div>
+                                <div class="flex-column bg-light rounded-circle p-2 text-center align-items-center"
+                                    style="width: 55px;">
+                                    <h4>34</h4>
+                                    <small>Min</small>
+                                </div>
+                                <div class="flex-column bg-light rounded-circle p-2 text-center align-items-center"
+                                    style="width: 55px;">
+                                    <h4>59</h4>
+                                    <small>Sec</small>
+                                </div>
                             </div>
-                            <div class="flex-column bg-light rounded-circle p-3 text-center align-items-center"
-                                style="width: 80px; height: 80px">
-                                <h2>12</h2>
-                                <small>Hours</small>
+                            <div class="d-flex">
+                                <a href="{{$main_section_banner ? $main_section_banner->url : ''}}"
+                                    class="btn btn-success text-capitalize">{{ translate('shop_now') }}</a>
                             </div>
-                            <div class="flex-column bg-light rounded-circle p-3 text-center align-items-center"
-                                style="width: 80px; height: 80px">
-                                <h2>34</h2>
-                                <small>Min</small>
-                            </div>
-                            <div class="flex-column bg-light rounded-circle p-3 text-center align-items-center"
-                                style="width: 80px; height: 80px">
-                                <h2>59</h2>
-                                <small>Sec</small>
-                            </div>
-                        </div>
-                        <div class="d-flex">
-                            <a href="{{$main_section_banner ? $main_section_banner->url : ''}}"
-                                class="btn btn-success text-capitalize">{{ translate('shop_now') }}</a>
                         </div>
                     </div>
                 </div>
@@ -295,12 +177,17 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card product-card" style="background-color: #fff0;">
-                        <div class="view">
-                            <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                            <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                        <div class="img">
+                            <div class="view">
+                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <div class="buyNowBtn">
+                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+                            </div>
+                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                                class="w-100" alt="...">
                         </div>
-                        <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="w-100" alt="...">
                         <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
@@ -309,18 +196,23 @@
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
-                            ( 2 )
+                            <span>(2)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card product-card" style="background-color: #fff0;">
-                        <div class="view">
-                            <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                            <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                        <div class="img">
+                            <div class="view">
+                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <div class="buyNowBtn">
+                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+                            </div>
+                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                                class="w-100" alt="...">
                         </div>
-                        <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="w-100" alt="...">
                         <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
@@ -329,18 +221,23 @@
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
-                            ( 2 )
+                            <span>(2)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card product-card" style="background-color: #fff0;">
-                        <div class="view">
-                            <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                            <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                        <div class="img">
+                            <div class="view">
+                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <div class="buyNowBtn">
+                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+                            </div>
+                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                                class="w-100" alt="...">
                         </div>
-                        <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="w-100" alt="...">
                         <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
@@ -349,18 +246,23 @@
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
-                            ( 2 )
+                            <span>(2)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card product-card" style="background-color: #fff0;">
-                        <div class="view">
-                            <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                            <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                        <div class="img">
+                            <div class="view">
+                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <div class="buyNowBtn">
+                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+                            </div>
+                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                                class="w-100" alt="...">
                         </div>
-                        <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="w-100" alt="...">
                         <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
@@ -369,18 +271,23 @@
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
-                            ( 2 )
+                            <span>(2)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card product-card" style="background-color: #fff0;">
-                        <div class="view">
-                            <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                            <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                        <div class="img">
+                            <div class="view">
+                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <div class="buyNowBtn">
+                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+                            </div>
+                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                                class="w-100" alt="...">
                         </div>
-                        <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="w-100" alt="...">
                         <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
@@ -389,18 +296,23 @@
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
-                            ( 2 )
+                            <span>(2)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card product-card" style="background-color: #fff0;">
-                        <div class="view">
-                            <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                            <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                        <div class="img">
+                            <div class="view">
+                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <div class="buyNowBtn">
+                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+                            </div>
+                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                                class="w-100" alt="...">
                         </div>
-                        <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="w-100" alt="...">
                         <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
@@ -409,18 +321,23 @@
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
-                            ( 2 )
+                            <span>(2)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card product-card" style="background-color: #fff0;">
-                        <div class="view">
-                            <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                            <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                        <div class="img">
+                            <div class="view">
+                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <div class="buyNowBtn">
+                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+                            </div>
+                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                                class="w-100" alt="...">
                         </div>
-                        <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="w-100" alt="...">
                         <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
@@ -429,18 +346,23 @@
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
-                            ( 2 )
+                            <span>(2)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card product-card" style="background-color: #fff0;">
-                        <div class="view">
-                            <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                            <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                        <div class="img">
+                            <div class="view">
+                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <div class="buyNowBtn">
+                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+                            </div>
+                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                                class="w-100" alt="...">
                         </div>
-                        <img src="http://techtrack.test/reseller_apkaprachar/storage/app/public/product/thumbnail/2024-02-25-65db28cf055a5.webp"
-                            class="w-100" alt="...">
                         <div class="card-body p-0 pt-3">
                             <h5 class="card-title">Product Name</h5>
                             <strong class="text-danger pe-2">$45</strong> <wbr>
@@ -449,12 +371,12 @@
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
                             <i class="bi bi-star-fill text-warning"></i>
-                            ( 2 )
+                            <span>(2)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 text-center mt-5 button">
-                    <button type="button" class="btn btn-danger">View All Products</button>
+                    <button type="button" class="btn btn-danger py-2 px-4">View All Products</button>
                 </div>
             </div>
         </div>
@@ -475,18 +397,22 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-sm-12 col-md-6">
-                    <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png" alt="" class="w-100">
+                    <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png"
+                        alt="" class="w-100">
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="row g-4">
                         <div class="col-12">
-                            <img src="https://i.pinimg.com/564x/39/64/de/3964de7982d181507a5efefdef8ccbf7.jpg" alt="" class="w-100">
+                            <img src="https://i.pinimg.com/564x/39/64/de/3964de7982d181507a5efefdef8ccbf7.jpg" alt=""
+                                class="w-100">
                         </div>
                         <div class="col-6">
-                            <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png" alt="" class="w-100">
+                            <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png"
+                                alt="" class="w-100">
                         </div>
                         <div class="col-6">
-                            <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png" alt="" class="w-100">
+                            <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png"
+                                alt="" class="w-100">
                         </div>
                     </div>
                 </div>

@@ -45,7 +45,7 @@ use Illuminate\Support\Facades\View as PdfView;
 
 class OrderController extends BaseController
 {
-    protected $mainApp = 'https://apkaprachar.com/api/v4/order/import';
+    protected $mainApp = 'http://islandshop.in/api/v4/order/import'; 
         
     use CustomerTrait;
     use PdfGenerator;

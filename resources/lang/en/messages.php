@@ -7428,4 +7428,7 @@
   'best_selling_products' => 'Best selling products',
   'Enhance Your Experience' => 'Enhance Your Experience',
   'Enhance Your Experience With Us!!!' => 'Enhance Your Experience With Us!!!',
+  'Today' => 'Today',
+  'Flash_Sales' => 'Flash Sales',
+  'product_already_added' => 'Product already added',
 );

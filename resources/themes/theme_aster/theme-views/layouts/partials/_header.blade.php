@@ -399,8 +399,13 @@
                             </a>
                         @endif
                     </li> -->
-                    <li class="d-none d-xl-block">
-                        ssearch input
+                    <li class="d-none d-xl-block header-input px-3">
+                        <div class="d-inline-block">
+                            <input type="text" class="border-0 me-2" style="background-color: #fff0; color: #bbb; min-width: 200px;" placeholder="What are you looking for?">
+                        </div>
+                        <div class="icon d-inline-block">
+                            <i class="bi bi-search"></i>
+                        </div>
                     </li>
                     <li class="d-none d-xl-block">
                         @if(auth('customer')->check())
@@ -419,13 +424,13 @@
                     <li class="d-none d-xl-block" id="cart_items">
                         @include('theme-views.layouts.partials._cart')
                     </li>
-                    <li class="d-none d-xl-block">
+                    <!-- <li class="d-none d-xl-block">
                         <span class="avatar header-avatar rounded-circle size-1-5rem">
                             <img loading="lazy"
                                 src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/user.png"
                                 class="img-fit rounded-circle" alt="Image">
                         </span>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

@@ -2,31 +2,17 @@
     use App\Utils\Helpers;
 @endphp
 
-<style>
-    .border-right{
-        border-right: 1px solid #d9d9d9;
-        margin-top: 11px;
-        padding-top: 30px;
-    }
-    .image-slider{
-        padding-top: 40px;
-    }
-    .image-slider img{
-        height: 350px;
-        width: 100%;
-    }
-</style>
 
 <section class="banner">
     <div class="container">
         <div class="moble-border-0">
             <div class="p-0 p-sm-3 m-sm-1">
                 <div class="row g-5">
-                    <div class="col-md-2 d-none d-xl-block pe-2 border-right text-dark">
+                    <div class="col-md-2 d-none d-md-block ps-2 ps-sm-0 pe-lg-2 pe-md-1 border-right text-dark">
                         <div class="">
                             <ul class="dropdown-menu dropdown-menu--static bs-dropdown-min-width--auto" style="background-color: #fff0;">
                                 @foreach($categories as $key=>$category)
-                                    <li class="{{ $category->childes->count() > 0 ? 'menu-item-has-children' : '' }}">
+                                    <li class="{{ $category->childes->count() > 0 ? 'menu-item-has-children' : '' }} ">
                                         <a href="{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}">
                                             {{$category['name']}}
                                         </a>
