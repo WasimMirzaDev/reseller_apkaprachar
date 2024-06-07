@@ -7431,4 +7431,5 @@
   'Today' => 'Today',
   'Flash_Sales' => 'Flash Sales',
   'product_already_added' => 'Product already added',
+  'Sign Up' => 'Sign Up',
 );

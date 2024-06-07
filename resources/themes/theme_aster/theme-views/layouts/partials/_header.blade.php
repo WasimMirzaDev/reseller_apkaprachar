@@ -344,47 +344,51 @@
                                         <i class="bi bi-patch-check-fill text-warning"></i></a>
                                 </li>
                             @endif
+
+                            @if(auth('customer')->check())
+                                <li class="login-register d-flex align-items-center gap-4">
+                                    <div class="profile-dropdown">
+                                        <button type="button"
+                                            class="border-0 bg-transparent d-flex gap-2 align-items-center dropdown-toggle text-dark p-0 user"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="avatar overflow-hidden header-avatar rounded-circle size-1-5rem">
+                                                <img loading="lazy" class="img-fit" alt="{{ translate('image') }}"
+                                                    src="{{ getValidImage(path: 'storage/app/public/profile/' . (auth('customer')->user()->image), type: 'avatar') }}">
+                                            </span>
+                                        </button>
+                                        <ul class="dropdown-menu bs-dropdown-min-width--10rem">
+                                            <li><a href="{{route('account-oder')}}">{{ translate('my_order') }}</a></li>
+                                            <li><a href="{{route('user-profile')}}">{{ translate('my_profile') }}</a></li>
+                                            <li><a href="{{route('customer.auth.logout')}}">{{ translate('logout') }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="menu-btn d-xl-none">
+                                        <i class="bi bi-list fs-30"></i>
+                                    </div>
+                                </li>
+                            @else
+                                <li class="login-register d-flex gap-4">
+                                    <button
+                                        class="media gap-2 align-items-center text-uppercase fs-12 bg-transparent border-0 p-0"
+                                        data-bs-toggle="modal" data-bs-target="#loginModal">
+                                        <span class="avatar header-avatar rounded-circle d-xl-none size-1-5rem">
+                                            <img loading="lazy" src="{{theme_asset('assets/img/user.png')}}"
+                                                class="img-fit rounded-circle" alt="{{translate('image')}}" />
+                                        </span>
+                                        <span
+                                            class="media-body d-none d-xl-block hover-primary">{{ translate('Sign Up')}}</span>
+                                    </button>
+                                    <div class="menu-btn d-xl-none">
+                                        <i class="bi bi-list fs-30"></i>
+                                    </div>
+                                </li>
+                            @endif
+
                         </ul>
                     </div>
                 </div>
                 <ul class="list-unstyled list-separator mb-0 pe-2">
-                    <!-- @if(auth('customer')->check())
-                        <li class="login-register d-flex align-items-center gap-4">
-                            <div class="profile-dropdown">
-                                <button type="button"
-                                    class="border-0 bg-transparent d-flex gap-2 align-items-center dropdown-toggle text-dark p-0 user"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="avatar overflow-hidden header-avatar rounded-circle size-1-5rem">
-                                        <img loading="lazy" class="img-fit" alt="{{ translate('image') }}"
-                                            src="{{ getValidImage(path: 'storage/app/public/profile/' . (auth('customer')->user()->image), type: 'avatar') }}">
-                                    </span>
-                                </button>
-                                <ul class="dropdown-menu bs-dropdown-min-width--10rem">
-                                    <li><a href="{{route('account-oder')}}">{{ translate('my_order') }}</a></li>
-                                    <li><a href="{{route('user-profile')}}">{{ translate('my_profile') }}</a></li>
-                                    <li><a href="{{route('customer.auth.logout')}}">{{ translate('logout') }}</a></li>
-                                </ul>
-                            </div>
-                            <div class="menu-btn d-xl-none">
-                                <i class="bi bi-list fs-30"></i>
-                            </div>
-                        </li>
-                    @else
-                        <li class="login-register d-flex gap-4">
-                            <button class="media gap-2 align-items-center text-uppercase fs-12 bg-transparent border-0 p-0"
-                                data-bs-toggle="modal" data-bs-target="#loginModal">
-                                <span class="avatar header-avatar rounded-circle d-xl-none size-1-5rem">
-                                    <img loading="lazy" src="{{theme_asset('assets/img/user.png')}}"
-                                        class="img-fit rounded-circle" alt="{{translate('image')}}" />
-                                </span>
-                                <span
-                                    class="media-body d-none d-xl-block hover-primary">{{ translate('login') . '/' . translate('register')}}</span>
-                            </button>
-                            <div class="menu-btn d-xl-none">
-                                <i class="bi bi-list fs-30"></i>
-                            </div>
-                        </li>
-                    @endif -->
                     <!-- <li class="d-none d-xl-block">
                         @if(auth('customer')->check())
                             <a href="{{ route('product-compare.index') }}" class="position-relative">
@@ -401,7 +405,9 @@
                     </li> -->
                     <li class="d-none d-xl-block header-input px-3">
                         <div class="d-inline-block">
-                            <input type="text" class="border-0 me-2" style="background-color: #fff0; color: #bbb; min-width: 200px;" placeholder="What are you looking for?">
+                            <input type="text" class="border-0 me-2"
+                                style="background-color: #fff0; color: #bbb; min-width: 200px;"
+                                placeholder="What are you looking for?">
                         </div>
                         <div class="icon d-inline-block">
                             <i class="bi bi-search"></i>
