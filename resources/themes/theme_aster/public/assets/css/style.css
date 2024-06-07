@@ -4948,7 +4948,7 @@ header .innerheader ul li a {
 
 .view a {
     padding: 5px 8px 4px;
-    border: 1px solid #a2a2a2;
+    border: 1px solid #5c5b5b;
     border-radius: 50%;
     margin-bottom: 3px;
     display: none;
@@ -4956,11 +4956,11 @@ header .innerheader ul li a {
 
 .card:hover .view a {
     display: block;
-    transition: 2s;
+    transition: all ;
 }
 
 .view a i {
-    color: #a2a2a2;
+    color: #5c5b5b;
 }
 
 .products-new .button {
@@ -5078,12 +5078,12 @@ header .innerheader ul li a {
 
 .product-card-medium:after {
     content: unset;
-
 }
 
 .product-card-large:after {
     content: unset;
 }
+
 
 .product-card-medium img {
     background-color: #e5e6e8;
@@ -5117,7 +5117,7 @@ header .innerheader ul li a {
 
 .product-card-medium .view a {
     padding: 3px 6px 2px;
-    border: 1px solid #a2a2a2;
+    border: 1px solid #5c5b5b;
     border-radius: 50%;
     margin-bottom: 3px;
     display: none;
@@ -5129,7 +5129,7 @@ header .innerheader ul li a {
 }
 
 .product-card-medium .view a i {
-    color: #a2a2a2;
+    color: #5c5b5b;
     font-size: 12px;
 }
 
@@ -5157,16 +5157,59 @@ header .innerheader ul li a {
     font-size: 11px;
 }
 
-.product-card-large .view {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
+.product-card-large {
+    background-color: #e0dcda;
+    margin: 0 auto;
 
-.product-card-large .view a {
-    padding: 3px 6px 2px;
-    border: 1px solid #a2a2a2;
-    border-radius: 50%;
-    margin-bottom: 3px;
-    display: none;
+    .view {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: none;
+        gap: 1px;
+        flex-direction: column;
+
+        a {
+            padding: 4px 6px 2px;
+            border: 1px solid #5c5b5b;
+            border-radius: 50%;
+            margin-bottom: 3px;
+            display: inline-flex;
+
+            & i,
+            & :after {
+                color: #5c5b5b;
+                font-size: 12px;
+            }
+        }
+    }
+
+    .buyNowBtn {
+        position: absolute;
+        right: 0;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        display: none;
+    }
+
+    .product__thumbnail {
+        width: 100%;
+        height: 100%;
+
+        .img-fluid {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &:hover {
+        .buyNowBtn {
+            display: inline-flex;
+        }
+        .view{
+            display: inline-flex;
+        }
+    }
 }

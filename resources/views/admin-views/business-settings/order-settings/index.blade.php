@@ -223,6 +223,14 @@
                                 </label>
                             </div>
                         </div>
+                        @php($wholeseller=getWebConfig('wholeseller'))
+                        <div class="col-xl-4 col-md-6">
+                            <div class="form-group">
+                                <label class="title-color text-capitalize" for="wholeseller">WholeSeller</label>
+                                <input type="text" class="form-control" name="wholeseller" id="wholeseller"
+                                       placeholder="Enter WholeSeller to export order" value="{{ $wholeseller ?? '' }}">
+                            </div>
+                        </div>
 
                     </div>
                     <div class="d-flex justify-content-end">

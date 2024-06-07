@@ -45,7 +45,6 @@ use Illuminate\Support\Facades\View as PdfView;
 
 class OrderController extends BaseController
 {
-    protected $mainApp = 'http://islandshop.in/api/v4/order/import'; 
         
     use CustomerTrait;
     use PdfGenerator;
@@ -564,8 +563,10 @@ class OrderController extends BaseController
     
     public function sentToSeller($order_id)
     {
+        $mainApp=$this->businessSettingRepo->getFirstWhere(['type' => 'wholeseller'])->value;
+        $url=$mainApp.'/api/v4/order/import';
         $orderData = $this->orderRepo->getFirstWhere(params: ['id' => $order_id], relations: ['details', 'customer']);
-        $response = Http::post($this->mainApp, [
+        $response = Http::post($url, [
                         'orderData' => $orderData,
                         'orderUrl' => url('/'),
                     ]);

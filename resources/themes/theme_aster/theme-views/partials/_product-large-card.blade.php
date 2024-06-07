@@ -1,9 +1,8 @@
 @php use App\Utils\Helpers;use App\Utils\ProductManager;use Illuminate\Support\Str; @endphp
 @php($overallRating = $product->reviews ? getOverallRating($product->reviews) : 0)
-<div class="product text-center ov-hidden cursor-pointer get-view-by-onclick  col-12 col-sm-6 col-md-4 col-lg-3 product-card-large"
+<div class="product text-center ov-hidden cursor-pointer get-view-by-onclick  col-12 col-sm-6 col-md-4 col-lg-3"
     style="background-color: #fff0;" data-link="{{route('product', $product->slug)}}">
-    <div class="product__top width--100 aspect-1 "
-        style="background-color: #e0dcda; display: flex; justify-content: center; margin: 0 auto; padding: 25px;">
+    <div class="product__top width--100 aspect-1  product-card-large">
         @if($product->discount > 0)
             <span class="product__discount-badge">
                 <span>
@@ -17,13 +16,6 @@
         @endif
 
         <div class="product__thumbnail align-items-center d-flex justify-content-center">
-            <div class="view">
-                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
-            </div>
-            <div class="buyNowBtn">
-                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
-            </div>
             <img class="dark-support img-fluid" alt="{{$product['name']}}"
                 src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/' . $product['thumbnail'], type: 'product') }}">
         </div>
@@ -32,6 +24,14 @@
                 {{ translate('sorry_this_item_is_currently_sold_out') }}
             </div>
         @endif
+
+        <div class="view">
+            <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+            <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+        </div>
+        <div class="buyNowBtn">
+            <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+        </div>
 
     </div>
     <div class="product__summary d-flex flex-column align-items-center gap-1 py-3 cursor-pointer">
