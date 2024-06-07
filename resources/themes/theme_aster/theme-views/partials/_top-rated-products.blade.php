@@ -6,7 +6,7 @@
                 <div class="d-flex flex-wrap justify-content-between gap-3 my-4">
                     <h2 class="text-capitalize">{{ translate('best_selling_products') }}</h2>
                     <div class="swiper-nav d-flex gap-2 align-items-center">
-                        <buttton class="btn btn-danger py-2 px-4">View All</buttton>
+                        <buttton class="btn btn-danger" style="padding: 10px 32px;">View All</buttton>
                         <!-- <div class="swiper-button-prev top-rated-nav-prev position-static rounded-10"></div>
                         <div class="swiper-button-next top-rated-nav-next position-static rounded-10"></div> -->
                     </div>

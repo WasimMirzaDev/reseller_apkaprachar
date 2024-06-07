@@ -156,6 +156,7 @@
                             </div>
                             <div class="d-flex">
                                 <a href="{{$main_section_banner ? $main_section_banner->url : ''}}"
+                                    style="padding: 12px 32px; background-color: #00ff66;"
                                     class="btn btn-success text-capitalize">{{ translate('shop_now') }}</a>
                             </div>
                         </div>
@@ -376,7 +377,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-center mt-5 button">
-                    <button type="button" class="btn btn-danger py-2 px-4">View All Products</button>
+                    <button type="button" class="btn btn-danger" style="padding: 12px 32px;">View All Products</button>
                 </div>
             </div>
         </div>
@@ -396,23 +397,43 @@
         </div>
         <div class="container">
             <div class="row g-4">
-                <div class="col-sm-12 col-md-6">
-                    <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png"
-                        alt="" class="w-100">
+                <div class="col-sm-12 col-md-6 position-relative arrival-card">
+                    <img src="http://techtrack.test/reseller_apkaprachar/public/assets/b1.jpg"
+                        alt="" class="w-100 h-100">
+                    <div class="arrival-card-over-text">
+                        <h3 class="text-light mb-4">Play Station 5</h3>
+                        <p class="text-light">Black and White version of PS5 comming out for sale.</p>
+                        <a class="text-light" href="#" style="border-bottom: 1px solid #fff;">Shop Now</a>
+                    </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="row g-4">
-                        <div class="col-12">
-                            <img src="https://i.pinimg.com/564x/39/64/de/3964de7982d181507a5efefdef8ccbf7.jpg" alt=""
+                        <div class="col-12 position-relative arrival-card">
+                            <img src="http://techtrack.test/reseller_apkaprachar/public/assets/b2.jpg" alt=""
                                 class="w-100">
+                            <div class="arrival-card-over-text">
+                                <h3 class="text-light mb-3">Women's Collection</h3>
+                                <p class="text-light d-none d-lg-flex">Featured Woman collection that give you another vibe.</p>
+                                <a class="text-light" href="#" style="border-bottom: 1px solid #fff;">Shop Now</a>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png"
+                        <div class="col-12 col-md-6 position-relative arrival-card2">
+                            <img src="http://techtrack.test/reseller_apkaprachar/public/assets/b1.jpg"
                                 alt="" class="w-100">
+                            <div class="arrival-card-over-text">
+                                <h3 class="text-light d-none d-lg-flex mb-3">Speakers</h3>
+                                <p class="text-light d-none d-xl-flex">Amazing wireless speakers.</p>
+                                <a class="text-light" href="#" style="border-bottom: 1px solid #fff;">Shop Now</a>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <img src="https://www.structural.net/wp-content/uploads/2016/06/PNG-Image-480-%c3%97-500-pixels.png"
+                        <div class="col-12 col-md-6 position-relative arrival-card2 ">
+                            <img src="http://techtrack.test/reseller_apkaprachar/public/assets/b1.jpg"
                                 alt="" class="w-100">
+                            <div class="arrival-card-over-text">
+                                <h3 class="text-light d-none d-lg-flex mb-3">Perfume</h3>
+                                <p class="text-light d-none d-xl-flex">GUCCI INTENSE OUD EDP</p>
+                                <a class="text-light" href="#" style="border-bottom: 1px solid #fff;">Shop Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -429,30 +450,30 @@
                         <i class="bi bi-truck"></i>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Free And Fast Delivery</h5>
-                        <p class="card-text">Free Delievery For All Orders Over $140</p>
+                        <h5 class="card-title  text-uppercase">Free And Fast Delivery</h5>
+                        <p class="card-text mt-2" style="font-size: 15px;">Free Delievery For All Orders Over $140</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-card card text-center">
                     <div class="icon ">
-                        <i class="bi bi-truck"></i>
+                    <i class="bi bi-headset"></i>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Free And Fast Delivery</h5>
-                        <p class="card-text">Free Delievery For All Orders Over $140</p>
+                        <h5 class="card-title text-uppercase">24/7 Customer Service</h5>
+                        <p class="card-text mt-2" style="font-size: 15px;">Friendly 24/7 Customer Support</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-card card text-center">
                     <div class="icon ">
-                        <i class="bi bi-truck"></i>
+                    <i class="bi bi-shield-check"></i>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Free And Fast Delivery</h5>
-                        <p class="card-text">Free Delievery For All Orders Over $140</p>
+                        <h5 class="card-title text-uppercase">Money Back Guranatee</h5>
+                        <p class="card-text mt-2" style="font-size: 15px;">We Return Money Within 30 Days</p>
                     </div>
                 </div>
             </div>

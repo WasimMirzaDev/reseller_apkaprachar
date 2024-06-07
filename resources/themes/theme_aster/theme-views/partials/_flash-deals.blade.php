@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="row flash-detail-btn mt-3">
-                <a href="" class="btn btn-danger py-2px-4">View All Products</a>
+                <a href="" class="btn btn-danger" style="padding: 12px 32px">View All Products</a>
             </div>
         </div>
     </div>

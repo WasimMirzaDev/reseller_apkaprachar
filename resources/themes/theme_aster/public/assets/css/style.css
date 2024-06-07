@@ -140,6 +140,18 @@ body {
     max-width: 1440px !important;
 }
 
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1170px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1170px;
+    }
+}
+
 label {
     text-transform: capitalize;
     color: var(--title-color);
@@ -4947,16 +4959,16 @@ header .innerheader ul li a {
 }
 
 .view a {
-    padding: 5px 8px 4px;
+    padding: 3px 6px 2px;
     border: 1px solid #5c5b5b;
     border-radius: 50%;
     margin-bottom: 3px;
     display: none;
+    background-color: #fff;
 }
 
 .card:hover .view a {
     display: block;
-    transition: all ;
 }
 
 .view a i {
@@ -5116,7 +5128,7 @@ header .innerheader ul li a {
 }
 
 .product-card-medium .view a {
-    padding: 3px 6px 2px;
+    padding: 3px 7px 2px;
     border: 1px solid #5c5b5b;
     border-radius: 50%;
     margin-bottom: 3px;
@@ -5126,6 +5138,7 @@ header .innerheader ul li a {
 .product-card-medium:hover .view a {
     display: block;
     transition: 2s;
+    background-color: #fff;
 }
 
 .product-card-medium .view a i {
@@ -5175,6 +5188,7 @@ header .innerheader ul li a {
             border-radius: 50%;
             margin-bottom: 3px;
             display: inline-flex;
+            background-color: #fff;
 
             & i,
             & :after {
@@ -5208,8 +5222,60 @@ header .innerheader ul li a {
         .buyNowBtn {
             display: inline-flex;
         }
-        .view{
+
+        .view {
             display: inline-flex;
+        }
+    }
+}
+
+
+.arrival-card{
+    .arrival-card-over-text {
+        width: 40%;
+        position: absolute;
+        left: 45px;
+        bottom: 30px;
+        .h3 {
+            font-size: 24px; 
+            line-height: 24px;
+            font-weight: 600; 
+        }
+        .p{
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+        }
+    
+        .a{
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 500;
+        }
+    }
+}
+
+.arrival-card2{
+    .arrival-card-over-text {
+        position: absolute;
+        left: 45px;
+        padding-right: 100px;
+        bottom: 30px;
+        .h3 {
+            font-size: 24px; 
+            line-height: 24px;
+            font-weight: 600; 
+        }
+        .p{
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+        }
+    
+        .a{
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 500;
         }
     }
 }
