@@ -186,7 +186,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -211,7 +211,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -236,7 +236,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -261,7 +261,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -286,7 +286,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -311,7 +311,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -336,7 +336,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -361,7 +361,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -398,7 +398,7 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-sm-12 col-md-6 position-relative arrival-card">
-                    <img src="http://techtrack.test/reseller_apkaprachar/public/assets/b1.jpg"
+                    <img src="{{asset('public/assets/b1.jpg')}}"
                         alt="" class="w-100 h-100">
                     <div class="arrival-card-over-text">
                         <h3 class="text-light mb-4">Play Station 5</h3>
@@ -409,7 +409,7 @@
                 <div class="col-sm-12 col-md-6">
                     <div class="row g-4">
                         <div class="col-12 position-relative arrival-card">
-                            <img src="http://techtrack.test/reseller_apkaprachar/public/assets/b2.jpg" alt=""
+                            <img src="{{asset('public/assets/b2.jpg')}}" alt=""
                                 class="w-100">
                             <div class="arrival-card-over-text">
                                 <h3 class="text-light mb-3">Women's Collection</h3>
@@ -418,7 +418,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-6 position-relative arrival-card2">
-                            <img src="http://techtrack.test/reseller_apkaprachar/public/assets/b1.jpg"
+                            <img src="{{asset('public/assets/b1.jpg')}}"
                                 alt="" class="w-100">
                             <div class="arrival-card-over-text">
                                 <h3 class="text-light d-none d-lg-flex mb-3">Speakers</h3>
@@ -427,7 +427,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-6 position-relative arrival-card2 ">
-                            <img src="http://techtrack.test/reseller_apkaprachar/public/assets/b1.jpg"
+                            <img src="{{asset('public/assets/b1.jpg')}}"
                                 alt="" class="w-100">
                             <div class="arrival-card-over-text">
                                 <h3 class="text-light d-none d-lg-flex mb-3">Perfume</h3>
