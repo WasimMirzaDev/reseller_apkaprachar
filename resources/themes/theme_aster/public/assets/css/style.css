@@ -130,6 +130,7 @@ body {
     --bs-body-text-align: start;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden !important;
+    background-color: var(--absolute-white);
 }
 
 [tabindex="-1"]:focus {
@@ -948,7 +949,7 @@ a,
 }
 
 .option-select-btn label input:checked~* {
-    background-color: var(--bs-primary);
+    background-color: var(--bs-danger);
     color: var(--absolute-white);
 }
 
@@ -5117,7 +5118,7 @@ header .innerheader ul li a {
 
 .product-card-medium:hover .buyNowBtn {
     display: flex;
-    transition: 1.5s;
+    z-index: 10;
 }
 
 
@@ -5137,7 +5138,6 @@ header .innerheader ul li a {
 
 .product-card-medium:hover .view a {
     display: block;
-    transition: 2s;
     background-color: #fff;
 }
 
@@ -5279,3 +5279,43 @@ header .innerheader ul li a {
         }
     }
 }
+
+
+.dropdown-toggle::after{
+    content: unset;
+}
+
+.detail-product-btn-wish{
+    border: 1px solid #9f9f9f;
+    border-radius: 4px;
+    padding: 4px;
+    padding: 10px 12px 7px;
+}
+
+.wishlist_icon_active2 {
+    background-color: var(--bs-danger) !important;
+    color: var(--bs-white) !important;
+    border-color: #dc3545;
+}
+
+.detail-custom-card{
+    padding-top: 15px;
+    .card-body{
+        border: 1px solid #000;
+        border-color: rgba(52, 117, 84, 0.5);
+        padding: 15px;
+        margin-top: -1px;
+        .icon{
+            display: flex;
+            flex-direction: row;
+            float: left;
+            margin-right: 10px;
+            padding: 5px 10px 5px;
+            i{
+                font-size: 26px;
+            }
+        }
+    }
+}
+
+

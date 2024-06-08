@@ -56,7 +56,7 @@
             <div class="buyNowBtn">
                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
             </div>
-            <img src="http://techtrack.test/reseller_apkaprachar/resources/themes/theme_aster/public/assets/img/KEYBOARD.jpg"
+            <img src="http://techtrack.test/reseller_apkaprachar/public/assets/FLASHDRIVE.jpg"
                 class="w-100" alt="...">
         </div>
     </div>

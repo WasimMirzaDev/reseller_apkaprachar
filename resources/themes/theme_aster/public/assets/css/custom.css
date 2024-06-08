@@ -38,7 +38,7 @@
 /* Product Details Page CSS || Start */
 .option-select-btn.custom_01_option label input:checked ~ * {
     border: 2px solid #fff;
-    outline: 1px solid var(--bs-primary);
+    /* outline: 1px solid var(--bs-primary); */
 }
 .wishlist_icon_active {
     background-color: var(--bs-primary) !important;

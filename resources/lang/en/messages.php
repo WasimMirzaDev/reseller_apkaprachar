@@ -7432,4 +7432,9 @@
   'Flash_Sales' => 'Flash Sales',
   'product_already_added' => 'Product already added',
   'Sign Up' => 'Sign Up',
+  'color :' => 'Color :',
+  'color_:' => 'Color :',
+  'want_to_clear_all_wishlist' => 'Want to clear all wishlist',
+  'product_removed_from_the_wishlist' => 'Product removed from the wishlist',
+  'related_items' => 'Related items',
 );
