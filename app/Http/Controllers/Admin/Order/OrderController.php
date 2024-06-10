@@ -565,7 +565,7 @@ class OrderController extends BaseController
     {
         $mainApp=$this->businessSettingRepo->getFirstWhere(['type' => 'wholeseller'])->value;
         $url=$mainApp.'/api/v4/order/import';
-        $orderData = $this->orderRepo->getFirstWhere(params: ['id' => $order_id], relations: ['details', 'customer']);
+        $orderData = $this->orderRepo->getFirstWhere(params: ['id' => $order_id], relations: ['details.product', 'customer']);
         $response = Http::post($url, [
                         'orderData' => $orderData,
                         'orderUrl' => url('/'),
