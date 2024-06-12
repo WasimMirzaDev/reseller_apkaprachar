@@ -189,6 +189,28 @@
                         </div>
                     </div>
                     @endif
+                    @if(theme_root_path() == "theme_classic")
+                    <div class="col-lg-6 form-group">
+                        <div class="d-flex justify-content-center">
+                            <img class="upload-img-view upload-img-view__banner" id="viewerBottomBanner"
+                                    src="{{asset('public\assets\back-end\img\400x400\img2.jpg')}}" alt="{{translate('banner_image')}}"/>
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="d-flex gap-1 align-items-center title-color mb-2">
+                                {{translate('shop_secondary_banner')}}
+                                <span class="text-info">{{ THEME_RATIO[theme_root_path()]['Store Banner Image'] }}</span>
+                            </div>
+
+                            <div class="custom-file">
+                                <input type="file" name="bottom_banner" id="bottom-banner-upload" class="custom-file-input image-input"
+                                       data-image-id="viewerBottomBanner"
+                                        accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                <label class="custom-file-label text-capitalize" for="bottom-banner-upload">{{translate('upload_bottom_banner')}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
 
                 </div>
 

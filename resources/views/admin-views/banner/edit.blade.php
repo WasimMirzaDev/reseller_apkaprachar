@@ -47,6 +47,11 @@
                                                 <option value="Sidebar Banner" {{$banner['banner_type']=='Sidebar Banner'?'selected':''}}>{{ translate('sidebar_Banner') }}</option>
                                                 <option value="Top Side Banner" {{$banner['banner_type']=='Top Side Banner'?'selected':''}}>{{ translate('top_Side_Banner') }}</option>
                                             @endif
+                                            @if(theme_root_path() == 'theme_classic')
+                                                <option value="Header Banner" {{$banner['banner_type']=='Header Banner'?'selected':''}}>{{ translate('header_Banner') }}</option>
+                                                <option value="Sidebar Banner" {{$banner['banner_type']=='Sidebar Banner'?'selected':''}}>{{ translate('sidebar_Banner') }}</option>
+                                                <option value="Top Side Banner" {{$banner['banner_type']=='Top Side Banner'?'selected':''}}>{{ translate('top_Side_Banner') }}</option>
+                                            @endif
                                             @if(theme_root_path() == 'theme_fashion')
                                                 <option value="Promo Banner Left" {{$banner['banner_type']=='Promo Banner Left'?'selected':''}}>{{ translate('promo_banner_left') }}</option>
                                                 <option value="Promo Banner Middle Top" {{$banner['banner_type']=='Promo Banner Middle Top'?'selected':''}}>{{ translate('promo_banner_middle_top') }}</option>

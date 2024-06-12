@@ -98,6 +98,29 @@
                                 </div>
                             </div>
                             @endif
+                            @if(theme_root_path() == "theme_classic")
+                            <div class="col-md-6 mb-4 mt-2">
+                                <div class="form-group">
+                                    <div class="flex-start">
+                                        <label for="name" class="title-color text-capitalize">{{translate('upload_secondary_banner')}}</label>
+                                        <div class="mx-1">
+                                            <span class="text-info">{{translate('ratio').' '.'( 6:1 )'}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="custom-file text-left">
+                                        <input type="file" name="bottom_banner" id="bottom-banner-upload" class="custom-file-input image-input"
+                                               data-image-id="viewer-bottom-banner"
+                                               accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <label class="custom-file-label" for="bottom-banner-upload">{{translate('choose_file')}}</label>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="d-flex justify-content-center">
+                                        <img class="upload-img-view upload-img-view__banner" id="viewer-bottom-banner" src="{{getValidImage(path: 'storage/app/public/shop/banner/'.$shop->bottom_banner, type: 'backend-banner')}}" alt="{{translate('banner_image')}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
                             @if(theme_root_path() == "theme_fashion")
                                 <div class="col-md-6 mb-4 mt-2">
                                     <div class="form-group">

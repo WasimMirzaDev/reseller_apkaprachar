@@ -30,6 +30,15 @@ class BannerController extends Controller
                 'Top Side Banner',
                 'Main Section Banner'
             ),
+            'theme_classic' => array(
+                'Main Banner',
+                'Footer Banner',
+                'Popup Banner',
+                'Header Banner',
+                'Sidebar Banner',
+                'Top Side Banner',
+                'Main Section Banner'
+            ),
             'theme_fashion' => array(
                 'Main Banner',
                 'Footer Banner',

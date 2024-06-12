@@ -1163,6 +1163,7 @@ enum GlobalConstant{
 
     const THEME_DEFAULT = "default";
     const THEME_ASTER = "theme_aster";
+    const THEME_CLASSIC = "theme_classic";
     const THEME_LIFESTYLE = "theme_fashion";
 
     const DEFAULT_PAYMENT_GATEWAYS = [

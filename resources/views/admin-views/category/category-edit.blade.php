@@ -103,7 +103,42 @@
                                     </div>
                                 </div>
                                 @endif
+                                    @if($category['parent_id']==0 || ($category['position'] == 1 && theme_root_path() == 'theme_classic'))
+                                        <div class="from_part_2">
+                                            <label class="title-color">{{ translate('category_Logo') }}</label>
+                                            <span class="text-info">({{ translate('ratio') }} 1:1)</span>
+                                            <div class="custom-file text-left">
+                                                <input type="file" name="image" id="category-image"
+                                                       class="custom-file-input image-preview-before-upload"
+                                                       data-preview="#viewer"
+                                                       accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                                <label class="custom-file-label"
+                                                       for="category-image">{{ translate('choose_File') }}</label>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="col-lg-6 mt-5 mt-lg-0 from_part_2">
+                                    <div class="form-group">
+                                        <div class="text-center mx-auto">
+                                            <img class="upload-img-view"
+                                                 id="viewer"
+                                                 src="{{ getValidImage(path: 'storage/app/public/category/'. $category['icon'] , type: 'backend-basic') }}"
+                                                 alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
                                 @if($category['position'] == 2 || ($category['position'] == 1 && theme_root_path() != 'theme_aster'))
+                                    <div class="d-flex justify-content-end gap-3">
+                                        <button type="reset" id="reset" class="btn btn-secondary px-4">
+                                            {{ translate('reset') }}
+                                        </button>
+                                        <button type="submit" class="btn btn--primary px-4">
+                                            {{ translate('update') }}
+                                        </button>
+                                    </div>
+                                @endif
+                                @if($category['position'] == 2 || ($category['position'] == 1 && theme_root_path() != 'theme_classic'))
                                     <div class="d-flex justify-content-end gap-3">
                                         <button type="reset" id="reset" class="btn btn-secondary px-4">
                                             {{ translate('reset') }}
@@ -116,6 +151,14 @@
                             </div>
 
                             @if($category['parent_id']==0 || ($category['position'] == 1 && theme_root_path() == 'theme_aster'))
+                                <div class="d-flex justify-content-end gap-3">
+                                    <button type="reset" id="reset"
+                                            class="btn btn-secondary px-4">{{ translate('reset') }}</button>
+                                    <button type="submit"
+                                            class="btn btn--primary px-4">{{ translate('update') }}</button>
+                                </div>
+                            @endif
+                            @if($category['parent_id']==0 || ($category['position'] == 1 && theme_root_path() == 'theme_classic'))
                                 <div class="d-flex justify-content-end gap-3">
                                     <button type="reset" id="reset"
                                             class="btn btn-secondary px-4">{{ translate('reset') }}</button>

@@ -130,6 +130,28 @@
                                     </div>
                                 </div>
                             @endif
+                            @if(theme_root_path() == "theme_classic")
+                                <div class="col-lg-6 form-group">
+                                    <div class="text-center">
+                                        <img class="upload-img-view upload-img-view__banner" id="viewerBottomBanner"
+                                             src="{{getValidImage(path: 'storage/app/public/shop/'.getWebConfig(name: 'bottom_banner')??'',type:'backend-banner')}}"
+                                             alt="{{translate('banner_image')}}"/>
+                                    </div>
+                                    <div class="mt-4">
+                                        <div class="d-flex gap-1 align-items-center title-color mb-2">
+                                            {{ translate('secondary_banner') }}
+                                            <span class="text-info">{{ THEME_RATIO[theme_root_path()]['Store Banner Image'] }}</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" name="bottom_banner" id="BottomBannerUpload"
+                                                   class="custom-file-input image-preview-before-upload" data-preview="#viewerBottomBanner"
+                                                   accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                            <label class="custom-file-label text-capitalize"
+                                                   for="BottomBannerUpload">{{ translate('upload_secondary_Banner') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
 
                             @if(theme_root_path() == "theme_fashion")
                                 <div class="col-lg-6 form-group">

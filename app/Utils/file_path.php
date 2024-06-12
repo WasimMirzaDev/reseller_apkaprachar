@@ -38,6 +38,8 @@ if (!function_exists('getValidImage$path')) {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-1-1.png');
             }elseif (theme_root_path() == 'theme_fashion') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-1-1.png');
+            }elseif (theme_root_path() == 'theme_classic') {
+                return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-1-1.png');
             }else {
                 return is_file($path) ? $givenPath : asset('public/assets/front-end/img/placeholder/placeholder-1-1.png');
             }
@@ -45,6 +47,8 @@ if (!function_exists('getValidImage$path')) {
             if (theme_root_path() == 'theme_aster') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/user.png');
             }else if (theme_root_path() == 'theme_fashion') {
+                return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/user.png');
+            }else if (theme_root_path() == 'theme_classic') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/user.png');
             }else {
                 return is_file($path) ? $givenPath : asset('public/assets/front-end/img/placeholder/user.png');
@@ -54,6 +58,8 @@ if (!function_exists('getValidImage$path')) {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-2-1.png');
             }else if (theme_root_path() == 'theme_fashion') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-2-1.png');
+            }else if (theme_root_path() == 'theme_classic') {
+                return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-2-1.png');
             }else {
                 return is_file($path) ? $givenPath : asset('public/assets/front-end/img/placeholder/placeholder-2-1.png');
             }
@@ -61,6 +67,8 @@ if (!function_exists('getValidImage$path')) {
             if (theme_root_path() == 'theme_aster') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-4-1.png');
             }else if (theme_root_path() == 'theme_fashion') {
+                return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-4-1.png');
+            }else if (theme_root_path() == 'theme_classic') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-4-1.png');
             }else {
                 return is_file($path) ? $givenPath : asset('public/assets/front-end/img/placeholder/placeholder-4-1.png');
@@ -70,6 +78,8 @@ if (!function_exists('getValidImage$path')) {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-2-1.png');
             }else if (theme_root_path() == 'theme_fashion') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-2-1.png');
+            }else if (theme_root_path() == 'theme_classic') {
+                return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-2-1.png');
             }else {
                 return is_file($path) ? $givenPath : asset('public/assets/front-end/img/placeholder/placeholder-1-1.png');
             }
@@ -77,6 +87,8 @@ if (!function_exists('getValidImage$path')) {
             if (theme_root_path() == 'theme_aster') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-1-1.png');
             }else if (theme_root_path() == 'theme_fashion') {
+                return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-1-1.png');
+            }else if (theme_root_path() == 'theme_classic') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-1-1.png');
             }else {
                 return is_file($path) ? $givenPath : asset('public/assets/front-end/img/placeholder/placeholder-1-1.png');
@@ -86,6 +98,8 @@ if (!function_exists('getValidImage$path')) {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-4-1.png');
             }else if (theme_root_path() == 'theme_fashion') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-4-1.png');
+            }else if (theme_root_path() == 'theme_classic') {
+                return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-4-1.png');
             }else {
                 return is_file($path) ? $givenPath : asset('public/assets/front-end/img/placeholder/placeholder-4-1.png');
             }
@@ -93,6 +107,8 @@ if (!function_exists('getValidImage$path')) {
             if (theme_root_path() == 'theme_aster') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/shop.png');
             }else if (theme_root_path() == 'theme_fashion') {
+                return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/shop.png');
+            }else if (theme_root_path() == 'theme_classic') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/shop.png');
             }else {
                 return is_file($path) ? $givenPath : asset('public/assets/front-end/img/placeholder/shop.png');
@@ -102,6 +118,8 @@ if (!function_exists('getValidImage$path')) {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-4-1.png');
             }else if (theme_root_path() == 'theme_fashion') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-4-1.png');
+            }else if (theme_root_path() == 'theme_classic') {
+                return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-4-1.png');
             }else {
                 return is_file($path) ? $givenPath : asset('public/assets/front-end/img/placeholder/seller-banner.png');
             }
@@ -109,6 +127,8 @@ if (!function_exists('getValidImage$path')) {
             if (theme_root_path() == 'theme_aster') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-2-1.png');
             }else if (theme_root_path() == 'theme_fashion') {
+                return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-2-1.png');
+            }else if (theme_root_path() == 'theme_classic') {
                 return is_file($path) ? $givenPath : theme_asset('assets/img/placeholder/placeholder-2-1.png');
             }else {
                 return is_file($path) ? $givenPath : asset('public/assets/front-end/img/placeholder/placeholder-2-1.png');

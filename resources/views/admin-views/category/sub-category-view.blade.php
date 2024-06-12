@@ -98,10 +98,124 @@
                                             </div>
                                         </div>
                                     @endif
+                                    @if (theme_root_path() == 'theme_classic')
+                                        <div class="from_part_2">
+                                            <label class="title-color">{{ translate('sub_category_Logo') }}</label>
+                                            <span class="text-info">
+                                                {{ THEME_RATIO[theme_root_path()]['Category Image'] }}
+                                            </span>
+                                            <div class="custom-file text-left">
+                                                <input type="file" name="image" id="category-image"
+                                                       class="custom-file-input image-preview-before-upload"
+                                                       data-preview="#viewer"
+                                                       accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                                <label class="custom-file-label" for="category-image">
+                                                    {{ translate('choose_File') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                </div>
+                                <div
+                                    class=" {{ theme_root_path() == 'theme_classic'?'col-lg-6':'col-lg-12 d-flex gap-3' }}">
+                                    <div class="w-100">
+                                        @foreach($languages as $lang)
+                                            <div
+                                                class="form-group {{ $lang != $defaultLanguage ? 'd-none':''}} form-system-language-form"
+                                                id="{{ $lang}}-form">
+                                                <label class="title-color" for="exampleFormControlInput1">
+                                                    {{ translate('sub_category_name') }}
+                                                    <span class="text-danger">*</span>
+                                                    ({{strtoupper($lang) }})
+                                                </label>
+                                                <input type="text" name="name[]" class="form-control"
+                                                       placeholder="{{ translate('new_Sub_Category') }}" {{ $lang == $defaultLanguage? 'required':''}}>
+                                            </div>
+                                            <input type="hidden" name="lang[]" value="{{ $lang}}">
+                                        @endforeach
+                                        <input name="position" value="1" class="d-none">
+                                    </div>
+                                    <div class="form-group w-100">
+                                        <label class="title-color"
+                                               for="exampleFormControlSelect1">{{ translate('main_Category') }}
+                                            <span class="text-danger">*</span></label>
+                                        <select id="exampleFormControlSelect1" name="parent_id"
+                                                class="form-control" required>
+                                            <option value="" selected disabled>
+                                                {{ translate('select_main_category') }}
+                                            </option>
+                                            @foreach($parentCategories as $category)
+                                                <option value="{{ $category['id']}}">
+                                                    {{ $category['defaultname']}}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group w-100">
+                                        <label class="title-color" for="priority">{{ translate('priority') }}
+                                            <span>
+                                                <i class="tio-info-outined"
+                                                   title="{{ translate('the_lowest_number_will_get_the_highest_priority') }}"></i>
+                                            </span>
+                                        </label>
+                                        <select class="form-control" name="priority" id="" required>
+                                            <option disabled selected>{{ translate('set_Priority') }}</option>
+                                            @for ($i = 0; $i <= 10; $i++)
+                                                <option value="{{ $i}}">{{ $i}}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+
+                                    @if (theme_root_path() == 'theme_aster')
+                                        <div class="from_part_2">
+                                            <label class="title-color">{{ translate('sub_category_Logo') }}</label>
+                                            <span class="text-info">
+                                                {{ THEME_RATIO[theme_root_path()]['Category Image'] }}
+                                            </span>
+                                            <div class="custom-file text-left">
+                                                <input type="file" name="image" id="category-image"
+                                                       class="custom-file-input image-preview-before-upload"
+                                                       data-preview="#viewer"
+                                                       accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                                <label class="custom-file-label" for="category-image">
+                                                    {{ translate('choose_File') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if (theme_root_path() == 'theme_classic')
+                                        <div class="from_part_2">
+                                            <label class="title-color">{{ translate('sub_category_Logo') }}</label>
+                                            <span class="text-info">
+                                                {{ THEME_RATIO[theme_root_path()]['Category Image'] }}
+                                            </span>
+                                            <div class="custom-file text-left">
+                                                <input type="file" name="image" id="category-image"
+                                                       class="custom-file-input image-preview-before-upload"
+                                                       data-preview="#viewer"
+                                                       accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                                <label class="custom-file-label" for="category-image">
+                                                    {{ translate('choose_File') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    @endif
 
                                 </div>
 
                                 @if (theme_root_path() == 'theme_aster')
+                                    <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
+                                        <div class="form-group">
+                                            <div class="mx-auto text-center">
+                                                <img class="upload-img-view" id="viewer"
+                                                     src="{{ asset('public/assets/back-end/img/900x400/img1.jpg') }}"
+                                                     alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                                @if (theme_root_path() == 'theme_classic')
                                     <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
                                         <div class="form-group">
                                             <div class="mx-auto text-center">
@@ -164,6 +278,9 @@
                                 @if (theme_root_path() == 'theme_aster')
                                     <th class="text-center">{{ translate('sub_category_Image') }}</th>
                                 @endif
+                                @if (theme_root_path() == 'theme_classic')
+                                    <th class="text-center">{{ translate('sub_category_Image') }}</th>
+                                @endif
                                 <th>{{ translate('name') }}</th>
                                 <th>{{ translate('priority') }}</th>
                                 <th class="text-center">{{ translate('action') }}</th>
@@ -174,6 +291,12 @@
                                 <tr>
                                     <td>{{ $category['id']}}</td>
                                     @if (theme_root_path() == 'theme_aster')
+                                        <td class="text-center">
+                                            <img class="rounded" width="64" alt=""
+                                                 src="{{ getValidImage(path: 'storage/app/public/category/'. $category['icon'] , type: 'backend-basic') }}">
+                                        </td>
+                                    @endif
+                                    @if (theme_root_path() == 'theme_classic')
                                         <td class="text-center">
                                             <img class="rounded" width="64" alt=""
                                                  src="{{ getValidImage(path: 'storage/app/public/category/'. $category['icon'] , type: 'backend-basic') }}">
