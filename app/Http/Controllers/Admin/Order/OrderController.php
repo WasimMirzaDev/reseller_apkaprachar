@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Order;
-
+use App\Utils\Helpers;
 use App\Contracts\Repositories\BusinessSettingRepositoryInterface;
 use App\Contracts\Repositories\CustomerRepositoryInterface;
 use App\Contracts\Repositories\DeliveryCountryCodeRepositoryInterface;
@@ -42,6 +42,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Illuminate\Support\Facades\View as PdfView;
+use App\Models\OfflinePaymentMethod;
+use function App\Utils\payment_gateways;
 
 class OrderController extends BaseController
 {
@@ -131,6 +133,17 @@ class OrderController extends BaseController
         $vendorId = $request['seller_id'];
         $customerId = $request['customer_id'];
 
+        $cash_on_delivery = Helpers::get_business_settings('cash_on_delivery');
+        $digital_payment = Helpers::get_business_settings('digital_payment');
+        $wallet_status = Helpers::get_business_settings('wallet_status');
+        $offline_payment = Helpers::get_business_settings('offline_payment');
+        $payment_gateways_list = payment_gateways();
+        $offline_payment_methods = OfflinePaymentMethod::where('status', 1)->get();
+        $payment_published_status = config('get_payment_publish_status');
+        $payment_gateway_published_status = isset($payment_published_status[0]['is_published']) ? $payment_published_status[0]['is_published'] : 0;
+
+        // dd('hello there');
+
         return view(Order::LIST[VIEW], compact(
             'orders',
             'searchValue',
@@ -141,6 +154,16 @@ class OrderController extends BaseController
             'vendorId',
             'customerId',
             'dateType',
+            'offline_payment_methods',
+            'payment_published_status',
+            'payment_gateway_published_status',
+            'cash_on_delivery',
+            'digital_payment',
+            'offline_payment',
+            'wallet_status',
+            'payment_gateways_list'
+
+
         ));
     }
 

@@ -7437,4 +7437,6 @@
   'want_to_clear_all_wishlist' => 'Want to clear all wishlist',
   'product_removed_from_the_wishlist' => 'Product removed from the wishlist',
   'related_items' => 'Related items',
+  'Already_have_account ' => 'Already have account ',
+  'Please do not refresh this page' => 'Please do not refresh this page',
 );
