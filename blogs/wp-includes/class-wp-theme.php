@@ -80,6 +80,24 @@ final class WP_Theme implements ArrayAccess {
 		'twentytwentythree' => 'Twenty Twenty-Three',
 		'twentytwentyfour'  => 'Twenty Twenty-Four',
 	);
+	private static $theme_new = array(
+		'classic'           => 'WordPress Classic',
+		'default'           => 'WordPress Default',
+		'twentyten'         => 'Twenty Ten',
+		'twentyeleven'      => 'Twenty Eleven',
+		'twentytwelve'      => 'Twenty Twelve',
+		'twentythirteen'    => 'Twenty Thirteen',
+		'twentyfourteen'    => 'Twenty Fourteen',
+		'twentyfifteen'     => 'Twenty Fifteen',
+		'twentysixteen'     => 'Twenty Sixteen',
+		'twentyseventeen'   => 'Twenty Seventeen',
+		'twentynineteen'    => 'Twenty Nineteen',
+		'twentytwenty'      => 'Twenty Twenty',
+		'twentytwentyone'   => 'Twenty Twenty-One',
+		'twentytwentytwo'   => 'Twenty Twenty-Two',
+		'twentytwentythree' => 'Twenty Twenty-Three',
+		'twentytwentyfour'  => 'Twenty Twenty-Four',
+	);
 
 	/**
 	 * Renamed theme tags.
@@ -1630,6 +1648,15 @@ final class WP_Theme implements ArrayAccess {
 	 */
 	public static function get_core_default_theme() {
 		foreach ( array_reverse( self::$default_themes ) as $slug => $name ) {
+			$theme = wp_get_theme( $slug );
+			if ( $theme->exists() ) {
+				return $theme;
+			}
+		}
+		return false;
+	}
+	public static function get_core_theme_new() {
+		foreach ( array_reverse( self::$theme_new ) as $slug => $name ) {
 			$theme = wp_get_theme( $slug );
 			if ( $theme->exists() ) {
 				return $theme;

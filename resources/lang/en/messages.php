@@ -7439,4 +7439,5 @@
   'related_items' => 'Related items',
   'Already_have_account ' => 'Already have account ',
   'Please do not refresh this page' => 'Please do not refresh this page',
+  'riad_uddin' => 'Riad uddin',
 );

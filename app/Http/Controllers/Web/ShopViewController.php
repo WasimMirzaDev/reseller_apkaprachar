@@ -31,6 +31,7 @@ class ShopViewController extends Controller
 
         return match ($theme_name){
             'default' => self::default_theme($request, $id),
+            'theme_new' => self::theme_new($request, $id),
             'theme_aster' => self::theme_aster($request, $id),
             'theme_classic' => self::theme_classic($request, $id),
             'theme_fashion' => self::theme_fashion($request, $id),
@@ -39,6 +40,159 @@ class ShopViewController extends Controller
     }
 
     public function default_theme($request, $id){
+        $business_mode=Helpers::get_business_settings('business_mode');
+
+        $active_seller = Seller::approved()->find($id);
+
+        if(($id != 0) && empty($active_seller)) {
+            Toastr::warning(translate('not_found'));
+            return redirect('/');
+        }
+
+        if($id!=0 && $business_mode == 'single')
+        {
+            Toastr::error(translate('access_denied!!'));
+            return back();
+        }
+        $product_ids = Product::active()->when($id == 0, function ($query) {
+                return $query->where(['added_by' => 'admin']);
+            })
+            ->when($id != 0, function ($query) use ($id) {
+                return $query->where(['added_by' => 'seller','user_id'=> $id]);
+            })
+            ->pluck('id')->toArray();
+            $avg_rating = Review::where('status',1)->whereIn('product_id', $product_ids)->avg('rating');
+            $total_review = Review::where('status',1)->whereIn('product_id', $product_ids)->count();
+            if($id == 0){
+                $total_order = Order::where('seller_is','admin')->where('order_type','default_type')->count();
+            }else{
+                $seller = Seller::find($id);
+                $total_order = $seller->orders->where('seller_is','seller')->where('order_type','default_type')->count();
+            }
+
+
+        $products = Product::whereIn('id', $product_ids)->paginate(12);
+        //finding category ids
+
+        $category_info = [];
+        foreach ($products as $product) {
+            array_push($category_info, $product['category_ids']);
+        }
+
+        $category_info_decoded = [];
+        foreach ($category_info as $info) {
+            array_push($category_info_decoded, json_decode($info));
+        }
+
+        $category_ids = [];
+        foreach ($category_info_decoded as $decoded) {
+            foreach ($decoded as $info) {
+                array_push($category_ids, $info->id);
+            }
+        }
+
+        $categories = [];
+        foreach ($category_ids as $category_id) {
+            $category = Category::with(['childes.childes'])->where('position', 0)->find($category_id);
+            if ($category != null) {
+                array_push($categories, $category);
+            }
+        }
+        $categories = array_unique($categories);
+
+        $products = Product::active()
+            ->when($id == 0, function ($query) {
+
+                return $query->where(['added_by' => 'admin']);
+            })
+            ->when($id != 0, function ($query) use ($id) {
+                return $query->where(['added_by' => 'seller','user_id'=> $id]);
+            })
+            ->when(!empty($request->product_name), function ($query) use($request){
+                $key = explode(' ', $request->product_name);
+                $query->where(function ($subquery) use ($key) {
+                    foreach ($key as $value) {
+                        $subquery->where('name', 'like', "%{$value}%")
+                                 ->orWhereHas('tags', function ($tagQuery) use ($value) {
+                                     $tagQuery->where('tag', 'like', "%{$value}%");
+                                 });
+                    }
+                });
+            })
+            ->when($request->has('sort_by'), function($query) use($request){
+                $query->when($request['sort_by'] == 'latest', function($query){
+                    return $query->latest();
+                })
+                    ->when($request['sort_by'] == 'low-high', function($query){
+                        return $query->orderBy('unit_price', 'ASC');
+                    })
+                    ->when($request['sort_by'] == 'high-low', function($query){
+                        return $query->orderBy('unit_price', 'DESC');
+                    })
+                    ->when($request['sort_by'] == 'a-z', function($query){
+                        return $query->orderBy('name', 'ASC');
+                    })
+                    ->when($request['sort_by'] == 'z-a', function($query){
+                        return $query->orderBy('name', 'DESC');
+                    })
+                    ->when($request['sort_by'] == '', function($query){
+                        return $query->latest();
+                    });
+            })
+            ->when(!empty($request->category_id), function($query) use($request){
+                $query->where('category_id',$request->category_id);
+            })
+            ->when(!empty($request->sub_category_id), function($query) use($request){
+                $query->where('sub_category_id',$request->sub_category_id);
+            })
+            ->when(!empty($request->sub_sub_category_id), function($query) use($request){
+                $query->where('sub_sub_category_id',$request->sub_sub_category_id);
+            })
+            ->paginate(12)->appends([
+                'category_id'=>$request->category_id,
+                'sub_category_id'=>$request->sub_category_id,
+                'sub_sub_category_id'=>$request->sub_sub_category_id,
+                'product_name'=>$request->product_name
+            ]);
+        if ($id == 0) {
+            $shop = [
+                'id' => 0,
+                'name' => Helpers::get_business_settings('company_name'),
+            ];
+        } else {
+            $shop = Shop::where('seller_id', $id)->first();
+            if (isset($shop) == false) {
+                Toastr::error(translate('shop_does_not_exist'));
+                return back();
+            }
+        }
+
+        $current_date = date('Y-m-d');
+        $seller_vacation_start_date = $id != 0 ? date('Y-m-d', strtotime($shop->vacation_start_date)) : null;
+        $seller_vacation_end_date = $id != 0 ? date('Y-m-d', strtotime($shop->vacation_end_date)) : null;
+        $seller_temporary_close = $id != 0 ? $shop->temporary_close : false;
+        $seller_vacation_status = $id != 0 ? $shop->vacation_status : false;
+
+        $temporary_close = Helpers::get_business_settings('temporary_close');
+        $inhouse_vacation = Helpers::get_business_settings('vacation_add');
+        $inhouse_vacation_start_date = $id == 0 ? $inhouse_vacation['vacation_start_date'] : null;
+        $inhouse_vacation_end_date = $id == 0 ? $inhouse_vacation['vacation_end_date'] : null;
+        $inHouseVacationStatus = $id == 0 ? $inhouse_vacation['status'] : false;
+        $inhouse_temporary_close = $id == 0 ? $temporary_close['status'] : false;
+        if ($request->ajax()) {
+            return response()->json([
+                'view' => view(VIEW_FILE_NAMES['products__ajax_partials'], compact('products','categories'))->render(),
+            ], 200);
+        }
+        return view(VIEW_FILE_NAMES['shop_view_page'], compact('products', 'shop', 'categories','current_date','seller_vacation_start_date','seller_vacation_status',
+            'seller_vacation_end_date','seller_temporary_close','inhouse_vacation_start_date','inhouse_vacation_end_date','inHouseVacationStatus','inhouse_temporary_close'))
+            ->with('seller_id', $id)
+            ->with('total_review', $total_review)
+            ->with('avg_rating', $avg_rating)
+            ->with('total_order', $total_order);
+    }
+
+    public function theme_new($request, $id){
         $business_mode=Helpers::get_business_settings('business_mode');
 
         $active_seller = Seller::approved()->find($id);

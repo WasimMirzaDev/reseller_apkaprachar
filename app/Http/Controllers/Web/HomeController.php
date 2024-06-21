@@ -46,6 +46,7 @@ class HomeController extends Controller
 
         return match ($theme_name) {
             'default' => self::default_theme(),
+            'theme_new' => self::theme_new(),
             'theme_aster' => self::theme_aster(),
             'theme_classic' => self::theme_classic(),
             'theme_fashion' => self::theme_fashion(),
@@ -130,6 +131,97 @@ class HomeController extends Controller
 
         $deal_of_the_day = DealOfTheDay::join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.unit_price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
         $main_banner = $this->banner->where(['banner_type'=>'Main Banner', 'theme'=>$theme_name, 'published'=> 1])->latest()->get();
+        $main_section_banner = $this->banner->where(['banner_type'=> 'Main Section Banner', 'theme'=>$theme_name, 'published'=> 1])->orderBy('id', 'desc')->latest()->first();
+
+        $product=$this->product->active()->inRandomOrder()->first();
+        $footer_banner = $this->banner->where('banner_type','Footer Banner')->where('theme', theme_root_path())->where('published',1)->orderBy('id','desc')->take(2)->get();
+        return view(VIEW_FILE_NAMES['home'],
+            compact(
+                'featured_products', 'topRated', 'bestSellProduct', 'latest_products', 'categories', 'brands',
+                'deal_of_the_day', 'top_sellers', 'home_categories', 'brand_setting', 'main_banner', 'main_section_banner',
+                'current_date','product','footer_banner',
+            )
+        );
+    }
+
+    public function theme_new()
+    {
+        $theme_name = theme_root_path();
+        $brand_setting = BusinessSetting::where('type', 'product_brand')->first()->value;
+        $home_categories = Category::where('home_status', true)->priority()->get();
+        $home_categories->map(function ($data) {
+            $id = '"' . $data['id'] . '"';
+            $data['products'] = Product::active()
+                ->where('category_ids', 'like', "%{$id}%")
+                ->inRandomOrder()->take(12)->get();
+        });
+        $current_date = date('Y-m-d H:i:s');
+        //products based on top seller
+        $top_sellers = $this->seller->approved()->with(['shop','orders','product.reviews'])
+                            ->whereHas('orders',function($query){
+                                $query->where('seller_is','seller');
+                            })
+                            ->withCount(['orders','product' => function ($query) {
+                                $query->active();
+                            }])->orderBy('orders_count', 'DESC')->take(12)->get();
+
+            $top_sellers?->map(function($seller){
+                $seller->product?->map(function($product){
+                    $product['rating'] = $product?->reviews->pluck('rating')->sum();
+                    $product['review_count'] = $product->reviews->count();
+                });
+                $seller['total_rating'] = $seller?->product->pluck('rating')->sum();
+                $seller['review_count'] = $seller->product->pluck('review_count')->sum();
+                $seller['average_rating'] = $seller['total_rating'] / ($seller['review_count'] == 0 ? 1 : $seller['review_count']);
+            });
+
+        //end
+
+        //feature products finding based on selling
+        $featured_products = $this->product->with(['reviews'])->active()
+            ->where('featured', 1)
+            ->withCount(['orderDetails'])->orderBy('order_details_count', 'DESC')
+            ->take(12)
+            ->get();
+        //end
+
+        $latest_products = $this->product->with(['reviews'])->active()->orderBy('id', 'desc')->take(8)->get();
+        $categories = $this->category->with('childes.childes')->where(['position' => 0])->priority()->take(8)->get();
+        $brands = Brand::active()->take(15)->get();
+        //best sell product
+        $bestSellProduct = $this->order_details->with('product.reviews')
+            ->whereHas('product', function ($query) {
+                $query->active();
+            })
+            ->select('product_id', DB::raw('COUNT(product_id) as count'))
+            ->groupBy('product_id')
+            ->orderBy("count", 'desc')
+            ->take(6)
+            ->get();
+
+        //Top-rated
+        $topRated = Review::with('product')
+            ->whereHas('product', function ($query) {
+                $query->active();
+            })
+            ->select('product_id', DB::raw('AVG(rating) as count'))
+            ->groupBy('product_id')
+            ->orderBy("count", 'desc')
+            ->take(6)
+            ->get();
+
+        if ($bestSellProduct->count() == 0) {
+            $bestSellProduct = $latest_products;
+        }
+
+        if ($topRated->count() == 0) {
+            $topRated = $bestSellProduct;
+        }
+    //    dd($featured_products);
+
+        $deal_of_the_day = DealOfTheDay::join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.unit_price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
+        $main_banner = $this->banner->where(['banner_type'=>'Main Banner', 'theme'=>$theme_name, 'published'=> 1])->latest()->get();
+        // dd($main_banner);
         $main_section_banner = $this->banner->where(['banner_type'=> 'Main Section Banner', 'theme'=>$theme_name, 'published'=> 1])->orderBy('id', 'desc')->latest()->first();
 
         $product=$this->product->active()->inRandomOrder()->first();
