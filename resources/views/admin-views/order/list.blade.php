@@ -277,10 +277,13 @@
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
                                             @if ($is_imported == 1 && $order['sent_to_seller'] == 0)
-                                                <a class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{translate('Sent to Seller')}}"
+                                            <button type="button" class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{translate('Send to Seller')}}" onclick="checkoutExport({{$order->id}})">
+                                                <img src="{{asset('/public/assets/back-end/img/arrow-right-for-frame.png')}}" class="png" alt="">
+                                            </button>
+                                                {{-- <a class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{translate('Sent to Seller')}}"
                                                     href="{{route('admin.orders.sentToSeller',['id'=>$order['id']])}}">
                                                     <img src="{{asset('/public/assets/back-end/img/arrow-right-for-frame.png')}}" class="png" alt="">
-                                                </a>
+                                                </a> --}}
                                             @endif
                                             <a class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{translate('view')}}"
                                                 href="{{route('admin.orders.details',['id'=>$order['id']])}}">
@@ -512,7 +515,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" onclick="checkoutFromPayment()" class="btn btn-primary">Understood</button>
+                <a class="btn btn-primary" href="{{route('admin.orders.sentToSeller',['id'=>$order['id']])}}" title="{{translate('Send to Seller')}}">Send to Seller</a>
                 </div>
             </div>
             </div>

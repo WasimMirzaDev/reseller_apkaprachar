@@ -145,6 +145,7 @@ use App\Http\Controllers\Admin\ProductReportController;
 use App\Http\Controllers\Admin\OrderReportController;
 use App\Http\Controllers\Admin\ProductWishlistReportController;
 use App\Http\Controllers\Admin\Settings\ReactSettingsController;
+use App\Http\Controllers\Customer\PaymentController;
 use App\Enums\ViewPaths\Admin\ReactSetup;
 
 
@@ -249,6 +250,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
             Route::post(Order::UPDATE_STATUS[URI], 'updateStatus')->name('status');
             Route::get(Order::GET_DATA[URI], 'getOrderData')->name('get-order-data');
             Route::get('sent-to-seller/{id}', 'sentToSeller')->name('sentToSeller');
+            Route::get('web-payment', 'Customer\PaymentController@web_payment_success')->name('web-payment-success');
+            Route::get('payment-success', 'Customer\PaymentController@success')->name('payment-success');
+            Route::get('payment-fail', 'Customer\PaymentController@fail')->name('payment-fail');
         });
     });
 

@@ -583,6 +583,10 @@ class OrderController extends BaseController
             'data' => ['new_order' => $newOrder]
         ]);
     }
+
+    public function checkout() {
+        
+    }
     
     public function sentToSeller($order_id)
     {

@@ -7440,4 +7440,8 @@
   'Already_have_account ' => 'Already have account ',
   'Please do not refresh this page' => 'Please do not refresh this page',
   'riad_uddin' => 'Riad uddin',
+  'terms_and_Condition' => 'Terms and Condition',
+  'Invalid response from the server.' => 'Invalid response from the server.',
+  'Send to Seller' => 'Send to Seller',
+  'Payment_failed' => 'Payment failed',
 );
