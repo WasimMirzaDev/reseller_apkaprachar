@@ -515,7 +515,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a class="btn btn-primary" href="{{route('admin.orders.sentToSeller',['id'=>$order['id']])}}" title="{{translate('Send to Seller')}}">Send to Seller</a>
+                <button type="button" class="btn btn-primary" onclick="sendToSeller({{$order->id}})" title="{{translate('Send to Seller')}}">Send to Seller</button>
                 </div>
             </div>
             </div>
@@ -556,6 +556,12 @@
     function checkoutExport(order_id)
     {
         $("#checkout_export_modal").modal('show');
+    }
+    function sendToSeller(orderId) {
+        const paymentMethod = document.querySelector(`input[name="online_payment"]:checked`).value;
+        const paymentPlatform = document.querySelector(`input[name="payment_platform"]`).value;
+        const url = `{{route('admin.orders.web-payment-request')}}?id=${orderId}&payment_method=${paymentMethod}&payment_platform=${paymentPlatform}`;
+        window.location.href = url;
     }
 
 </script>
