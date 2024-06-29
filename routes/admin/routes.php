@@ -256,7 +256,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
             Route::get('payment-fail', 'Customer\PaymentController@fail')->name('payment-fail');
         });
 
-        Route::get('/payment/web-payment-request', [PaymentController::class,'payment'])->name('web-payment-request');
+        Route::get('/payment/web-payment-request', [OrderController::class,'payment'])->name('web-payment-request');
     });
 
     // Attribute

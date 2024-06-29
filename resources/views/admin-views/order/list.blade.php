@@ -366,6 +366,7 @@
                                                         <input type="hidden" name="customer_id" value="{{ auth('customer')->check() ? auth('customer')->user()->id : session('guest_id') }}">
                                                         <input type="hidden" name="payment_method" value="{{ $payment_gateway->key_name }}">
                                                         <input type="hidden" name="payment_platform" value="web">
+                                                        <input type="hidden" name="order_id" id="order_id" value="">
             
                                                         @if ($payment_gateway->mode == 'live' && isset($payment_gateway->live_values['callback_url']))
                                                             <input type="hidden" name="callback" value="{{ $payment_gateway->live_values['callback_url'] }}">
@@ -515,7 +516,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="sendToSeller({{$order->id}})" title="{{translate('Send to Seller')}}">Send to Seller</button>
+                <button type="button" class="btn btn-primary" onclick="sendToSeller()" title="{{translate('Send to Seller')}}">Send to Seller</button>
                 </div>
             </div>
             </div>
@@ -553,14 +554,16 @@
 
 <script>
 
-    function checkoutExport(order_id)
+    function checkoutExport(orderId)
     {
         $("#checkout_export_modal").modal('show');
+        $('#order_id').val(orderId);
     }
-    function sendToSeller(orderId) {
+    function sendToSeller() {
+        const orderId = $('#order_id').val();
         const paymentMethod = document.querySelector(`input[name="online_payment"]:checked`).value;
         const paymentPlatform = document.querySelector(`input[name="payment_platform"]`).value;
-        const url = `{{route('admin.orders.web-payment-request')}}?id=${orderId}&payment_method=${paymentMethod}&payment_platform=${paymentPlatform}`;
+        const url = `{{route('admin.orders.web-payment-request')}}?order_id=${orderId}&payment_method=${paymentMethod}&payment_platform=${paymentPlatform}`;
         window.location.href = url;
     }
 
