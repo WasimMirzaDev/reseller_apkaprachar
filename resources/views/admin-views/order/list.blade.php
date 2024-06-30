@@ -1,4 +1,5 @@
 @extends('layouts.back-end.app')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @section('title', translate('order_List'))
 
 @section('content')
@@ -276,10 +277,13 @@
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
                                             @if ($is_imported == 1 && $order['sent_to_seller'] == 0)
-                                                <a class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{translate('Sent to Seller')}}"
+                                            <button type="button" class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{translate('Send to Seller')}}" onclick="checkoutExport({{$order->id}})">
+                                                <img src="{{asset('/public/assets/back-end/img/arrow-right-for-frame.png')}}" class="png" alt="">
+                                            </button>
+                                                {{-- <a class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{translate('Sent to Seller')}}"
                                                     href="{{route('admin.orders.sentToSeller',['id'=>$order['id']])}}">
                                                     <img src="{{asset('/public/assets/back-end/img/arrow-right-for-frame.png')}}" class="png" alt="">
-                                                </a>
+                                                </a> --}}
                                             @endif
                                             <a class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{translate('view')}}"
                                                 href="{{route('admin.orders.details',['id'=>$order['id']])}}">
@@ -310,7 +314,7 @@
 
         <!-- Modal -->
         <div class="modal fade" id="checkout_export_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
@@ -325,24 +329,24 @@
                         <script src="https://js.stripe.com/v3/"></script>
                  
                      
-                        <div class="container pb-5 mb-2 mb-md-4 rtl px-0 px-md-3 text-align-direction">
+                        <div class="container pb-5 mb-2 mb-md-4 px-0 px-md-3 text-align-direction">
                             <div class="row mx-max-md-0">
                                 <div class="col-md-12 mb-3 pt-3 px-max-md-0">
                                     <div class="feature_header px-3 px-md-0">
                                         <span>{{ translate('payment_method')}}</span>
                                     </div>
                                 </div>
-                                <div class="card mt-3">
+                                <div class="card mt-3 ml-3">
                                     <div class="card-body">
             
                                         <div class="gap-2 mb-4">
-                                            <div class="d-flex justify-content-between">
+                                            {{-- <div class="d-flex justify-content-between">
                                                 <h4 class="mb-2 text-nowrap">{{ translate('payment_method')}}</h4>
                                                 <a href="{{route('checkout-details')}}" class="d-flex align-items-center gap-2 text-primary font-weight-bold text-nowrap">
                                                     <i class="tio-back-ui fs-12 text-capitalize"></i>
                                                     {{ translate('go_back') }}
                                                 </a>
-                                            </div>
+                                            </div> --}}
                                             <p class="text-capitalize mt-2">{{ translate('select_a_payment_method_to_proceed')}}</p>
                                         </div>
                                  
@@ -354,7 +358,7 @@
             
                                         @if ($digital_payment['status']==1)
                                             <div class="row gx-4 mb-4">
-                                            @foreach ($payment_gateways_list as $payment_gateway)
+                                                @foreach ($payment_gateways_list as $payment_gateway)
                                                 <div class="col-sm-6">
                                                     <form method="post" class="digital_payment" id="{{($payment_gateway->key_name)}}_form" action="{{ route('customer.web-payment-request') }}">
                                                         @csrf
@@ -362,6 +366,7 @@
                                                         <input type="hidden" name="customer_id" value="{{ auth('customer')->check() ? auth('customer')->user()->id : session('guest_id') }}">
                                                         <input type="hidden" name="payment_method" value="{{ $payment_gateway->key_name }}">
                                                         <input type="hidden" name="payment_platform" value="web">
+                                                        <input type="hidden" name="order_id" id="order_id" value="">
             
                                                         @if ($payment_gateway->mode == 'live' && isset($payment_gateway->live_values['callback_url']))
                                                             <input type="hidden" name="callback" value="{{ $payment_gateway->live_values['callback_url'] }}">
@@ -506,12 +511,12 @@
                         <span id="route-action-checkout-function" data-route="checkout-payment"></span>
                     
                         <script src="{{ asset('public/assets/front-end/js/payment.js') }}"></script>
-                  
+                    
                     
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" onclick="checkoutFromPayment()" class="btn btn-primary">Understood</button>
+                <button type="button" class="btn btn-primary" onclick="sendToSeller()" title="{{translate('Send to Seller')}}">Send to Seller</button>
                 </div>
             </div>
             </div>
@@ -549,9 +554,17 @@
 
 <script>
 
-    function checkoutExport(order_id)
+    function checkoutExport(orderId)
     {
         $("#checkout_export_modal").modal('show');
+        $('#order_id').val(orderId);
+    }
+    function sendToSeller() {
+        const orderId = $('#order_id').val();
+        const paymentMethod = document.querySelector(`input[name="online_payment"]:checked`).value;
+        const paymentPlatform = document.querySelector(`input[name="payment_platform"]`).value;
+        const url = `{{route('admin.orders.web-payment-request')}}?order_id=${orderId}&payment_method=${paymentMethod}&payment_platform=${paymentPlatform}`;
+        window.location.href = url;
     }
 
 </script>
