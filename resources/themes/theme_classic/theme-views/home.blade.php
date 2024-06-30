@@ -1,4 +1,4 @@
-@extends('theme-views.layouts.app')
+@extends('theme-viewsowl-theme owl-carousel hero-slider owl-loaded owl-draglayouts.app')
 
 @section('title', 'Discover Affordable Chic | Your Ultimate Clothing Store | Apka Fashion')
 @push('css_or_js')
@@ -169,14 +169,14 @@
     <section class="container-fluid mb-5">
         <div class="container">
             <div class="row g-4 mt-5 products-new">
-                <div class="col-12">
-                    <span class="text-danger mb-2 ps-2 py-2"
-                        style="border-left: 12px solid #db4444; font-weight: 700">Our Products</span>
+                <div class="col-12 ">
+                    <span class="text-danger mb-2 ps-2 py-2 "
+                        style="border-left: 12px solid #db4444; font-weight: 700; text-align: center;">Our Products</span>
                 </div>
                 <div class="col-12">
                     <h2>Explore Our Products</h2>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="card product-card" style="background-color: #fff0;">
                         <div class="img">
                             <div class="view">
@@ -186,7 +186,57 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="{{asset('public/assets/FLASHDRIVE.jpg')}}"
+                            <img src="{{asset('public/assets/garri.png')}}"
+                                class="w-100" alt="...">
+                        </div>
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title">Product Name</h5>
+                            <strong class="text-danger pe-2">$45</strong> <wbr>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <span>(2)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="card product-card" style="background-color: #fff0;">
+                        <div class="img">
+                            <div class="view">
+                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <div class="buyNowBtn">
+                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+                            </div>
+                            <img src="{{asset('public/assets/garri.png')}}"
+                                class="w-100" alt="...">
+                        </div>
+                        <div class="card-body p-0 pt-3">
+                            <h5 class="card-title">Product Name</h5>
+                            <strong class="text-danger pe-2">$45</strong> <wbr>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <span>(2)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="card product-card" style="background-color: #fff0;">
+                        <div class="img">
+                            <div class="view">
+                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
+                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <div class="buyNowBtn">
+                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
+                            </div>
+                            <img src="{{asset('public/assets/garri.png')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -211,7 +261,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
+                            <img src="{{asset('public/assets/garri.png')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -236,7 +286,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="{{asset('public/assets/LAPTOPBAG.jpg')}}"
+                            <img src="{{asset('public/assets/garri.png')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -261,7 +311,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="{{asset('public/assets/FLASHDRIVE.jpg')}}"
+                            <img src="{{asset('public/assets/garri.png')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -286,7 +336,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
+                            <img src="{{asset('public/assets/garri.png')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -301,7 +351,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card product-card" style="background-color: #fff0;">
                         <div class="img">
                             <div class="view">
@@ -311,7 +361,7 @@
                             <div class="buyNowBtn">
                                 <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
                             </div>
-                            <img src="{{asset('public/assets/LAPTOPBAG.jpg')}}"
+                            <img src="{{asset('public/assets/garri.png')}}"
                                 class="w-100" alt="...">
                         </div>
                         <div class="card-body p-0 pt-3">
@@ -325,57 +375,7 @@
                             <span>(2)</span>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card product-card" style="background-color: #fff0;">
-                        <div class="img">
-                            <div class="view">
-                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
-                            </div>
-                            <div class="buyNowBtn">
-                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
-                            </div>
-                            <img src="{{asset('public/assets/FLASHDRIVE.jpg')}}"
-                                class="w-100" alt="...">
-                        </div>
-                        <div class="card-body p-0 pt-3">
-                            <h5 class="card-title">Product Name</h5>
-                            <strong class="text-danger pe-2">$45</strong> <wbr>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <span>(2)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card product-card" style="background-color: #fff0;">
-                        <div class="img">
-                            <div class="view">
-                                <a href="" class="text-center align-items-center"><i class="bi bi-eye"></i></a>
-                                <a href="" class="text-center align-items-center"><i class="bi bi-heart"></i></a>
-                            </div>
-                            <div class="buyNowBtn">
-                                <a href="#" class="btn bg-dark text-light w-100">Add To Cart</a>
-                            </div>
-                            <img src="{{asset('public/assets/KEYBOARD.jpg')}}"
-                                class="w-100" alt="...">
-                        </div>
-                        <div class="card-body p-0 pt-3">
-                            <h5 class="card-title">Product Name</h5>
-                            <strong class="text-danger pe-2">$45</strong> <wbr>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <span>(2)</span>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
                 <div class="col-12 text-center mt-5 button">
                     <button type="button" class="btn btn-danger" style="padding: 12px 32px;">View All Products</button>
                 </div>

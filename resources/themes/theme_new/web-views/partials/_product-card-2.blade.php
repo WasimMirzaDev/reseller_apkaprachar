@@ -12,7 +12,7 @@
         @endif
         <div class=" d-flex">
             <div class="d-flex align-items-center justify-content-center p-12px">
-                <div class="flash-deals-background-image">
+                <div class="flash-deals-background-image" style="background: radial-gradient(circle, rgba(166, 166, 167, 1) 0%, rgba(114, 119, 126, 1) 100%);">
                     <img class="__img-125px" alt=""
                          src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$product['thumbnail'], type: 'product') }}">
                 </div>
@@ -21,7 +21,7 @@
                 <div>
                     <div>
                         <a href="{{route('product',$product->slug)}}"
-                           class="flash-product-title text-capitalize fw-semibold">
+                           class="flash-product-title text-capitalize fw-semibold text-white">
                             {{ Str::limit($product['name'], 23) }}
                         </a>
                     </div>
@@ -36,18 +36,18 @@
                                     <i class="tio-star-outlined text-warning"></i>
                                 @endif
                             @endfor
-                            <label class="badge-style2">
-                                ( {{$product->reviews->count()}} )
+                            <label class="badge-style2 " style="color: #fff !important;">
+                                ({{$product->reviews->count()}})
                             </label>
                         </div>
                     @endif
-                    <div class="d-flex flex-wrap gap-8 align-items-center row-gap-0">
+                    <div class="d-flex flex-wrap gap-8 align-items-center row-gap-0 ">
                         @if($product->discount > 0)
-                            <del class="category-single-product-price">
+                            <del class="category-single-product-price text-white">
                                 {{ webCurrencyConverter(amount: $product->unit_price) }}
                             </del>
                         @endif
-                        <span class="flash-product-price text-dark fw-semibold">
+                        <span class="flash-product-price text-white fw-semibold">
                             {{ webCurrencyConverter(amount: $product->unit_price - getProductDiscount(product: $product, price: $product->unit_price)) }}
                         </span>
                     </div>

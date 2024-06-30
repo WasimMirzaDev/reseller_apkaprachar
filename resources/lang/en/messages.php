@@ -7440,4 +7440,6 @@
   'Already_have_account ' => 'Already have account ',
   'Please do not refresh this page' => 'Please do not refresh this page',
   'riad_uddin' => 'Riad uddin',
+  'What are you looking for ' => 'What are you looking for ',
+  'John_Doe' => 'John Doe',
 );

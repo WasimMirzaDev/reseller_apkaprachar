@@ -2515,6 +2515,8 @@ input:-webkit-autofill:active {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    font-size: 14px ;
+    font-weight: 500;
 }
 
 .fs-10 {
@@ -2627,6 +2629,7 @@ input:-webkit-autofill:active {
 /* Cursor */
 .cursor-pointer {
     cursor: pointer;
+    /* font-size: 20px; */
 }
 
 .disabled {
@@ -4237,6 +4240,7 @@ input[type="checkbox"]:checked::after {
    ********************* */
 .store-banner {
     max-block-size: 9.375rem;
+    background-color: red;
 }
 
 /* ************************
@@ -4909,9 +4913,14 @@ header .innerheader ul li a {
     color: red;
 }
 
-.header-main.love-sticky {
+.header-main .love-sticky {
     border-bottom: 1px solid #d9d9d9;
     box-shadow: none;
+
+   
+}
+.love-sticky {
+    background-color: rgb(210 239 154) ;
 }
 
 .header-top span {
@@ -4934,6 +4943,7 @@ header .innerheader ul li a {
     border-right: 1px solid #d9d9d9;
     margin-top: 11px;
     padding-top: 30px;
+    /* background-color: rgb(210 239 154); */
 }
 
 .image-slider {
@@ -4975,13 +4985,23 @@ header .innerheader ul li a {
 .view a i {
     color: #5c5b5b;
 }
-
+.products-new span{
+    border-left-color: #d2ef9a !important;
+    color: #434342 !important;
+    font-size: 18px;
+}
 .products-new .button {
     display: flex;
     justify-content: center;
     text-align: center;
 }
-
+.btn-danger{
+    background-color: #d2ef9a !important;
+    color: black !important;
+font-size: 16px;
+font-weight: 500;
+border: none;
+}
 .category-card {
     background-color: #fff0;
     border: 1px solid #a2a2a2;
@@ -5029,7 +5049,7 @@ header .innerheader ul li a {
 }
 
 .feature-card .icon {
-    background-color: #000;
+    background-color: #f31818;
     padding: 15px 20px;
     border: 8px solid #c1c0c1;
     width: 80px;
@@ -5056,8 +5076,9 @@ header .innerheader ul li a {
 }
 
 .product-card img {
-    background-color: #e5e6e8;
+    background-color: #d2ef9a;
     padding: 25px;
+    border-radius: 10px;
     width: 100%;
 }
 
@@ -5066,15 +5087,20 @@ header .innerheader ul li a {
     bottom: 65px;
     width: 100%;
     display: none;
-}
 
-.product-card .buyNowBtn a {
+    }
+    
+    .product-card .buyNowBtn a {
+    background-color: #aac27d !important;
     border-radius: none;
+    color: black !important;
+    font-size: 15px;
 }
 
 .product-card:hover .buyNowBtn {
     display: flex;
     transition: 1.5s;
+
 }
 
 
@@ -5319,3 +5345,20 @@ header .innerheader ul li a {
 }
 
 
+
+/* .header-main{
+    background-color: red;
+    .container{
+    }
+} */
+
+.nav-wrapper{
+& ul{
+    & li{
+        & a{
+            font-size: 15px;
+            font-weight: 500;
+        }
+    }
+}
+}
