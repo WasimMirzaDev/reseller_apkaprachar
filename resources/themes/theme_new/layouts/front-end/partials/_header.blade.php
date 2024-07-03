@@ -316,6 +316,9 @@
                 </div>
             </div>
         </div>
+        @php(
+                        $categories = \App\Models\Category::with(['childes.childes'])->where('position', 0)->priority()->paginate(11)
+                    )
         {{-- <div class="navbar navbar-expand-md navbar-stuck-menu">
             <div class="container px-10px">
                 <div class="collapse navbar-collapse text-align-direction" id="navbarCollapse">
