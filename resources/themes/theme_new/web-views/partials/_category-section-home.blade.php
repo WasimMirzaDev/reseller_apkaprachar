@@ -2,9 +2,9 @@
     <section class="pb-4 rtl">
         <div class="container">
             <div>
-                <div class="card __shadow h-100 max-md-shadow-0">
+                <div class="card h-100" style="background-color: #0000 !important; border: none;">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between">
+                        {{-- <div class="d-flex justify-content-between">
                             <div class="categories-title m-0">
                                 <span class="font-semibold">{{ translate('categories')}}</span>
                             </div>
@@ -14,7 +14,7 @@
                                     <i class="czi-arrow-{{Session::get('direction') === "rtl" ? 'left mr-1 ml-n1 mt-1 float-left' : 'right ml-1 mr-n1'}}"></i>
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="d-none d-md-block">
                             <div class="row mt-3">
                                 @foreach($categories as $key => $category)

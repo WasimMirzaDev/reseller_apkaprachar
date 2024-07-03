@@ -15,7 +15,7 @@
                     </span>
                 </div>
             @else
-                <div class="d-flex justify-content-end">
+                <div class="d-none justify-content-end">
                     <span class="for-discount-value-null"></span>
                 </div>
             @endif
@@ -26,14 +26,22 @@
                 </a>
             </div>
 
-            <div class="quick-view">
+            {{-- <div class="quick-view">
                 <a class="btn-circle stopPropagation action-product-quick-view" href="javascript:" data-product-id="{{ $product->id }}">
                     <i class="czi-eye align-middle"></i>
                 </a>
-            </div>
+            </div> --}}
             @if($product->product_type == 'physical' && $product->current_stock <= 0)
                 <span class="out_fo_stock">{{translate('out_of_stock')}}</span>
             @endif
+            <div class="quick-right-btn">
+                <a href="#" class="quick-right-btn-a"><i class="czi-eye"></i></a>
+                <a href="#" class="quick-right-btn-a"><i class="czi-eye"></i></a>
+            </div>
+            <div class="quick-view-btn">
+                <a class="action-product-quick-view quick-view-btn-a" href="javascript:" data-product-id="{{ $product->id }}">QUICK VIEW</a>
+                <a class="quick-view-btn-a">QUICK SHOP</a>
+            </div>
         </div>
         <div class="single-product-details">
             @if($overallRating[0] != 0 )
@@ -48,7 +56,7 @@
                             <i class="tio-star-outlined text-warning"></i>
                         @endif
                     @endfor
-                    <label class="badge-style">( {{$product->reviews_count}} )</label>
+                    <label class="badge-style">({{$product->reviews_count}})</label>
                 </span>
                 </div>
             @endif

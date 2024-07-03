@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/responsive1.css') }}"/>
 
     <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/style.css') }}">
+    
+    <link rel="stylesheet" href="{{ theme_asset('assets/css/style.css') }}"/>
 
     <style>
         :root {

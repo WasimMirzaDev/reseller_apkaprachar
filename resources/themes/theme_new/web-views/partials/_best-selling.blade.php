@@ -1,16 +1,16 @@
 <div class="col-lg-6 px-max-md-0">
-    <div class="card card __shadow h-100">
+    <div class="card h-100" style="background-color: #363636">
         <div class="card-body p-xl-35">
             <div class="row d-flex justify-content-between mx-1 mb-3">
                 <div>
                     <img class="size-30" src="{{asset("public/assets/front-end/png/best-sellings.png")}}"
                          alt="">
-                    <span class="font-bold pl-1">{{ translate('best_sellings')}}</span>
+                    <span class="font-bold pl-1 text-white">{{ translate('best_sellings')}}</span>
                 </div>
                 <div>
-                    <a class="text-capitalize view-all-text web-text-primary"
+                    <a class="text-capitalize text-white"
                        href="{{route('products',['data_from'=>'best-selling','page'=>1])}}">{{ translate('view_all')}}
-                        <i class="czi-arrow-{{Session::get('direction') === "rtl" ? 'left mr-1 ml-n1 mt-1 float-left' : 'right ml-1 mr-n1'}}"></i>
+                        <i class="text-white czi-arrow-{{Session::get('direction') === "rtl" ? 'left mr-1 ml-n1 mt-1 float-left' : 'right ml-1 mr-n1'}}"></i>
                     </a>
                 </div>
             </div>
@@ -31,14 +31,14 @@
                                     </div>
                                 @endif
                                 <div class="d-flex flex-wrap">
-                                    <div class="best-selleing-image">
+                                    <div class="best-selleing-image" style="background: radial-gradient(circle, rgba(166, 166, 167, 1) 0%, rgba(114, 119, 126, 1) 100%); overflow: hidden !important;">
                                         <img class="rounded"
                                              src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$bestSell->product['thumbnail'], type: 'product') }}"
                                              alt="{{ translate('product') }}"/>
                                     </div>
                                     <div class="best-selling-details">
                                         <h6 class="widget-product-title">
-                                        <span class="ptr fw-semibold">
+                                        <span class="ptr fw-semibold text-white">
                                             {{ Str::limit($bestSell->product['name'],100) }}
                                         </span>
                                         </h6>
@@ -55,7 +55,7 @@
                                                         <i class="tio-star-outlined text-warning"></i>
                                                     @endif
                                                 @endfor
-                                                <label class="badge-style">( {{$bestSell->product->reviews_count}} )</label>
+                                                <label class="badge-style" style="color: #fff !important;">({{$bestSell->product->reviews_count}})</label>
                                             </span>
                                             </div>
                                         @endif

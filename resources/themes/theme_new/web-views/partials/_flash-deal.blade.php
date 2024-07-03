@@ -1,3 +1,11 @@
+<!-- <style>
+    .flash-deals-wrapper {
+    background: black;
+}
+.product-single-hover .position-relative {
+    display: flex;
+} -->
+</style>
 <section class="overflow-hidden">
     <div class="container px-0 px-md-3">
         <div class="flash-deals-wrapper {{Session::get('direction') === "rtl" ? 'rtl' : ''}}">
@@ -11,7 +19,25 @@
                 @endif
             </div>
             <div class="row g-3 mx-max-md-0">
-                <div class="col-lg-4 px-max-md-0">
+                
+                @php($nullFilter = 0)
+                @foreach($web_config['flash_deals']->products as $key=>$deal)
+                    @if ($deal->product)
+                        @php($nullFilter = $nullFilter+1)
+                    @endif
+                @endforeach
+
+                @if($nullFilter<=10)
+                    <div class="col-lg-8 d-none d-md-block px-max-md-0">
+                        <div class="owl-theme owl-carousel flash-deal-slider">
+                            @foreach($web_config['flash_deals']->products as $key=>$deal)
+                                @if($deal->product)
+                                    @include('web-views.partials._feature-product',['product'=>$deal->product,'decimal_point_settings'=>$decimal_point_settings])
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="col-lg-4 px-max-md-0">
                     <div class="countdown-card bg-transparent">
                         <div class="flash-deal-text web-text-primary">
                             <div>
@@ -51,23 +77,6 @@
                     </div>
                 </div>
 
-                @php($nullFilter = 0)
-                @foreach($web_config['flash_deals']->products as $key=>$deal)
-                    @if ($deal->product)
-                        @php($nullFilter = $nullFilter+1)
-                    @endif
-                @endforeach
-
-                @if($nullFilter<=10)
-                    <div class="col-lg-8 d-none d-md-block px-max-md-0">
-                        <div class="owl-theme owl-carousel flash-deal-slider">
-                            @foreach($web_config['flash_deals']->products as $key=>$deal)
-                                @if($deal->product)
-                                    @include('web-views.partials._feature-product',['product'=>$deal->product,'decimal_point_settings'=>$decimal_point_settings])
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
                 @else
                     @php($index = 0)
                     @foreach($web_config['flash_deals']->products as $key=>$deal)

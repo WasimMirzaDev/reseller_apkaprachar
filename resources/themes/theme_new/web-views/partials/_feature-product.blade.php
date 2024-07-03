@@ -1,7 +1,7 @@
 @php($overallRating = getOverallRating($product->reviews))
 <div class="product-single-hover shadow-none rtl">
     <div class="overflow-hidden position-relative">
-        <div class="inline_product clickable">
+        <div class="inline_product clickable"  style="background: radial-gradient(circle, rgba(166, 166, 167, 1) 0%, rgba(114, 119, 126, 1) 100%); overflow: hidden !important;">
             @if($product->discount > 0)
                 <span class="for-discount-value p-1 pl-2 pr-2">
                 @if ($product->discount_type == 'percent')
@@ -12,16 +12,24 @@
                     {{translate('off')}}
                 </span>
             @else
-                <span class="for-discount-value-null"></span>
+                <span class="for-discount-value-null d-none"></span>
             @endif
             <a href="{{route('product',$product->slug)}}">
                 <img src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$product['thumbnail'], type: 'product') }}" alt="">
             </a>
 
-            <div class="quick-view">
+            {{-- <div class="quick-view">
                 <a class="btn-circle stopPropagation action-product-quick-view" href="javascript:" data-product-id="{{ $product->id }}">
                     <i class="czi-eye align-middle"></i>
                 </a>
+            </div> --}}
+            <div class="quick-right-btn">
+                <a href="#" class="quick-right-btn-a"><i class="czi-eye"></i></a>
+                <a href="#" class="quick-right-btn-a"><i class="czi-eye"></i></a>
+            </div>
+            <div class="quick-view-btn">
+                <a class="action-product-quick-view quick-view-btn-a" href="javascript:" data-product-id="{{ $product->id }}">QUICK VIEW</a>
+                <a class="quick-view-btn-a">QUICK SHOP</a>
             </div>
             @if($product->product_type == 'physical' && $product->current_stock <= 0)
                 <span class="out_fo_stock">{{translate('out_of_stock')}}</span>
@@ -40,7 +48,7 @@
                                 <i class="tio-star-outlined text-warning"></i>
                             @endif
                         @endfor
-                        <label class="badge-style">( {{$product->reviews_count}} )</label>
+                        <label class="badge-style">({{$product->reviews_count}})</label>
                     </span>
                 </div>
             @endif

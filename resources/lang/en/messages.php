@@ -7444,4 +7444,5 @@
   'Invalid response from the server.' => 'Invalid response from the server.',
   'Send to Seller' => 'Send to Seller',
   'Payment_failed' => 'Payment failed',
+  'What are you looking for ' => 'What are you looking for ',
 );
