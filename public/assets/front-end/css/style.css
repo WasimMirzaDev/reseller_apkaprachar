@@ -466,6 +466,7 @@ a {
 .navbar-expand-md .navbar-nav .nav-item button,
 .navbar-expand-md .navbar-nav .nav-item > a {
     transition: all ease 0.3s;
+    
 }
 
 .navbar-expand-md .navbar-nav .nav-item .dropdown > button:hover,
@@ -6331,7 +6332,8 @@ a {
 }
 
 .flash-deals-wrapper {
-    background: linear-gradient(90deg, #f2f7fe 0%, #edecfe 100%);
+    /* background: red !important; */
+    /* background: red !important; */
     padding: 22px 26px;
 }
 .flash-deals-wrapper .product-single-hover {
@@ -6395,7 +6397,6 @@ a {
 .mega-nav .dropdown-menu > .dropdown > a {
     padding-block: 0.74rem;
 }
-
 .min-height-0 {
     min-height: 0px;
 }

@@ -1,49 +1,56 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Order;
+use Carbon\Carbon;
+use App\Library\Payer;
 use App\Utils\Helpers;
-use App\Contracts\Repositories\BusinessSettingRepositoryInterface;
-use App\Contracts\Repositories\CustomerRepositoryInterface;
-use App\Contracts\Repositories\DeliveryCountryCodeRepositoryInterface;
-use App\Contracts\Repositories\DeliveryManTransactionRepositoryInterface;
-use App\Contracts\Repositories\DeliveryManWalletRepositoryInterface;
-use App\Contracts\Repositories\DeliveryZipCodeRepositoryInterface;
-use App\Contracts\Repositories\LoyaltyPointTransactionRepositoryInterface;
-use App\Contracts\Repositories\OrderDetailRepositoryInterface;
-use App\Contracts\Repositories\OrderExpectedDeliveryHistoryRepositoryInterface;
-use App\Contracts\Repositories\OrderRepositoryInterface;
-use App\Contracts\Repositories\OrderStatusHistoryRepositoryInterface;
-use App\Contracts\Repositories\ShippingAddressRepositoryInterface;
-use App\Contracts\Repositories\VendorRepositoryInterface;
-use App\Enums\GlobalConstant;
-use App\Enums\ViewPaths\Admin\Order;
+use App\Models\Currency;
+use App\Library\Receiver;
 use App\Enums\WebConfigKey;
-use App\Events\OrderStatusEvent;
 use App\Exports\OrderExport;
+use App\Traits\PdfGenerator;
+use Illuminate\Http\Request;
+use App\Enums\GlobalConstant;
+use App\Traits\CustomerTrait;
+use App\Models\BusinessSetting;
+use App\Events\OrderStatusEvent;
+use App\Traits\FileManagerTrait;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Contracts\View\View;
+use App\Enums\ViewPaths\Admin\Order;
+use App\Models\OfflinePaymentMethod;
+use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Http;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Http\RedirectResponse;
+use App\Library\Payment as PaymentInfo;
 use App\Http\Controllers\BaseController;
-use App\Http\Requests\UploadDigitalFileAfterSellRequest;
+use function App\Utils\payment_gateways;
+use Illuminate\Support\Facades\Validator;
+use App\Services\DeliveryManWalletService;
 use App\Repositories\DeliveryManRepository;
-use App\Repositories\OrderTransactionRepository;
-use App\Repositories\WalletTransactionRepository;
+use App\Services\OrderStatusHistoryService;
 use App\Services\DeliveryCountryCodeService;
 use App\Services\DeliveryManTransactionService;
-use App\Services\DeliveryManWalletService;
-use App\Services\OrderStatusHistoryService;
-use App\Traits\CustomerTrait;
-use App\Traits\FileManagerTrait;
-use App\Traits\PdfGenerator;
-use Brian2694\Toastr\Facades\Toastr;
-use Carbon\Carbon;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-use Illuminate\Support\Facades\Http;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Illuminate\Support\Facades\View as PdfView;
-use App\Models\OfflinePaymentMethod;
-use function App\Utils\payment_gateways;
+use App\Repositories\OrderTransactionRepository;
+use App\Repositories\WalletTransactionRepository;
+use App\Contracts\Repositories\OrderRepositoryInterface;
+use App\Http\Requests\UploadDigitalFileAfterSellRequest;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use App\Contracts\Repositories\VendorRepositoryInterface;
+use App\Contracts\Repositories\CustomerRepositoryInterface;
+use App\Contracts\Repositories\OrderDetailRepositoryInterface;
+use App\Contracts\Repositories\BusinessSettingRepositoryInterface;
+use App\Contracts\Repositories\DeliveryZipCodeRepositoryInterface;
+use App\Contracts\Repositories\ShippingAddressRepositoryInterface;
+use App\Contracts\Repositories\DeliveryManWalletRepositoryInterface;
+use App\Contracts\Repositories\OrderStatusHistoryRepositoryInterface;
+use App\Contracts\Repositories\DeliveryCountryCodeRepositoryInterface;
+use App\Contracts\Repositories\DeliveryManTransactionRepositoryInterface;
+use App\Contracts\Repositories\LoyaltyPointTransactionRepositoryInterface;
+use App\Contracts\Repositories\OrderExpectedDeliveryHistoryRepositoryInterface;
+use App\Traits\Payment;
 
 class OrderController extends BaseController
 {
@@ -584,9 +591,170 @@ class OrderController extends BaseController
         ]);
     }
 
-    public function checkout() {
-        
+    public function payment(Request $request)
+    {
+        $user = Helpers::get_customer($request);
+        $validator = Validator::make($request->all(), [
+            'payment_method' => 'required',
+            'payment_platform' => 'required',
+            'order_id' => 'required|exists:orders,id',
+        ]);
+
+        if ($validator->fails()) {
+            $errors = Helpers::error_processor($validator);
+            if (in_array($request->payment_request_from, ['app', 'react'])) {
+                return response()->json(['errors' => Helpers::error_processor($validator)], 403);
+            } else {
+                foreach ($errors as $value) {
+                    Toastr::error(translate($value['message']));
+                }
+                return back();
+            }
+        }
+
+        $order = $this->orderRepo->getFirstWhere(params: ['id' => $request->order_id]);
+
+        if (!$order) {
+            if (in_array($request->payment_request_from, ['app', 'react'])) {
+                return response()->json(['errors' => ['code' => 'no-order', 'message' => 'No orders found for this user']], 403);
+            } else {
+                Toastr::error('No orders found for this user');
+                return back();
+            }
+        }
+
+        // Check product stock
+        // $product_stock = $this->checkProductStock($order);
+        // if (!$product_stock) {
+        //     if (in_array($request->payment_request_from, ['app', 'react'])) {
+        //         return response()->json(['errors' => ['code' => 'product-stock', 'message' => 'The following items in your order are currently out of stock']], 403);
+        //     } else {
+        //         Toastr::error(translate('the_following_items_in_your_order_are_currently_out_of_stock'));
+        //         return redirect()->route('shop-cart');
+        //     }
+        // }
+
+        // Verify minimum order amount
+        // $verifyStatus = $this->verifyMinimumOrderAmount($order);
+        // if ($verifyStatus['status'] == 0) {
+        //     if (in_array($request->payment_request_from, ['app', 'react'])) {
+        //         return response()->json(['errors' => ['code' => 'minimum-order', 'message' => 'Check the minimum order amount requirement']], 403);
+        //     } else {
+        //         Toastr::info('Check the minimum order amount requirement');
+        //         return redirect()->route('shop-cart');
+        //     }
+        // }
+
+        // Check physical product and shipping method
+        if (in_array($request->payment_request_from, ['app', 'react'])) {
+            $shippingMethod = Helpers::get_business_settings('shipping_method');
+            $physical_product = $this->checkPhysicalProduct($order, $shippingMethod);
+            if ($physical_product) {
+                return response()->json(['errors' => ['code' => 'shipping-method', 'message' => 'Data not found']], 403);
+            }
+        }
+
+        // Generate redirect link for payment
+        $redirect_link = $this->customer_payment_request($request, $order);
+
+        if (in_array($request->payment_request_from, ['app', 'react'])) {
+            return response()->json(['redirect_link' => $redirect_link], 200);
+        } else {
+            return redirect($redirect_link);
+        }
     }
+
+    public function customer_payment_request(Request $request, $order)
+{
+    $additional_data = [
+        'business_name' => BusinessSetting::where(['type' => 'company_name'])->first()->value,
+        'business_logo' => asset('storage/app/public/company') . '/' . Helpers::get_business_settings('company_web_logo'),
+        'payment_mode' => $request->has('payment_platform') ? $request->payment_platform : 'web',
+    ];
+
+    $user = Helpers::get_customer($request);
+    if (in_array($request->payment_request_from, ['app', 'react'])) {
+        $additional_data['customer_id'] = $request->customer_id;
+        $additional_data['is_guest'] = $request->is_guest;
+        $additional_data['order_note'] = $request['order_note'];
+        $additional_data['address_id'] = $request['address_id'];
+        $additional_data['billing_address_id'] = $request['billing_address_id'];
+        $additional_data['coupon_code'] = $request['coupon_code'];
+        $additional_data['coupon_discount'] = $request['coupon_discount'];
+        $additional_data['payment_request_from'] = $request->payment_request_from;
+    }
+
+    $currency_model = Helpers::get_business_settings('currency_model');
+    if ($currency_model == 'multi_currency') {
+        $currency_code = 'USD'; // Replace with your currency logic
+    } else {
+        $default = BusinessSetting::where(['type' => 'system_default_currency'])->first()->value;
+        $currency_code = Currency::find($default)->code;
+    }
+
+    if (in_array($request->payment_request_from, ['app', 'react'])) {
+        // Calculate payment amount for app or react request
+        $payment_amount = $order->total_amount - $request['coupon_discount'];
+    } else {
+        // Calculate payment amount for web request
+        $discount = session()->has('coupon_discount') ? session('coupon_discount') : 0;
+        $payment_amount = $order->total_amount - $discount;
+    }
+
+    // Determine customer details based on request type
+    if ($user == 'offline') {
+        // Offline customer handling
+        $address = ShippingAddress::where(['customer_id' => $request->customer_id, 'is_guest' => 1])->latest()->first();
+        if ($address) {
+            $payer = new Payer(
+                $address->contact_person_name,
+                $address->email,
+                $address->phone,
+                ''
+            );
+        } else {
+            $payer = new Payer(
+                'Contact person name',
+                '',
+                '',
+                ''
+            );
+        }
+    } else {
+        // Online customer handling
+        $payer = new Payer(
+            $user['f_name'] . ' ' . $user['l_name'],
+            $user['email'],
+            $user['phone'],
+            ''
+        );
+    }
+
+    // Define payment information
+    $payment_info = new PaymentInfo(
+        success_hook: 'digital_payment_success',
+        failure_hook: 'digital_payment_fail',
+        currency_code: $currency_code,
+        payment_method: $request->payment_method,
+        payment_platform: $request->payment_platform,
+        payer_id: $user == 'offline' ? $request->customer_id : $user['id'],
+        receiver_id: '100', // Replace with your receiver ID
+        additional_data: $additional_data,
+        payment_amount: $order->order_amount,
+        external_redirect_link: $request->payment_platform == 'web' ? $request->external_redirect_link : null,
+        attribute: 'order',
+        attribute_id: $order->id // Replace with your attribute ID
+    );
+
+    // Define receiver information
+    $receiver_info = new Receiver('receiver_name', 'example.png'); // Replace with actual receiver info
+
+    // Generate payment redirect link
+    $redirect_link = Payment::generate_link($payer, $payment_info, $receiver_info);
+
+    return $redirect_link;
+}
+
     
     public function sentToSeller($order_id)
     {

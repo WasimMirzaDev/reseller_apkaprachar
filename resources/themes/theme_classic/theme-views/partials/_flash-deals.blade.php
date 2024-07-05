@@ -6,7 +6,7 @@
                     style="border-left: 12px solid #db4444; color: #db4444; font-weight: 700;">Today's</span>
                 <div class="d-flex flex-wrap justify-content-between gap-3 my-4">
                     <div class="swiper-nav d-flex gap-2 align-items-center">
-                        <h2 class="text-capitalize">{{ translate('Flash_Sales') }}</h2>
+                        <h2 class="text-capitalize hamid">{{ translate('Flash_Sales') }}</h2>
                         <div class="countdown-timer d-flex gap-3 flex-wrap justify-content-center text-center ps-5"
                             data-date="{{$flash_deals ? $flash_deals['end_date'] : ''}}">
                             <div class="days d-flex flex-column gap-2 gap-sm-3"></div>

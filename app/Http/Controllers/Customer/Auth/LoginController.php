@@ -51,7 +51,7 @@ class LoginController extends Controller
     {
         session()->put('keep_return_url', url()->previous());
 
-        if(theme_root_path() == 'default'){
+        if(theme_root_path() == 'default' || theme_root_path()=='theme_new'){
             return view('web-views.customer-views.auth.login');
         }else{
             return redirect()->route('home');

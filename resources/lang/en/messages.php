@@ -7444,5 +7444,10 @@
   'Invalid response from the server.' => 'Invalid response from the server.',
   'Send to Seller' => 'Send to Seller',
   'Payment_failed' => 'Payment failed',
+  'The payment method field is required.' => 'The payment method field is required.',
+  'The payment platform field is required.' => 'The payment platform field is required.',
+  'Payment amount can not be 0' => 'Payment amount can not be 0',
+  'The order id field is required.' => 'The order id field is required.',
+  'What are you looking for ' => 'What are you looking for ',
   'What are you looking for ' => 'What are you looking for ',
 );
