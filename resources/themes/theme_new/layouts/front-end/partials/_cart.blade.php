@@ -97,7 +97,7 @@
     @endif
 
     <div class="dropdown-menu dropdown-menu-{{ Session::get('direction') === 'rtl' ? 'left' : 'right' }} cart-dropdown"
-        style="height: 94vh; top: 0; width: 495px !important; right: -125px; border-radius: 30px;">
+        style="height: 94vh; top: 0; width: 490px !important; right: -125px; border-radius: 30px;">
         <div class="widget-cart-2 d-none" style="background: white; width: 490px; height: 100%; border-right: 1px solid black; border-radius: 30px 0px 0px 30px;">
             <h4 style="margin-bottom: 20px; font-weight: 600;margin-left:15px;margin-top:10px">You May Also Like</h4>
             <div class="list px-2">
@@ -121,7 +121,7 @@
             </div>
 
         </div>
-        <div class="widget widget-cart" style="">
+        <div class="widget widget-cart" style="height: 100%">
             <div class="right-cart-top" style="width: 490px; position: absolute; right: 0; top: 0; padding: 13px 23px 0px;">
                 <h4 style="margin-bottom: 20px; font-weight: 600;">Shopping Cart</h4>
                 <div class="widget-cart-top rounded px-4 py-3 d-flex gap-3"
@@ -134,10 +134,10 @@
                             out!</p>
                     </div>
                 </div>
-                {{-- <span>Buy <strong>$0.00</strong> More to get <strong>FreeShip</strong></span> --}}
-                {{-- @php($free_delivery_status = \App\Utils\OrderManager::free_delivery_order_amount($cart[0]->cart_group_id)) --}}
+                <span>Buy <strong>$0.00</strong> More to get <strong>FreeShip</strong></span>
+                @php($free_delivery_status = \App\Utils\OrderManager::free_delivery_order_amount($cart[0]->cart_group_id))
 
-                {{-- @if ($free_delivery_status['status'] && (session()->missing('coupon_type') || session('coupon_type') != 'free_delivery'))
+                @if ($free_delivery_status['status'] && (session()->missing('coupon_type') || session('coupon_type') != 'free_delivery'))
                     <div class="pt-2">
                         <div class="progress __progress bg-DFEDFF" style="border-radius: 0px; height: 3px;">
                             <div class="progress-bar"
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                     </div>
-                @endif --}}
+                @endif
             </div>
             @if ($cart->count() > 0)
                 <?php
@@ -329,8 +329,8 @@
 
                 </div>
             @else
-                <div class="widget-cart-item">
-                    <div class="text-center text-capitalize">
+                <div class="widget-cart-item" style="height: 100%; margin: 0; position: relative;">
+                    <div class="text-center text-capitalize" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                         <img class="mb-3 mw-100"
                             src="{{ asset('public/assets/front-end/img/icons/empty-cart.svg') }}"
                             alt="{{ translate('cart') }}">

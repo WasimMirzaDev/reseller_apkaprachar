@@ -27,6 +27,7 @@
     border: 2px solid #545454 !important;
 }
 
+.detail.product-single-hover .overflow-hidden .inline_product a img,
 .Men .owl-stage-outer .owl-stage .owl-item .product-single-hover .overflow-hidden .inline_product .d-block a img,
 .Shoes .owl-stage-outer .owl-stage .owl-item .product-single-hover .overflow-hidden .inline_product .d-block a img,
 .Kids .owl-stage-outer .owl-stage .owl-item .product-single-hover .overflow-hidden .inline_product .d-block a img {
@@ -35,6 +36,7 @@
     background: radial-gradient(circle, rgba(166, 166, 167, 1) 0%, rgba(114, 119, 126, 1) 100%);
 }
 
+.detail.product-single-hover .overflow-hidden .inline_product a
 .Men .product-single-hover .overflow-hidden div a {
     color: #fff !important;
 }
@@ -65,7 +67,7 @@
     gap: 10px;
     opacity: 0;
 }
-
+.detail.product-single-hover .quick-view-btn,
 .Men .product-single-hover .quick-view-btn,
 .Shoes .product-single-hover .quick-view-btn,
 .Kids .product-single-hover .quick-view-btn,
@@ -79,7 +81,7 @@
     justify-content: evenly;
     opacity: 0;
 }
-
+.detail.product-single-hover:hover .quick-view-btn,
 .Men .product-single-hover:hover .quick-view-btn,
 .Shoes .product-single-hover:hover .quick-view-btn,
 .Kids .product-single-hover:hover .quick-view-btn,
@@ -93,7 +95,7 @@
     justify-content: evenly;
     opacity: 1;
 }
-
+.detail.product-single-hover:not(:hover) .quick-view-btn,
 .Men .product-single-hover:not(:hover) .quick-view-btn,
 .Shoes .product-single-hover:not(:hover) .quick-view-btn,
 .Kids .product-single-hover:not(:hover) .quick-view-btn,
@@ -108,7 +110,7 @@
     margin: 0 auto;
     opacity: 0;
 }
-
+.detail.product-single-hover .quick-view-btn .quick-view-btn-a,
 .Men .product-single-hover .quick-view-btn .quick-view-btn-a,
 .Shoes .product-single-hover .quick-view-btn .quick-view-btn-a,
 .Kids .product-single-hover .quick-view-btn .quick-view-btn-a,
@@ -122,7 +124,7 @@
     font-weight: 600;
     opacity: 1;
 }
-
+.detail.product-single-hover:hover .quick-view-btn .quick-view-btn-a,
 .Men .product-single-hover:hover .quick-view-btn .quick-view-btn-a,
 .Shoes .product-single-hover:hover .quick-view-btn .quick-view-btn-a,
 .Kids .product-single-hover:hover .quick-view-btn .quick-view-btn-a,
@@ -136,7 +138,7 @@
     font-weight: 600;
     opacity: 1;
 }
-
+.detail.product-single-hover:hover .quick-right-btn,
 .Men .product-single-hover:hover .quick-right-btn,
 .Shoes .product-single-hover:hover .quick-right-btn,
 .Kids .product-single-hover:hover .quick-right-btn,
@@ -150,7 +152,7 @@
     gap: 10px;
     opacity: 1;
 }
-
+.detail.product-single-hover:hover .quick-right-btn .quick-right-btn-a,
 .Men .product-single-hover:hover .quick-right-btn .quick-right-btn-a,
 .Shoes .product-single-hover:hover .quick-right-btn .quick-right-btn-a,
 .Kids .product-single-hover:hover .quick-right-btn .quick-right-btn-a,
@@ -163,7 +165,7 @@
     transition: all .25s linear;
     opacity: 1;
 }
-
+.detail.product-single-hover:not(:hover) .quick-right-btn,
 .Men .product-single-hover:not(:hover) .quick-right-btn,
 .Shoes .product-single-hover:not(:hover) .quick-right-btn,
 .Kids .product-single-hover:not(:hover) .quick-right-btn,
@@ -177,7 +179,7 @@
     gap: 10px;
     opacity: 0;
 }
-
+.detail.product-single-hover:not(:hover) .quick-right-btn .quick-right-btn-a,
 .Men .product-single-hover:not(:hover) .quick-right-btn .quick-right-btn-a,
 .Shoes .product-single-hover:not(:hover) .quick-right-btn .quick-right-btn-a,
 .Kids .product-single-hover:not(:hover) .quick-right-btn .quick-right-btn-a,
@@ -190,14 +192,14 @@
     transition: all .25s linear;
     opacity: 0;
 }
-
+.detail.product-single-hover:hover img,
 .Men .product-single-hover:hover img,
 .Kids .product-single-hover:hover img,
 .latest-product-margin .product-single-hover:hover img,
 .Shoes .product-single-hover:hover img{
     transform: scale(1.20);
 }
-
+.detail.product-single-hover:not(:hover) img,
 .Men .product-single-hover:not(:hover) img,
 .Kids .product-single-hover:not(:hover) img,
 .latest-product-margin .product-single-hover:not(:hover) img,
@@ -266,7 +268,7 @@ font-size: 22px;
 .product-single-hover.style--card {
     background-color: #fff0;
 }
-
+.detail .quick-top-new-btn,
 .latest-product-margin .quick-top-new-btn{
     display: flex;
     position: absolute;
@@ -276,6 +278,7 @@ font-size: 22px;
     border-radius: 15px !important;
     background-color: #d2ef9a;
 }
+.detail .quick-top-new-btn span,
 .latest-product-margin .quick-top-new-btn span{
     font-size: 13px;
     font-weight: 600;

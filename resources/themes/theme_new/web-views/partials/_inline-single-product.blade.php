@@ -1,8 +1,8 @@
 @php($overallRating = getOverallRating($product->reviews))
 
-<div class="product-single-hover style--card " style="box-shadow: none;">
+<div class="detail product-single-hover style--card " style="box-shadow: none;">
     <div class="overflow-hidden position-relative">
-        <div class=" inline_product clickable d-flex justify-content-center">
+        <div class=" inline_product clickable d-flex justify-content-center ">
             @if($product->discount > 0)
                 <div class="d-flex">
                     <span class="for-discount-value p-1 pl-2 pr-2">
