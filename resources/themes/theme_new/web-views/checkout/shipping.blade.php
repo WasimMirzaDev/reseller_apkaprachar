@@ -7,6 +7,18 @@
 @endpush
 
 @section('content')
+<style>
+    .__card {
+        background:none !important;
+        border:1px solid transparent;
+        box-shadow:none;
+    }
+    .list-group-item:last-child {
+        background: none;
+    border: 1px solid transparent;
+    box-shadow: none;
+    }
+</style>
 @php($billingInputByCustomer=getWebConfig(name: 'billing_input_by_customer'))
     <div class="container py-4 rtl __inline-56 px-0 px-md-3 text-align-direction">
         <div class="row mx-max-md-0">
@@ -23,7 +35,7 @@
                     @if($physical_product_view)
                     <input type="hidden" id="physical_product" name="physical_product" value="{{ $physical_product_view ? 'yes':'no'}}">
                         <div class="px-3 px-md-0">
-                            <h4 class="pb-2 mt-4 fs-18 text-capitalize">{{ translate('shipping_address')}}</h4>
+                            <h4 class="pb-2 mt-4 fs-18 text-capitalize" style="font-size:24px !important;color:#1f1f1f;">{{ translate('shipping_address')}}</h4>
                         </div>
 
                         @php($shippingAddresses=\App\Models\ShippingAddress::where(['customer_id'=>auth('customer')->id(), 'is_billing'=>0, 'is_guest'=>0])->get())
@@ -145,7 +157,7 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <input id="pac-input" class="controls rounded __inline-46" title="{{translate('search_your_location_here')}}" type="text" placeholder="{{translate('search_here')}}"/>
+                                                        <input id="pac-input" class="w-100 form-control controls rounded __inline-46" title="{{translate('search_your_location_here')}}" type="text" placeholder="{{translate('search_here')}}"/>
                                                         <div class="__h-200px" id="location_map_canvas"></div>
                                                     </div>
 
@@ -314,7 +326,7 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <input id="pac-input-billing" class="controls rounded __inline-46"
+                                                        <input id="pac-input-billing" class="w-100 form-control controls rounded __inline-46"
                                                             title="{{translate('search_your_location_here')}}"
                                                             type="text"
                                                             placeholder="{{translate('search_here')}}"/>

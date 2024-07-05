@@ -1,3 +1,10 @@
+<style>
+    .__cart-total {
+        background:transparent !important;
+        border:1px solid transparent;
+        box-shadow:none;
+    }
+</style>
 <aside class="col-lg-4 pt-4 pt-lg-2 px-max-md-0 order-summery-aside">
     <div class="__cart-total __cart-total_sticky">
         <div class="cart_total p-0">
@@ -33,25 +40,25 @@
                 </h6>
             @endif
 
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between" style="border-bottom: 1px solid #E9E9E9;padding:20px 0px;">
                 <span class="cart_title">{{translate('sub_total')}}</span>
                 <span class="cart_value">
                     {{ webCurrencyConverter(amount: $sub_total) }}
                 </span>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between" style="border-bottom: 1px solid #E9E9E9;padding:20px 0px;">
                 <span class="cart_title">{{translate('tax')}}</span>
                 <span class="cart_value">
                     {{ webCurrencyConverter(amount: $total_tax) }}
                 </span>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between" style="border-bottom: 1px solid #E9E9E9;padding:20px 0px;">
                 <span class="cart_title">{{translate('shipping')}}</span>
                 <span class="cart_value">
                     {{ webCurrencyConverter(amount: $total_shipping_cost) }}
                 </span>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between" style="border-bottom: 1px solid #E9E9E9;padding:20px 0px;">
                 <span class="cart_title">{{translate('discount_on_product')}}</span>
                 <span class="cart_value">
                     - {{ webCurrencyConverter(amount: $total_discount_on_product) }}

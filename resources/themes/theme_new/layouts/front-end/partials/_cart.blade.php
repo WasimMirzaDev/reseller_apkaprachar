@@ -135,7 +135,7 @@
                     </div>
                 </div>
                 <span>Buy <strong>$0.00</strong> More to get <strong>FreeShip</strong></span>
-                @php($free_delivery_status = \App\Utils\OrderManager::free_delivery_order_amount($cart[0]->cart_group_id))
+                {{-- @php($free_delivery_status = \App\Utils\OrderManager::free_delivery_order_amount($cart[0]->cart_group_id))
 
                 @if ($free_delivery_status['status'] && (session()->missing('coupon_type') || session('coupon_type') != 'free_delivery'))
                     <div class="pt-2">
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                @endif --}}
             </div>
             @if ($cart->count() > 0)
                 <?php
