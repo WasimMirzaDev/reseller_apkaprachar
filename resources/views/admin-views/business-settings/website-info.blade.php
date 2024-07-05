@@ -540,8 +540,8 @@
                                 <img src="{{asset('/public/assets/back-end/img/header-logo.png')}}" alt="">
                                 {{translate('website_header_logo')}}
                             </h5>
-                            <span
-                                class="badge badge-soft-info">{{ THEME_RATIO[theme_root_path()]['Main website Logo'] }}</span>
+                            {{-- <span
+                                class="badge badge-soft-info">{{ THEME_RATIO[theme_root_path()]['Main website Logo'] }}</span> --}}
                         </div>
                         <div class="card-body d-flex flex-column justify-content-around">
                             <div class="d-flex justify-content-center">
@@ -565,8 +565,8 @@
                                 <img src="{{asset('/public/assets/back-end/img/footer-logo.png')}}" alt="">
                                 {{translate('website_footer_logo')}}
                             </h5>
-                            <span
-                                class="badge badge-soft-info">{{ THEME_RATIO[theme_root_path()]['Main website Logo'] }}</span>
+                            {{-- <span
+                                class="badge badge-soft-info">{{ THEME_RATIO[theme_root_path()]['Main website Logo'] }}</span> --}}
                         </div>
                         <div class="card-body d-flex flex-column justify-content-around">
                             <div class="d-flex justify-content-center">
