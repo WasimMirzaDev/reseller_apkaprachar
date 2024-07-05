@@ -1,19 +1,12 @@
 @php($announcement = getWebConfig(name: 'announcement'))
 
 @if (isset($announcement) && $announcement['status'] == 1)
-@if (isset($announcement) && $announcement['status'] == 1)
     <div class="text-center position-relative px-4 py-1" id="announcement"
-        style="background-color: {{ $announcement['color'] }};color:{{ $announcement['text_color'] }}">
         style="background-color: {{ $announcement['color'] }};color:{{ $announcement['text_color'] }}">
         <span>{{ $announcement['announcement'] }} </span>
         <span class="__close-announcement web-announcement-slideUp">X</span>
     </div>
 @endif
-<style>
-    .navbar-expand-md .navbar-nav .nav-item button,
-    .navbar-expand-md .navbar-nav .nav-item>a {
-        transition: all ease 0.3s;
-        color: #000 !important;
 <style>
     .navbar-expand-md .navbar-nav .nav-item button,
     .navbar-expand-md .navbar-nav .nav-item>a {
@@ -97,13 +90,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 {{-- <a class="navbar-brand d-none d-sm-block mr-3 flex-shrink-0 __min-w-7rem"
-                {{-- <a class="navbar-brand d-none d-sm-block mr-3 flex-shrink-0 __min-w-7rem"
                    href="{{route('home')}}">
                     <img class="__inline-11"
                          src="{{ getValidImage(path: 'storage/app/public/company/'.$web_config['web_logo']->value, type: 'logo') }}"
                          alt="{{$web_config['name']->value}}">
-                </a> --}}
-                {{-- <a class="navbar-brand d-sm-none"
                 </a> --}}
                 {{-- <a class="navbar-brand d-sm-none"
                    href="{{route('home')}}">
@@ -126,10 +116,6 @@
                                 <i class="czi-search"></i>
                             </span>
                         </button>
-                        <input class="form-control" type="text" style="padding-left: 42px; font-size: 11px;"
-                            autocomplete="off" placeholder="{{ translate('What are you looking for?') }}..."
-                            name="name">
-
                         <input class="form-control" type="text" style="padding-left: 42px; font-size: 11px;"
                             autocomplete="off" placeholder="{{ translate('What are you looking for?') }}..."
                             name="name">
@@ -330,7 +316,10 @@
                 </div>
             </div>
         </div>
-        <div class="navbar navbar-expand-md navbar-stuck-menu">
+        @php(
+                        $categories = \App\Models\Category::with(['childes.childes'])->where('position', 0)->priority()->paginate(11)
+                    )
+        {{-- <div class="navbar navbar-expand-md navbar-stuck-menu">
             <div class="container px-10px">
                 <div class="collapse navbar-collapse text-align-direction" id="navbarCollapse">
                     <div class="w-100 d-md-none text-align-direction">
