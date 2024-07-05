@@ -97,8 +97,8 @@
     @endif
 
     <div class="dropdown-menu dropdown-menu-{{ Session::get('direction') === 'rtl' ? 'left' : 'right' }} cart-dropdown"
-        style="height: 94vh; top: 0; width: 980px !important; right: -125px; border-radius: 30px;">
-        <div class="widget-cart-2" style="background: white; width: 490px; height: 100%; border-right: 1px solid black; border-radius: 30px 0px 0px 30px;">
+        style="height: 94vh; top: 0; width: 495px !important; right: -125px; border-radius: 30px;">
+        <div class="widget-cart-2 d-none" style="background: white; width: 490px; height: 100%; border-right: 1px solid black; border-radius: 30px 0px 0px 30px;">
             <h4 style="margin-bottom: 20px; font-weight: 600;margin-left:15px;margin-top:10px">You May Also Like</h4>
             <div class="list px-2">
                 <div class="product-item item py-3 px-2 d-flex align-items-center justify-content-between gap-3 border-b" data-item="1">
@@ -134,7 +134,7 @@
                             out!</p>
                     </div>
                 </div>
-                <span>Buy <strong>$0.00</strong> More to get <strong>FreeShip</strong></span>
+                {{-- <span>Buy <strong>$0.00</strong> More to get <strong>FreeShip</strong></span> --}}
                 {{-- @php($free_delivery_status = \App\Utils\OrderManager::free_delivery_order_amount($cart[0]->cart_group_id)) --}}
 
                 {{-- @if ($free_delivery_status['status'] && (session()->missing('coupon_type') || session('coupon_type') != 'free_delivery'))
@@ -270,7 +270,7 @@
                 </div>
 
                 <div class="bottom-fix-check-out-model"
-                    style="position: absolute; right: 0px; bottom: 0px; box-shadow: 0px 5px 18px 5px rgba(64, 72, 87, 0.15); width: 490px;">
+                    style="border-bottom-left-radius:25px;border-bottom-right-radius:25px;position: absolute; right: 0px; bottom: 0px; box-shadow: 0px 5px 18px 5px rgba(64, 72, 87, 0.15); width: 490px;">
                     <div class="d-flex align-items-center justify-content-between px-5" style="padding: 18px;">
                         <div class="note-btn item flex items-center gap-3 cursor-pointer">
                             <i class="ph ph-note-pencil text-xl"></i>
