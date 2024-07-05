@@ -7,7 +7,23 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
 @endpush
-
+<style>
+    .digital_payment {
+        border-radius: 10px;
+        background-color: #F7F7F7;
+        border: 1px solid #E9E9E9;
+        padding: 12px;
+    }
+    .dynamic-class {
+        border-radius: 10px;
+        background-color: #F7F7F7 !important;
+        border: 1px solid #E9E9E9;
+    }
+    .checkoutSide {
+        background-color: transparent !important;
+        border: 1px solid transparent !important;
+}
+</style>
 @section('content')
     <div class="container pb-5 mb-2 mb-md-4 rtl px-0 px-md-3 text-align-direction">
         <div class="row mx-max-md-0">
@@ -21,7 +37,7 @@
                     <div class="px-3 px-md-0">
                         @include('web-views.partials._checkout-steps',['step'=>3])
                     </div>
-                    <div class="card mt-3">
+                    <div class="card mt-3 checkoutSide">
                         <div class="card-body">
 
                             <div class="gap-2 mb-4">
@@ -35,10 +51,10 @@
                                 <p class="text-capitalize mt-2">{{ translate('select_a_payment_method_to_proceed')}}</p>
                             </div>
                             @if(!$cod_not_show && $cash_on_delivery['status'] || $digital_payment['status']==1)
-                                <div class="d-flex flex-wrap gap-3 mb-5">
+                                <div class="d-block flex-wrap gap-3 mb-5">
                                     @if(!$cod_not_show && $cash_on_delivery['status'])
                                         <div id="cod-for-cart">
-                                            <div class="card cursor-pointer">
+                                            <div class="card cursor-pointer dynamic-class">
                                                 <form action="{{route('checkout-complete')}}" method="get" class="needs-validation" id="cash_on_delivery_form">
                                                     <label class="m-0">
                                                         <input type="hidden" name="payment_method" value="cash_on_delivery">
@@ -56,8 +72,8 @@
                                     @if ($digital_payment['status']==1)
                                         @if(auth('customer')->check() && $wallet_status==1)
                                             <div>
-                                                <div class="card cursor-pointer">
-                                                    <button class="btn btn-block click-if-alone d-flex gap-2 align-items-center" type="submit"
+                                                <div class="card cursor-pointer mt-2 dynamic-class">
+                                                    <button class="mt-2 btn btn-block click-if-alone d-flex gap-2 align-items-center" type="submit"
                                                         data-toggle="modal" data-target="#wallet_submit_button">
                                                         <img width="20" src="{{ asset('public/assets/front-end/img/icons/wallet-sm.png') }}" alt=""/>
                                                         <span class="fs-12">{{ translate('pay_via_Wallet') }}</span>
@@ -77,7 +93,7 @@
                             @if ($digital_payment['status']==1)
                                 <div class="row gx-4 mb-4">
                                 @foreach ($payment_gateways_list as $payment_gateway)
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <form method="post" class="digital_payment" id="{{($payment_gateway->key_name)}}_form" action="{{ route('customer.web-payment-request') }}">
                                             @csrf
                                             <input type="hidden" name="user_id" value="{{ auth('customer')->check() ? auth('customer')->user()->id : session('guest_id') }}">
