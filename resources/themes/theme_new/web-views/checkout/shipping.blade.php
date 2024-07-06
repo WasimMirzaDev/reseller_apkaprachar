@@ -15,9 +15,12 @@
     }
     .list-group-item:last-child {
         background: none;
-    border: 1px solid transparent;
-    box-shadow: none;
+        border: 1px solid transparent;
+        box-shadow: none;
     }
+    .checkout-steps.steps-light .step-item.active .step-count, .checkout-steps.steps-light .step-item.active .step-progress {
+    background-color: #000 !important;
+}
 </style>
 @php($billingInputByCustomer=getWebConfig(name: 'billing_input_by_customer'))
     <div class="container py-4 rtl __inline-56 px-0 px-md-3 text-align-direction">

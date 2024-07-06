@@ -4,6 +4,7 @@
         border:1px solid transparent;
         box-shadow:none;
     }
+    
 </style>
 <aside class="col-lg-4 pt-4 pt-lg-2 px-max-md-0 order-summery-aside">
     <div class="__cart-total __cart-total_sticky">
@@ -83,7 +84,7 @@
                                 <img width="24" src="{{asset('public/assets/front-end/img/icons/coupon.svg')}}" alt="">
                                 <input class="input_code border-0 px-2 text-dark bg-transparent outline-0 w-100"
                                        type="text" name="code" placeholder="{{translate('coupon_code')}}" required>
-                                <button class="btn btn--primary rounded-pill text-uppercase py-1 fs-12" type="button" id="apply-coupon-code">
+                                <button style="background-color: #000 !important" class="btn btn--primary rounded-pill text-uppercase py-1 fs-12" type="button" id="apply-coupon-code">
                                         {{translate('apply')}}
                                     </button>
                             </div>
@@ -119,12 +120,12 @@
         @endif
 
         <div class="mt-4">
-            <a class="btn btn--primary btn-block proceed_to_next_button {{$cart->count() <= 0 ? 'disabled' : ''}} action-checkout-function">{{translate('proceed_to_Next')}}</a>
+            <a style="background-color: #000 !important;" class="btn btn--primary btn-block proceed_to_next_button {{$cart->count() <= 0 ? 'disabled' : ''}} action-checkout-function">{{translate('proceed_to_Next')}}</a>
         </div>
 
         @if( $cart->count() != 0)
             <div class="d-flex justify-content-center mt-3">
-                <a href="{{route('home')}}" class="d-flex align-items-center gap-2 text-primary font-weight-bold">
+                <a style="color: #000 !important;" href="{{route('home')}}" class="d-flex align-items-center gap-2 text-primary font-weight-bold">
                     <i class="tio-back-ui fs-12"></i> {{translate('continue_Shopping')}}
                 </a>
             </div>

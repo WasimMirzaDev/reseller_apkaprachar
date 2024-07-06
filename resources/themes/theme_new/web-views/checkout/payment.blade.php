@@ -22,7 +22,10 @@
     .checkoutSide {
         background-color: transparent !important;
         border: 1px solid transparent !important;
-}
+    }
+    .checkout-steps.steps-light .step-item.active .step-count, .checkout-steps.steps-light .step-item.active .step-progress {
+        background-color: #000 !important;
+    }
 </style>
 @section('content')
     <div class="container pb-5 mb-2 mb-md-4 rtl px-0 px-md-3 text-align-direction">

@@ -2,7 +2,6 @@
 
 @section('title', translate('Checkout'))
 
-
 @section('content')
 
     <div class="container pb-5 mb-2 mb-md-4 rtl __inline-54 text-align-direction checkout-details-page">
