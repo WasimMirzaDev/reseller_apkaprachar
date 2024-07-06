@@ -162,7 +162,7 @@
                             class="total_discount">{{ webCurrencyConverter(amount: $total_discount) }}</span>!</small>
                 </div>
                 <div class=""
-                    style="height: 220px; position: absolute; bottom: 260px; right: 0; padding: 20px 0px 0px 23px; width: 490px;"
+                    style="height: calc(100% - 270px - 180px);  margin-top: 185px; right: 0; padding: 20px 0px 0px 23px; width: 490px;"
                     data-simplebar data-simplebar-auto-hide="false">
                     @php($sub_total = 0)
                     @php($total_tax = 0)
