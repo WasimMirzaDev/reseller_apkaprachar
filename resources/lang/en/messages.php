@@ -7450,4 +7450,5 @@
   'The order id field is required.' => 'The order id field is required.',
   'What are you looking for ' => 'What are you looking for ',
   'New Customer' => 'New Customer',
+  'Already Have An Account ' => 'Already Have An Account ',
 );

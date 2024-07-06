@@ -9,17 +9,16 @@
         border-right:1px solid rgba(27, 127, 237, 0.1) !important;
     }
     .custom-register-btn {
-    
-    border-radius: 12px;
-    padding: 16px;
-    width: 30% !important;
-}
-.toolbar-enabled {
-    background: #fff
-}
-.search_button {
-    height: 35px !important;
-}
+        border-radius: 12px;
+        padding: 16px;
+        width: 30% !important;
+    }
+    .toolbar-enabled {
+        background: #fff
+    }
+    .search_button {
+        height: 35px !important;
+    }
 </style>
 @section('content')
     <div class="container py-4 py-lg-5 my-4 text-align-direction bg-white">
@@ -112,8 +111,7 @@
                 <div class="mx-auto ps-5" style="margin-top: 7rem;">
                     <h2 class="h3 mb-4 font-bold text-capitalize fs-18-mobile">{{ translate('New Customer')}}</h2>
                     <div class="mt-2" style="color: rgb(105 108 112 / var(--tw-text-opacity))">Be part of our growing family of new customers! Join us today and unlock a world of exclusive benefits, offers, and personalized experiences.</div>
-                    <a href="{{route('customer.auth.sign-up')}}" class=" mt-4 btn btn--primary btn-block btn-shadow bg-dark custom-register-btn" type="submit" style="background-color: #000 !important;
-    border-color: #000 !important;">Register</a>
+                    <a href="{{route('customer.auth.sign-up')}}" class=" mt-4 btn btn--primary btn-block btn-shadow bg-dark custom-register-btn" type="submit" style="background-color: #000 !important;border-color: #000 !important;">Register</a>
                 </div>
             </div>
         </div> 
