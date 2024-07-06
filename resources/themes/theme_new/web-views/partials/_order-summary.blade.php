@@ -96,7 +96,7 @@
             @endif
             <hr class="my-2">
             <div class="d-flex justify-content-between">
-                <span class="cart_title text-primary font-weight-bold">{{translate('total')}}</span>
+                <span class="cart_title font-weight-bold" style="color: #000;">{{translate('total')}}</span>
                 <span class="cart_value">
                 {{ webCurrencyConverter(amount: $sub_total+$total_tax+$total_shipping_cost-$coupon_dis-$total_discount_on_product-$order_wise_shipping_discount) }}
                 </span>

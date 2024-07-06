@@ -316,7 +316,7 @@
                                                 type="button">
                                                 <span class="string-limit">{{translate('buy_now')}}</span>
                                             </button>
-                                            <button
+                                            <button style="background-color: #000 !important"
                                                 class="btn btn--primary element-center btn-gap-{{Session::get('direction') === "rtl" ? 'left' : 'right'}} action-add-to-cart-form"
                                                 type="button">
                                                 <span class="string-limit">{{translate('add_to_cart')}}</span>

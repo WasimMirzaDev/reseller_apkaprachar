@@ -275,7 +275,7 @@
                             <button class="btn btn-secondary action-buy-now-this-product" type="button">
                                 {{translate('buy_now')}}
                             </button>
-                            <button class="btn btn--primary string-limit action-add-to-cart-form" type="button">
+                            <button style="background-color: #000 !important" class="btn btn--primary string-limit action-add-to-cart-form" type="button">
                                 {{translate('add_to_cart')}}
                             </button>
                         @endif

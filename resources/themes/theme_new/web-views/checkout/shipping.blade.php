@@ -19,8 +19,35 @@
         box-shadow: none;
     }
     .checkout-steps.steps-light .step-item.active .step-count, .checkout-steps.steps-light .step-item.active .step-progress {
-    background-color: #000 !important;
-}
+        background-color: #000 !important;
+    }
+    .checkout-steps.steps-light .step-item {
+        color: #000 !important;
+    }
+    .step-count {
+        position: absolute;
+        top: -0.75rem;
+        left: 50%;
+        width: 2.625rem;
+        height: 2.625rem;
+        margin-left: -0.8125rem;
+        border-radius: 50%;
+        font-size: 0.875rem;
+        line-height: 1.625rem;
+    }
+    .step-count img {
+        margin-bottom: -0.55rem !important;
+        margin-left: -3px;
+    }
+    .checkout-steps {
+        max-width: 100%;
+    }
+    .step-count i {
+        margin-top: 12px;
+    }
+    .checkout-steps.steps-light .step-item.active.current {
+        color: #000 !important;
+    }
 </style>
 @php($billingInputByCustomer=getWebConfig(name: 'billing_input_by_customer'))
     <div class="container py-4 rtl __inline-56 px-0 px-md-3 text-align-direction">
