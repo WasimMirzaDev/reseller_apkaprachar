@@ -23,6 +23,15 @@
     .nav-item .dropdown {
         padding: 0.425rem 0rem;
     }
+    .adjust-tabs li a {
+        font-size: 12px !important;
+    }
+    .store-contents {
+        justify-content: center !important;
+    }
+    .page-footer .form-control {
+        color: #000 !important;
+    }
 }
 </style>
 
@@ -137,7 +146,7 @@
                         </diV>
                     </form>
                 </div>
-                <ul class="navbar-nav text-dark navbar-collapse theme_new_header" id="navbarCollapse">
+                <ul class="navbar-nav text-dark navbar-collapse theme_new_header collapse" id="navbarCollapse">
                     <div class="w-100 d-md-none text-align-direction">
                         <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="true">
                             <i class="tio-clear __text-26px"></i>
