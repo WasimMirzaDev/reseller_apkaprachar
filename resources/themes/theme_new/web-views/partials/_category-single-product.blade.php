@@ -39,11 +39,11 @@
                 <a href="#" class="quick-right-btn-a"><i class="czi-eye"></i></a>
             </div>
             <div class="quick-view-btn">
-                <a class="action-product-quick-view quick-view-btn-a" href="javascript:" data-product-id="{{ $product->id }}">QUICK VIEW</a>
-                <a class="quick-view-btn-a">QUICK SHOP</a>
+                <a class="action-product-quick-view quick-view-btn-a" href="javascript:" data-product-id="{{ $product->id}}"> QUICK VIEW</a>
+                <a class="action-product-quick-view quick-view-btn-a" style="cursor: pointer" data-product-id="{{ $product->id}}">QUICK SHOP</a>
             </div>
         </div>
-        <div class="single-product-details asdas">
+        <div class="single-product-details">
             @if($overallRating[0] != 0 )
                 <div class="rating-show justify-content-between">
                 <span class="d-inline-block font-size-sm text-body">

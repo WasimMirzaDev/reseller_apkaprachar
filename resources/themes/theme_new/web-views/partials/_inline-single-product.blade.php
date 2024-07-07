@@ -37,7 +37,7 @@
             </div>
             <div class="quick-view-btn">
                 <a class="quick-view-btn-a" href="javascript:" data-product-id="{{ $product->id }}">QUICK VIEW</a>
-                <a class="quick-view-btn-a">QUICK SHOP</a>
+                <a class="quick-view-btn-a" style="cursor: pointer" data-product-id="{{ $product->id }}">QUICK SHOP</a>
             </div>
 
             {{-- <div class="quick-view">

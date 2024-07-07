@@ -29,7 +29,7 @@
             </div>
             <div class="quick-view-btn">
                 <a class="action-product-quick-view quick-view-btn-a" href="javascript:" data-product-id="{{ $product->id }}">QUICK VIEW</a>
-                <a class="quick-view-btn-a">QUICK SHOP</a>
+                <a style="cursor: pointer" class="action-product-quick-view quick-view-btn-a" data-product-id="{{ $product->id }}">QUICK SHOP</a>
             </div>
             @if($product->product_type == 'physical' && $product->current_stock <= 0)
                 <span class="out_fo_stock">{{translate('out_of_stock')}}</span>
