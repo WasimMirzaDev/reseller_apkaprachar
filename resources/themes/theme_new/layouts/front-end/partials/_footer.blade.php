@@ -1,21 +1,21 @@
 <style>
     .page-footer {
-        background: #fff;
+        background: #000;
     }
     .custom-light-primary-color-20 {
-        background-color: #fff;
+        background-color: #000;
     }
     .footer-header {
-        color: #000;
+        color: #fff;
     }
     .__inline-9 .widget-list-link {
-        color: #000 !important;
+        color: #fff !important;
     }
     .page-footer {
-        color: #000;
+        color: #fff;
     }
     .page-footer .form-control {
-        background: #000 !important;
+        background: #fff !important;
     }
 </style>
 <div class="__inline-9 rtl">
@@ -305,7 +305,7 @@
                                     </div>
                                     <div
                                         class="flex-grow-1 d-none d-md-block {{Session::get('direction') === "rtl" ? 'mr-3 ' : 'ml-3'}}">
-                                        <hr class="address_under_line" style="background: #000 !important"/>
+                                        <hr class="address_under_line"/>
                                     </div>
                                 </div>
                                 <div class="pl-2">
