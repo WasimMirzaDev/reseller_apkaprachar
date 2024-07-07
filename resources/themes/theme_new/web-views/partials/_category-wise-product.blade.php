@@ -1,6 +1,6 @@
 <section class="container rtl pb-4 px-max-sm-0">
     <div class="">
-        <div class="__p-20px rounded  overflow-hidden" style="background: #1f1f1f;">
+        <div class="__p-20px rounded  overflow-hidden" style="background: #fff;">
             <div class="d-flex __gap-6px flex-between px-sm-3">
                 <div class="category-product-view-title">
                     <span class="for-feature-title font-bold __text-20px text-uppercase">
@@ -8,11 +8,11 @@
                     </span>
                 </div>
                 <div class="category-product-view-all" style="margin-right: -12px !important;">
-                    <a class="text-capitalize text-white text-nowrap"
+                    <a class="text-capitalize text-dark text-nowrap"
                         href="{{ route('products', ['id' => $category['id'], 'data_from' => 'category', 'page' => 1]) }}">
                         {{ translate('view_all') }}
                         <i
-                            class="text-white czi-arrow-{{ Session::get('direction') === 'rtl' ? 'left mr-1 ml-n1 mt-1 float-left' : 'right ml-1 mr-n1' }}"></i>
+                            class="text-dark czi-arrow-{{ Session::get('direction') === 'rtl' ? 'left mr-1 ml-n1 mt-1 float-left' : 'right ml-1 mr-n1' }}"></i>
                     </a>
                 </div>
             </div>

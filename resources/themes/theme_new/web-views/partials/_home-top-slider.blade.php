@@ -4,7 +4,7 @@
         height: 100vh !important;
     }
     .single-product-details a {
-        color: #fff;
+        color: #000;
     }
 </style>
 <div class="no-gutters position-relative rtl">

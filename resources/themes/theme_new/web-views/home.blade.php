@@ -18,9 +18,9 @@
     <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/owl.theme.default.min.css') }}">
 
     <style>
-        body{
+        /* body{
             background-color: #1f1f1f;
-        }
+        } */
         .new-theme-card-bg-dark{
             background-color: #363636;
             color: #fff;
@@ -247,15 +247,15 @@
         @if($web_config['brand_setting'] && $brands->count() > 0)
         <section class="container rtl pb-4 px-max-sm-0">
             <div class="">
-                <div class="__p-20px rounded  overflow-hidden" style="background: #1f1f1f;">
+                <div class="__p-20px rounded  overflow-hidden">
                     <div class="section-header">
                         <div class="text-black font-bold __text-22px">
                             <span> {{translate('brands')}}</span>
                         </div>
                         <div class="__mr-2px">
-                            <a class="text-capitalize text-white" href="{{route('brands')}}">
+                            <a class="text-capitalize text-dark" href="{{route('brands')}}">
                                 {{ translate('view_all')}}
-                                <i class="text-white czi-arrow-{{Session::get('direction') === 'rtl' ? 'left mr-1 ml-n1 mt-1 float-left' : 'right ml-1 mr-n1'}}"></i>
+                                <i class="text-dark czi-arrow-{{Session::get('direction') === 'rtl' ? 'left mr-1 ml-n1 mt-1 float-left' : 'right ml-1 mr-n1'}}"></i>
                             </a>
                         </div>
                     </div>

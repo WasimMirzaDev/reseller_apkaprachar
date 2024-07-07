@@ -7,10 +7,10 @@
     display: none;
 }
 .text-accent {
-    color: #fff !important
+    color: #000 !important
 }
 .for-feature-title {
-    color: #fff;
+    color: #000;
 }
 
 .product-single-hover:hover .inline_product img {
@@ -246,7 +246,7 @@
     color: #fff;
 }
 .section-header div span {
-    color: #fff;
+    color: #000;
 }
 .countdown-card {
     display: none;

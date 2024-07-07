@@ -2,7 +2,7 @@
     <section class="pb-4 rtl">
         <div class="container">
             <div>
-                <div class="card h-100" style="background-color: #0000 !important; border: none;">
+                <div class="card h-100">
                     <div class="card-body">
                         {{-- <div class="d-flex justify-content-between">
                             <div class="categories-title m-0">

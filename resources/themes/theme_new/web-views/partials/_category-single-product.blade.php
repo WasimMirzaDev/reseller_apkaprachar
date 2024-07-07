@@ -43,7 +43,7 @@
                 <a class="quick-view-btn-a">QUICK SHOP</a>
             </div>
         </div>
-        <div class="single-product-details">
+        <div class="single-product-details asdas">
             @if($overallRating[0] != 0 )
                 <div class="rating-show justify-content-between">
                 <span class="d-inline-block font-size-sm text-body">
