@@ -1,3 +1,23 @@
+<style>
+    .page-footer {
+        background: #fff;
+    }
+    .custom-light-primary-color-20 {
+        background-color: #fff;
+    }
+    .footer-header {
+        color: #000;
+    }
+    .__inline-9 .widget-list-link {
+        color: #000 !important;
+    }
+    .page-footer {
+        color: #000;
+    }
+    .page-footer .form-control {
+        background: #000 !important;
+    }
+</style>
 <div class="__inline-9 rtl">
     <div
         class="d-flex justify-content-center text-center custom-light-primary-color text-md-start mt-3 p-4">
@@ -70,7 +90,7 @@
                             </div>
                         @endif
 
-                        <div class="store-contents d-flex justify-content-center pr-lg-4">
+                        <div class="store-contents d-flex justify-content-start pr-lg-4">
                             @if($web_config['ios']['status'])
                                 <div class="me-2 mb-2">
                                     <a class="" href="{{ $web_config['ios']['link'] }}" role="button">
@@ -242,7 +262,7 @@
                                             class="mb-4 font-weight-bold footer-header">{{ translate('start_a_conversation')}}</span>
                                     </div>
                                     <div
-                                        class="flex-grow-1 d-none d-md-block {{Session::get('direction') === "rtl" ? 'mr-4 mx-sm-4' : 'mx-sm-4'}}">
+                                        class="flex-grow-1 d-none d-md-block {{Session::get('direction') === "rtl" ? 'mr-4 mx-sm-4' : 'mx-sm-4'}}" style="background: #000">
                                         <hr>
                                     </div>
                                 </div>
@@ -285,7 +305,7 @@
                                     </div>
                                     <div
                                         class="flex-grow-1 d-none d-md-block {{Session::get('direction') === "rtl" ? 'mr-3 ' : 'ml-3'}}">
-                                        <hr class="address_under_line"/>
+                                        <hr class="address_under_line" style="background: #000 !important"/>
                                     </div>
                                 </div>
                                 <div class="pl-2">
