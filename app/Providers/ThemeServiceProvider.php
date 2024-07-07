@@ -15,6 +15,7 @@ class ThemeServiceProvider extends ServiceProvider
     {
         $theme = env('WEB_THEME') == null ? 'default' : env('WEB_THEME');
         $path = base_path('resources/themes/' . $theme);
+        // dd($theme);
         if (!defined('VIEW_FILE_NAMES')) {
             define("VIEW_FILE_NAMES", include($path . '/file_names.php'));
         }

@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="d-md-none">
-                            <div class="owl-theme owl-carousel categories--slider mt-3">
+                            <div class="owl-theme owl-carousel categories-new-slider mt-3">
                                 @foreach($categories as $key => $category)
                                     @if ($key<10)
                                         <div class="text-center m-0 __cate-item w-100">

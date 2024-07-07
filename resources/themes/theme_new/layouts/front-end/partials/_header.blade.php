@@ -14,6 +14,16 @@
         color: #000 !important;
 
     }
+    @media (max-width: 600px) {
+
+    .theme_new_header li {
+        width: 100%;
+        text-align: start;
+    }
+    .nav-item .dropdown {
+        padding: 0.425rem 0rem;
+    }
+}
 </style>
 
 <header class="box-shadow-sm rtl __inline-10">
@@ -127,7 +137,12 @@
                         </diV>
                     </form>
                 </div>
-                <ul class="navbar-nav text-dark">
+                <ul class="navbar-nav text-dark navbar-collapse theme_new_header" id="navbarCollapse">
+                    <div class="w-100 d-md-none text-align-direction">
+                        <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="true">
+                            <i class="tio-clear __text-26px"></i>
+                        </button>
+                    </div>
                     <li class="nav-item nav-item-home dropdown {{ request()->is('/') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('home') }}">{{ translate('home') }}</a>
                     </li>

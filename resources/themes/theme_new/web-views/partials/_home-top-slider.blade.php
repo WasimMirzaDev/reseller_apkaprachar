@@ -1,11 +1,16 @@
 <style>
     .main-banner .owl-stage-outer {
         width: 100% !important;
-        height: 100vh !important;
+        height: 100vh;
     }
     .single-product-details a {
         color: #000;
     }
+    @media (max-width: 600px) {
+        .main-banner .owl-stage-outer {
+            height: auto;
+        }
+        }
 </style>
 <div class="no-gutters position-relative rtl">
     @if ($categories->count() > 0 )  @endif

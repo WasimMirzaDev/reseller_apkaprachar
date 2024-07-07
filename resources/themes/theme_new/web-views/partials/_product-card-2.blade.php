@@ -21,7 +21,7 @@
                 <div>
                     <div>
                         <a href="{{route('product',$product->slug)}}"
-                           class="flash-product-title text-capitalize fw-semibold text-white">
+                           class="flash-product-title text-capitalize fw-semibold text-dark">
                             {{ Str::limit($product['name'], 23) }}
                         </a>
                     </div>
@@ -36,18 +36,18 @@
                                     <i class="tio-star-outlined text-warning"></i>
                                 @endif
                             @endfor
-                            <label class="badge-style2 " style="color: #fff !important;">
+                            <label class="badge-style2 " style="color: #000 !important;">
                                 ({{$product->reviews->count()}})
                             </label>
                         </div>
                     @endif
                     <div class="d-flex flex-wrap gap-8 align-items-center row-gap-0 ">
                         @if($product->discount > 0)
-                            <del class="category-single-product-price text-white">
+                            <del class="category-single-product-price text-dark">
                                 {{ webCurrencyConverter(amount: $product->unit_price) }}
                             </del>
                         @endif
-                        <span class="flash-product-price text-white fw-semibold">
+                        <span class="flash-product-price text-dark fw-semibold">
                             {{ webCurrencyConverter(amount: $product->unit_price - getProductDiscount(product: $product, price: $product->unit_price)) }}
                         </span>
                     </div>

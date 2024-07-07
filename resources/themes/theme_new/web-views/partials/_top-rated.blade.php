@@ -1,16 +1,16 @@
 <div class="col-lg-6 px-max-md-0">
-    <div class="card h-100" style="background-color: #363636">
+    <div class="card h-100">
         <div class="card-body p-xl-35">
             <div class="row d-flex justify-content-between mx-1 mb-3">
                 <div>
                     <img class="size-30" src="{{asset("public/assets/front-end/png/top-rated.png")}}"
                          alt="">
-                    <span class="font-bold pl-1 text-white">{{ translate('top_rated')}}</span>
+                    <span class="font-bold pl-1 text-dark">{{ translate('top_rated')}}</span>
                 </div>
                 <div>
-                    <a class="text-capitalize text-white"
+                    <a class="text-capitalize text-dark"
                        href="{{route('products',['data_from'=>'top-rated','page'=>1])}}">{{ translate('view_all')}}
-                        <i class="text-white czi-arrow-{{Session::get('direction') === "rtl" ? 'left mr-1 ml-n1 mt-1 float-left' : 'right ml-1 mr-n1'}}"></i>
+                        <i class="text-dark czi-arrow-{{Session::get('direction') === "rtl" ? 'left mr-1 ml-n1 mt-1 float-left' : 'right ml-1 mr-n1'}}"></i>
                     </a>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="top-rated-details">
                                         <h6 class="widget-product-title">
-                                            <span class="ptr text-white">
+                                            <span class="ptr text-dark">
                                                 {{ Str::limit($top->product['name'],100) }}
                                             </span>
                                         </h6>

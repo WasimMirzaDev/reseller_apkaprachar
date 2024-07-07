@@ -329,6 +329,45 @@ $('.categories--slider').owlCarousel({
         }
     },
 })
+$('.categories-new-slider').owlCarousel({
+    loop: false,
+    autoplay: true,
+    margin: 20,
+    nav: false,
+    dots: false,
+    autoplayHoverPause: true,
+    rtl: directionFromSession === 'rtl',
+    ltr: directionFromSession === 'ltr',
+    responsive: {
+        0: {
+            items: 3
+        },
+        360: {
+            items: 1
+        },
+        375: {
+            items: 1
+        },
+        540: {
+            items: 1
+        },
+        576: {
+            items: 2
+        },
+        768: {
+            items: 2
+        },
+        992: {
+            items: 8
+        },
+        1200: {
+            items: 10
+        },
+        1400: {
+            items: 11
+        }
+    },
+})
 
 const othersStore = $(".others-store-slider").owlCarousel({
     responsiveClass: true,
