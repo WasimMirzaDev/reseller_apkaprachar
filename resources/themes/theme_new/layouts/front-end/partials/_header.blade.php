@@ -33,6 +33,10 @@
         color: #000 !important;
     }
 }
+
+.navbar-tool-icon-box{
+    width: 40px !important;
+}
 </style>
 
 <header class="box-shadow-sm rtl __inline-10">
@@ -269,17 +273,7 @@
                             <i class="tio-search"></i>
                         </a>
                     </div>
-                    <div
-                        class="navbar-tool dropdown d-none d-md-block {{ Session::get('direction') === 'rtl' ? 'mr-md-2' : 'ml-md-2' }}">
-                        <a class="navbar-tool-icon-box dropdown-toggle" href="{{ route('wishlists') }}">
-                            <span class="navbar-tool-label">
-                                <span class="countWishlist">
-                                    {{ session()->has('wish_list') ? count(session('wish_list')) : 0 }}
-                                </span>
-                            </span>
-                            <i class="navbar-tool-icon czi-heart"></i>
-                        </a>
-                    </div>
+                    
                     @if (auth('customer')->check())
                         <div class="dropdown">
                             <a class="navbar-tool ml-2" type="button" data-toggle="dropdown" aria-haspopup="true"
@@ -312,12 +306,7 @@
                                 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="navbar-tool-icon-box">
                                     <div class="navbar-tool-icon-box">
-                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M4.25 4.41675C4.25 6.48425 5.9325 8.16675 8 8.16675C10.0675 8.16675 11.75 6.48425 11.75 4.41675C11.75 2.34925 10.0675 0.666748 8 0.666748C5.9325 0.666748 4.25 2.34925 4.25 4.41675ZM14.6667 16.5001H15.5V15.6667C15.5 12.4509 12.8825 9.83341 9.66667 9.83341H6.33333C3.11667 9.83341 0.5 12.4509 0.5 15.6667V16.5001H14.6667Z"
-                                                fill="#1B7FED" />
-                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="" viewBox="0 0 256 256"><path fill="#000000" d="M234.38 210a123.36 123.36 0 0 0-60.78-53.23a76 76 0 1 0-91.2 0A123.36 123.36 0 0 0 21.62 210a12 12 0 1 0 20.77 12c18.12-31.32 50.12-50 85.61-50s67.49 18.69 85.61 50a12 12 0 0 0 20.77-12M76 96a52 52 0 1 1 52 52a52.06 52.06 0 0 1-52-52"/></svg>
 
                                     </div>
                                 </div>
@@ -334,6 +323,17 @@
                             </div>
                         </div>
                     @endif
+                    <div class="navbar-tool dropdown d-none d-md-block {{ Session::get('direction') === 'rtl' ? 'mr-md-2' : 'ml-md-2' }}">
+                        <a class="navbar-tool-icon-box dropdown-toggle" href="{{ route('wishlists') }}">
+                            <span class="navbar-tool-label" style="margin-top: 6px !important; margin-right: 6px !important;">
+                                <span class="countWishlist">
+                                    {{ session()->has('wish_list') ? count(session('wish_list')) : 0 }}
+                                </span>
+                            </span>
+                            {{-- <i class="navbar-tool-icon czi-heart"></i> --}}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="" viewBox="0 0 256 256"><path fill="#000" d="M178 36c-20.09 0-37.92 7.93-50 21.56C115.92 43.93 98.09 36 78 36a66.08 66.08 0 0 0-66 66c0 72.34 105.81 130.14 110.31 132.57a12 12 0 0 0 11.38 0C138.19 232.14 244 174.34 244 102a66.08 66.08 0 0 0-66-66m-5.49 142.36a328.7 328.7 0 0 1-44.51 31.8a328.7 328.7 0 0 1-44.51-31.8C61.82 159.77 36 131.42 36 102a42 42 0 0 1 42-42c17.8 0 32.7 9.4 38.89 24.54a12 12 0 0 0 22.22 0C145.3 69.4 160.2 60 178 60a42 42 0 0 1 42 42c0 29.42-25.82 57.77-47.49 76.36"/></svg>
+                        </a>
+                    </div>
                     <div id="cart_items">
                         @include('layouts.front-end.partials._cart')
                     </div>

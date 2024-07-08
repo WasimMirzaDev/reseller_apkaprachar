@@ -1,6 +1,6 @@
 <div class="container rtl pt-4 px-0 px-md-3">
     <div class="seller-card">
-        <div class="card __shadow h-100">
+        <div class="card h-100">
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
                     <div class="seller-list-title">

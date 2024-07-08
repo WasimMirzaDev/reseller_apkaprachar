@@ -1,3 +1,7 @@
+body{
+    background-color: #fff;
+}
+
 .Women .owl-stage-outer .owl-stage .owl-item .product-single-hover .overflow-hidden .inline_product .d-block a img {
     border-radius: 50%;
     height:286px;
@@ -31,7 +35,8 @@
 .detail.product-single-hover .overflow-hidden .inline_product a img,
 .Men .owl-stage-outer .owl-stage .owl-item .product-single-hover .overflow-hidden .inline_product .d-block a img,
 .Shoes .owl-stage-outer .owl-stage .owl-item .product-single-hover .overflow-hidden .inline_product .d-block a img,
-.Kids .owl-stage-outer .owl-stage .owl-item .product-single-hover .overflow-hidden .inline_product .d-block a img {
+.Kids .owl-stage-outer .owl-stage .owl-item .product-single-hover .overflow-hidden .inline_product .d-block a img,
+.Kids .product-single-hover .overflow-hidden .inline_product a img {
     height:390px !important;
     border-radius: 12px;
     background: radial-gradient(circle, rgba(166, 166, 167, 1) 0%, rgba(114, 119, 126, 1) 100%);
@@ -79,7 +84,8 @@
     transition: all .25s linear;
     gap: 15px;
     padding: 20px;
-    justify-content: evenly;
+    justify-content: center;
+    text-align: center;
     opacity: 0;
 }
 .detail.product-single-hover:hover .quick-view-btn,
@@ -93,7 +99,8 @@
     transition: all .25s linear;
     gap: 15px;
     padding: 20px;
-    justify-content: evenly;
+    justify-content: center;
+    text-align: center;
     opacity: 1;
 }
 .detail.product-single-hover:not(:hover) .quick-view-btn,
@@ -138,6 +145,15 @@
     font-size: 14px;
     font-weight: 600;
     opacity: 1;
+}
+.detail.product-single-hover:hover .quick-view-btn .quick-view-btn-a:hover,
+.Men .product-single-hover:hover .quick-view-btn .quick-view-btn-a:hover,
+.Shoes .product-single-hover:hover .quick-view-btn .quick-view-btn-a:hover,
+.Kids .product-single-hover:hover .quick-view-btn .quick-view-btn-a:hover,
+.latest-product-margin .product-single-hover:hover .quick-view-btn .quick-view-btn-a:hover{
+    background-color: #000;
+    color: #fff !important;
+    border: 1px solid #fff;
 }
 .detail.product-single-hover:hover .quick-right-btn,
 .Men .product-single-hover:hover .quick-right-btn,
@@ -290,41 +306,6 @@ font-size: 22px;
     color: #fff !important;
 }
 
-/* .container{
-    max-width: 1322px !important;
-    padding-right: 16px;
-    padding-left: 16px;
-    margin: 0 auto;
-} */
-
-/* @media (min-width: 640px) {
-    .container {
-        max-width: 640px;
-    }
-}
-
-@media (min-width: 1536px) {
-    .container {
-        max-width: 1536px;
-    }
-}
-
-@media (min-width: 1280px) {
-    .container {
-        max-width: 1280px;
-    }
-}
-@media (min-width: 1024px) {
-    .container {
-        max-width: 1024px;
-    }
-}
-@media (min-width: 768px) {
-    .container {
-        max-width: 768px;
-    }
-} */
-
 .__cate-item .__img {
     height: 216px;
     aspect-ratio: 1;
@@ -349,4 +330,50 @@ font-size: 22px;
 .flash_deal_product {
     box-shadow: none;
     /* background: #363636; */
+}
+
+.search-page-header, .sorting-item{
+    box-shadow: none !important;
+}
+
+
+.product-single-hover .inline_product
+{
+    border: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .detail.product-single-hover:hover .quick-view-btn,
+    .Men .product-single-hover:hover .quick-view-btn,
+    .Shoes .product-single-hover:hover .quick-view-btn,
+    .Kids .product-single-hover:hover .quick-view-btn,
+    .latest-product-margin .product-single-hover:hover .quick-view-btn{
+        opacity: 1;
+        margin: 0 auto !important;
+        gap: 7px;
+        padding: 0px 10px 20px;
+        text-align: center;
+        justify-content: center;
+    }
+    .detail.product-single-hover:not(:hover) .quick-view-btn,
+    .Men .product-single-hover:not(:hover) .quick-view-btn,
+    .Shoes .product-single-hover:not(:hover) .quick-view-btn,
+    .Kids .product-single-hover:not(:hover) .quick-view-btn,
+    .latest-product-margin .product-single-hover:not(:hover) .quick-view-btn{
+        opacity: 1;
+        margin: 0 auto !important;
+        gap: 7px;
+        padding: 0px 10px 20px;
+        text-align: center;
+        justify-content: center;
+
+    }
+    .detail.product-single-hover:hover .quick-view-btn .quick-view-btn-a,
+    .Men .product-single-hover:hover .quick-view-btn .quick-view-btn-a,
+    .Shoes .product-single-hover:hover .quick-view-btn .quick-view-btn-a,
+    .Kids .product-single-hover:hover .quick-view-btn .quick-view-btn-a,
+    .latest-product-margin .product-single-hover:hover .quick-view-btn .quick-view-btn-a{
+        font-size: 11px;
+        opacity: 1;
+    }
 }

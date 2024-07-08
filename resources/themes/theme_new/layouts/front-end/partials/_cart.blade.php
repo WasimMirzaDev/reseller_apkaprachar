@@ -69,11 +69,12 @@
 <div class="navbar-tool dropdown me-2 {{ Session::get('direction') === 'rtl' ? 'mr-md-2' : 'ml-md-2' }}">
     @if ($web_config['guest_checkout_status'] || auth('customer')->check())
         <a class="navbar-tool-icon-box dropdown-toggle" href="{{ route('shop-cart') }}">
-            <span class="navbar-tool-label">
+            <span class="navbar-tool-label" style="margin-top: 6px !important; margin-right: 6px !important;">
                 @php($cart = \App\Utils\CartManager::get_cart())
                 {{ $cart->count() }}
             </span>
-            <i class="navbar-tool-icon czi-cart"></i>
+            {{-- <i class="navbar-tool-icon czi-cart"></i> --}}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="" viewBox="0 0 256 256"><path fill="#000" d="m243.86 197.65l-14.25-120A20.06 20.06 0 0 0 209.67 60h-29.84a52 52 0 0 0-103.66 0H46.33a20.06 20.06 0 0 0-19.94 17.65l-14.25 120A20 20 0 0 0 32.08 220h191.84a20 20 0 0 0 19.94-22.35M128 36a28 28 0 0 1 27.71 24h-55.42A28 28 0 0 1 128 36M36.5 196L49.81 84H76v20a12 12 0 0 0 24 0V84h56v20a12 12 0 0 0 24 0V84h26.19l13.31 112Z"/></svg>
         </a>
         {{-- <a class="navbar-tool-text ms-2"
            href="{{route('shop-cart')}}"><small>{{translate('my_cart')}}</small>
@@ -81,11 +82,12 @@
         </a> --}}
     @else
         <a class="navbar-tool-icon-box dropdown-toggle" href="{{ route('customer.auth.login') }}">
-            <span class="navbar-tool-label">
+            <span class="navbar-tool-label" style="margin-top: 6px !important; margin-right: 6px !important;">
                 @php($cart = \App\Utils\CartManager::get_cart())
                 {{ $cart->count() }}
             </span>
-            <i class="navbar-tool-icon czi-cart"></i>
+            {{-- <i class="navbar-tool-icon czi-cart"></i> --}}
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="" viewBox="0 0 256 256"><path fill="#000" d="m243.86 197.65l-14.25-120A20.06 20.06 0 0 0 209.67 60h-29.84a52 52 0 0 0-103.66 0H46.33a20.06 20.06 0 0 0-19.94 17.65l-14.25 120A20 20 0 0 0 32.08 220h191.84a20 20 0 0 0 19.94-22.35M128 36a28 28 0 0 1 27.71 24h-55.42A28 28 0 0 1 128 36M36.5 196L49.81 84H76v20a12 12 0 0 0 24 0V84h56v20a12 12 0 0 0 24 0V84h26.19l13.31 112Z"/></svg>
         </a>
         <!-- Button trigger modal -->
 
@@ -135,7 +137,7 @@
                     </div>
                 </div>
                 <span>Buy <strong>$0.00</strong> More to get <strong>FreeShip</strong></span>
-                {{-- @php($free_delivery_status = \App\Utils\OrderManager::free_delivery_order_amount($cart[0]->cart_group_id))
+                @php($free_delivery_status = \App\Utils\OrderManager::free_delivery_order_amount($cart[0]->cart_group_id))
 
                 @if ($free_delivery_status['status'] && (session()->missing('coupon_type') || session('coupon_type') != 'free_delivery'))
                     <div class="pt-2">
@@ -145,7 +147,7 @@
                             </div>
                         </div>
                     </div>
-                @endif --}}
+                @endif
             </div>
             @if ($cart->count() > 0)
                 <?php
@@ -269,8 +271,7 @@
                     @endforeach
                 </div>
 
-                <div class="bottom-fix-check-out-model"
-                    style="border-bottom-left-radius:25px;border-bottom-right-radius:25px;position: absolute; right: 0px; bottom: 0px; box-shadow: 0px 5px 18px 5px rgba(64, 72, 87, 0.15); width: 490px;">
+                <div class="bottom-fix-check-out-model" style="border-bottom-left-radius:25px;border-bottom-right-radius:25px;position: absolute; right: 0px; bottom: 0px; box-shadow: 0px 5px 18px 5px rgba(64, 72, 87, 0.15); width: 490px;">
                     <div class="d-flex align-items-center justify-content-between px-5" style="padding: 18px;">
                         <div class="note-btn item flex items-center gap-3 cursor-pointer">
                             <i class="ph ph-note-pencil text-xl"></i>

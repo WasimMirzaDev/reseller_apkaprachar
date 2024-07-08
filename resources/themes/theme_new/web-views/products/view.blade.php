@@ -12,10 +12,9 @@
     <meta property="twitter:card" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']}}"/>
     <meta property="twitter:title" content="Products of {{$web_config['name']}}"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
-    <meta property="twitter:description"
-          content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
+    <meta property="twitter:description" content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
 
-    <style>
+    {{-- <style>
         .for-count-value {
         {{Session::get('direction') === "rtl" ? 'left' : 'right'}}: 0.6875 rem;;
         }
@@ -38,7 +37,7 @@
         }
 
         .for-sorting {
-            padding- {{Session::get('direction') === "rtl" ? 'left' : 'right'}}: 9px;
+            padding-{{Session::get('direction') === "rtl" ? 'left' : 'right'}}: 9px;
         }
 
         .sidepanel {
@@ -51,12 +50,12 @@
 
         @media (max-width: 360px) {
             .for-sorting-mobile {
-                margin- {{Session::get('direction') === "rtl" ? 'left' : 'right'}}: 0% !important;
+                margin-{{Session::get('direction') === "rtl" ? 'left' : 'right'}}: 0% !important;
             }
 
             .for-mobile {
 
-                margin- {{Session::get('direction') === "rtl" ? 'right' : 'left'}}: 10% !important;
+                margin-{{Session::get('direction') === "rtl" ? 'right' : 'left'}}: 10% !important;
             }
 
         }
@@ -64,11 +63,12 @@
         @media (max-width: 500px) {
             .for-mobile {
 
-                margin- {{Session::get('direction') === "rtl" ? 'right' : 'left'}}: 27%;
+                margin-{{Session::get('direction') === "rtl" ? 'right' : 'left'}}: 27%;
             }
         }
 
-    </style>
+    </style> --}}
+
 @endpush
 
 @section('content')
@@ -123,8 +123,7 @@
 
     <div class="container pb-5 mb-2 mb-md-4 rtl __inline-35" dir="{{Session::get('direction')}}">
         <div class="row">
-            <aside
-                class="col-lg-3 hidden-xs col-md-3 col-sm-4 SearchParameters __search-sidebar {{Session::get('direction') === "rtl" ? 'pl-2' : 'pr-2'}}"
+            <aside class="col-lg-3 hidden-xs col-md-3 col-sm-4 SearchParameters __search-sidebar {{Session::get('direction') === "rtl" ? 'pl-2' : 'pr-2'}}"
                 id="SearchParameters">
                 <div class="cz-sidebar __inline-35" id="shop-sidebar">
                     <div class="cz-sidebar-header bg-light">

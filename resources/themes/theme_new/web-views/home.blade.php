@@ -21,10 +21,10 @@
         /* body{
             background-color: #1f1f1f;
         } */
-        .new-theme-card-bg-dark{
+        /* .new-theme-card-bg-dark{
             background-color: #363636;
             color: #fff;
-        }
+        } */
        
     </style>
 @endpush
