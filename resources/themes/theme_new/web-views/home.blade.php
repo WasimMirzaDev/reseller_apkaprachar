@@ -72,6 +72,7 @@
                 </div>
             </section>
         @endif
+
         <section class="container">
             @include('web-views.partials._category-section-home')
         </section>
@@ -334,13 +335,13 @@
                 items: 2
             },
             576: {
-                items: 3
+                items: 2
             },
             768: {
-                items: 3
+                items: 2.4
             },
             992: {
-                items: 4
+                items: 3
             },
             1200: {
                 items: 4
@@ -379,5 +380,7 @@
         $('#' + tab).addClass('active');
     }
     </script>
+    
+    {{-- <script src="https://app.taam.ai/user/serve-iframe-script/eyJpdiI6IkVuVTVnKzJ4MGpaUTAwaS9KQ05pMnc9PSIsInZhbHVlIjoiRGx4eGk2Unh5aU5wcHRGaWx1VUt6QT09IiwibWFjIjoiMjIwYTIyZGFiNzcxMGJhMmEwNjlmZGQ4NmNhNDcxMzc5YjBlMTY2MTFhOWUyZTA5ZGJjMzkwMTVjZGRmMGQwMyIsInRhZyI6IiJ9"></script> --}}
 @endpush
 

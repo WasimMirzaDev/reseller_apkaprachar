@@ -99,7 +99,7 @@
     @endif
 
     <div class="dropdown-menu dropdown-menu-{{ Session::get('direction') === 'rtl' ? 'left' : 'right' }} cart-dropdown"
-        style="height: 94vh; top: 0; width: 490px !important; right: -125px; border-radius: 30px;">
+        style="height: 94vh; min-height: 590px !important; top: 0; width: 490px !important; right: -125px; border-radius: 30px;">
         <div class="widget-cart-2 d-none" style="background: white; width: 490px; height: 100%; border-right: 1px solid black; border-radius: 30px 0px 0px 30px;">
             <h4 style="margin-bottom: 20px; font-weight: 600;margin-left:15px;margin-top:10px">You May Also Like</h4>
             <div class="list px-2">
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <span>Buy <strong>$0.00</strong> More to get <strong>FreeShip</strong></span>
-                @php($free_delivery_status = \App\Utils\OrderManager::free_delivery_order_amount($cart[0]->cart_group_id))
+                {{-- @php($free_delivery_status = \App\Utils\OrderManager::free_delivery_order_amount($cart[0]->cart_group_id))
 
                 @if ($free_delivery_status['status'] && (session()->missing('coupon_type') || session('coupon_type') != 'free_delivery'))
                     <div class="pt-2">
@@ -147,7 +147,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                @endif --}}
             </div>
             @if ($cart->count() > 0)
                 <?php

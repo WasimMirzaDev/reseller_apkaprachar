@@ -110,12 +110,12 @@ body{
 .latest-product-margin .product-single-hover:not(:hover) .quick-view-btn{
     display: flex;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0px 20px;
+    bottom: 0px;
     transition: all .25s linear;
-    margin: 0 auto;
+    gap: 15px;
+    padding: 0px 20px;
+    justify-content: center;
+    text-align: center;
     opacity: 0;
 }
 .detail.product-single-hover .quick-view-btn .quick-view-btn-a,
@@ -127,7 +127,7 @@ body{
     color: #000 !important;
     border: 1px solid #000;
     border-radius: 25px;
-    padding: 6px 14px;
+    padding: 6px 10px;
     font-size: 14px;
     font-weight: 600;
     opacity: 1;
@@ -153,7 +153,7 @@ body{
 .latest-product-margin .product-single-hover:hover .quick-view-btn .quick-view-btn-a:hover{
     background-color: #000;
     color: #fff !important;
-    border: 1px solid #fff;
+    border: 1px solid #000;
 }
 .detail.product-single-hover:hover .quick-right-btn,
 .Men .product-single-hover:hover .quick-right-btn,
@@ -177,7 +177,7 @@ body{
     background-color: #fff !important;
     color: #000 !important;
     border: 1px solid #000 !important;
-    padding: 6px 10px;
+    padding: 6px 8px;
     border-radius: 50%;
     transition: all .25s linear;
     opacity: 1;
@@ -204,7 +204,7 @@ body{
     background-color: #fff !important;
     color: #000 !important;
     border: 1px solid #000 !important;
-    padding: 6px 10px;
+    padding: 6px 8px;
     border-radius: 50%;
     transition: all .25s linear;
     opacity: 0;
@@ -232,6 +232,7 @@ body{
     border-radius: 10px;
     padding: 5px !important;
     max-width: 590px !important;
+    justify-content: center;
 
 }
 
@@ -342,7 +343,7 @@ font-size: 22px;
     border: none !important;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 660px) {
     .detail.product-single-hover:hover .quick-view-btn,
     .Men .product-single-hover:hover .quick-view-btn,
     .Shoes .product-single-hover:hover .quick-view-btn,
@@ -375,5 +376,181 @@ font-size: 22px;
     .latest-product-margin .product-single-hover:hover .quick-view-btn .quick-view-btn-a{
         font-size: 11px;
         opacity: 1;
+    }
+    .detail.product-single-hover .quick-right-btn,
+    .Men .product-single-hover .quick-right-btn,
+    .Shoes .product-single-hover .quick-right-btn,
+    .Kids .product-single-hover .quick-right-btn,
+    .latest-product-margin .product-single-hover .quick-right-btn{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        transition: all .25s linear;
+        gap: 10px;
+        opacity: 1;
+    }
+    .detail.product-single-hover .quick-right-btn .quick-right-btn-a,
+    .Men .product-single-hover .quick-right-btn .quick-right-btn-a,
+    .Shoes .product-single-hover .quick-right-btn .quick-right-btn-a,
+    .Kids .product-single-hover .quick-right-btn .quick-right-btn-a,
+    .latest-product-margin .product-single-hover .quick-right-btn .quick-right-btn-a{
+        background-color: #fff !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+        padding: 6px 8px;
+        border-radius: 50%;
+        transition: all .25s linear;
+        opacity: 1;
+    }
+    .detail.product-single-hover:not(:hover) .quick-right-btn,
+    .Men .product-single-hover:not(:hover) .quick-right-btn,
+    .Shoes .product-single-hover:not(:hover) .quick-right-btn,
+    .Kids .product-single-hover:not(:hover) .quick-right-btn,
+    .latest-product-margin .product-single-hover:not(:hover) .quick-right-btn{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        transition: all .25s linear;
+        gap: 10px;
+        opacity: 1;
+    }
+    .detail.product-single-hover:not(:hover) .quick-right-btn .quick-right-btn-a,
+    .Men .product-single-hover:not(:hover) .quick-right-btn .quick-right-btn-a,
+    .Shoes .product-single-hover:not(:hover) .quick-right-btn .quick-right-btn-a,
+    .Kids .product-single-hover:not(:hover) .quick-right-btn .quick-right-btn-a,
+    .latest-product-margin .product-single-hover:not(:hover) .quick-right-btn .quick-right-btn-a{
+        background-color: #fff !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+        padding: 6px 8px;
+        border-radius: 50%;
+        transition: all .25s linear;
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 582px) {
+    .detail.product-single-hover .quick-view-btn,
+    .Men .product-single-hover .quick-view-btn,
+    .Shoes .product-single-hover .quick-view-btn,
+    .Kids .product-single-hover .quick-view-btn,
+    .latest-product-margin .product-single-hover .quick-view-btn{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 0px;
+        transition: all .25s linear;
+        gap: 15px;
+        padding: 20px 30px;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+.owl-carousel.owl-theme.owl-loaded.owl-drag:not(:hover) .owl-nav{
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    top: 35% !important;
+    transition: none !important;
+}
+.owl-carousel.owl-theme.owl-loaded.owl-drag:hover .owl-nav{
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    top: 35% !important;
+    transition: none !important;
+}
+.owl-carousel.owl-theme.owl-loaded.owl-drag:not(:hover) .owl-nav button.owl-prev{
+    background-color: #fff !important;
+    border: 1px solid #000 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    position: absolute !important;
+    left: -70px !important;
+    padding: 20px 20px !important;
+    transition: none !important;
+}
+.owl-carousel.owl-theme.owl-loaded.owl-drag:not(:hover) .owl-nav button.owl-next{
+    background-color: #fff !important;
+    border: 1px solid #000 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    position: absolute !important;
+    right: -70px !important;
+    padding: 20px 20px !important;
+    transition: none !important;
+}
+
+.owl-carousel.owl-theme.owl-loaded.owl-drag:hover .owl-nav button.owl-prev{
+    background-color: #fff !important;
+    border: 1px solid #000 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    position: absolute !important;
+    left: -20px !important;
+    padding: 20px 20px !important;
+    transition: none !important;
+}
+.owl-carousel.owl-theme.owl-loaded.owl-drag:hover .owl-nav button.owl-next{
+    background-color: #fff !important;
+    border: 1px solid #000 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    position: absolute !important;
+    right: -20px !important;
+    padding: 20px 20px !important;
+    transition: none !important;
+}
+.owl-carousel.owl-theme.owl-loaded.owl-drag .owl-nav button i{
+    background-color: #fff !important;
+    color: #000 !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    transition: none !important;
+}
+
+.owl-carousel.owl-theme.owl-loaded.owl-drag .owl-nav button.owl-prev:hover, 
+.owl-carousel.owl-theme.owl-loaded.owl-drag .owl-nav button.owl-next:hover, 
+.owl-carousel.owl-theme.owl-loaded.owl-drag .owl-nav button.owl-prev:hover i, 
+.owl-carousel.owl-theme.owl-loaded.owl-drag .owl-nav button.owl-next:hover i{
+    background-color: #000 !important;
+    color: #fff !important;
+    transition: none !important;
+}
+
+.brand-slider,
+.category-after-top,
+.bg-transparent{
+    .owl-carousel.owl-theme.owl-loaded.owl-drag:not(:hover) .owl-nav{
+        opacity: 0 !important;
+        visibility: hidden !important;
+        display: none !important;
+        top: 35% !important;
+        transition: none !important;
+    }
+    .owl-carousel.owl-theme.owl-loaded.owl-drag:hover .owl-nav{
+        opacity: 0 !important;
+        visibility: hidden !important;
+        display: none !important;
+        top: 35% !important;
+        transition: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
 }

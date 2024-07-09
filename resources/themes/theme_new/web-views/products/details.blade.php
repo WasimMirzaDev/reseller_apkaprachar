@@ -89,14 +89,15 @@
             text-decoration: underline;
             transition: width 1s ease-in-out !important;
         }
+        
     </style>
     <div class="__inline-23">
         <div class="container mt-4 rtl text-align-direction">
             <div class="row {{ Session::get('direction') === 'rtl' ? '__dir-rtl' : '' }}">
                 <div class="col-lg-12 col-12">
                     <div class="row">
-                        <div class="col-lg-6 col-md-5 col-12">
-                            <div class="cz-product-gallery" style="padding-right: 45px;">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="cz-product-gallery p-0 pe-md-5" style="">
                                 <div class="cz-preview p-0" style="height: 100vh; border-radius: 20px;">
                                     @if ($product->images != null && json_decode($product->images) > 0)
                                         @if (json_decode($product->colors) && $product->color_image)
@@ -183,11 +184,11 @@
                                     @endif
                                 </div>
                                 <div class="d-flex flex-column gap-3">
-                                    <button type="button" data-product-id="{{ $product['id'] }}"
+                                    {{-- <button type="button" data-product-id="{{ $product['id'] }}"
                                         class="btn __text-18px border wishList-pos-btn d-sm-none product-action-add-wishlist">
                                         <i class="fa {{ $wishlistStatus == 1 ? 'fa-heart' : 'fa-heart-o' }} wishlist_icon_{{ $product['id'] }} web-text-primary"
                                             aria-hidden="true"></i>
-                                    </button>
+                                    </button> --}}
 
                                     <div class="sharethis-inline-share-buttons share--icons text-align-direction"
                                         style="right: 68px;">
@@ -196,7 +197,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-7 col-12 mt-md-0 mt-sm-3 web-direction">
+                        <div class="col-lg-6 col-md-6 col-12 mt-md-0 mt-sm-3 web-direction">
                             <div class="details __h-100">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex flex-column">

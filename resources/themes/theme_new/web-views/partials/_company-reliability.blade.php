@@ -1,4 +1,4 @@
-<div class="container rtl pb-4 pt-3 px-0 px-md-3">
+{{-- <div class="container rtl pb-4 pt-3 px-0 px-md-3">
     <div class="shipping-policy-web">
         <div class="row g-3 justify-content-center mx-max-md-0">
             @foreach ($companyReliability as $key=>$value)
@@ -19,4 +19,4 @@
             @endforeach
         </div>
     </div>
-</div>
+</div> --}}

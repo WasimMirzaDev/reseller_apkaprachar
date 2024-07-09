@@ -160,7 +160,7 @@
 
                     <div class="row mt-0 g-4">
                         @foreach($latest_products as $product)
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                                 <div>
                                     @include('web-views.partials._inline-single-product',['product'=>$product,'decimal_point_settings'=>$decimal_point_settings])
                                 </div>

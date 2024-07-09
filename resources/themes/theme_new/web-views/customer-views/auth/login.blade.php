@@ -24,7 +24,7 @@
     <div class="container py-4 py-lg-5 my-4 text-align-direction bg-white">
         <div class="row">
         
-            <div class="login-card col-6">
+            <div class="login-card col-12 col-md-6">
                 <div class="mx-auto">
                     <h2 class="h3 mb-4 font-bold text-capitalize fs-18-mobile">{{ translate('login')}}</h2>
                     <form class="needs-validation mt-2" autocomplete="off" action="{{route('customer.auth.login')}}"
@@ -81,7 +81,7 @@
                             </div>
                         @endif
                         <button class="btn btn--primary btn-block btn-shadow custom-register-btn" type="submit" style="background-color: #000 !important;
-    border-color: #000 !important;">{{ translate('log_in') }}</button>
+                            border-color: #000 !important;">{{ translate('log_in') }}</button>
                     </form>
                     <div class="text-center m-3 text-black-50">
                         <small>{{ translate('or_continue_with') }}</small>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="mx-auto ps-5" style="margin-top: 7rem;">
                     <h2 class="h3 mb-4 font-bold text-capitalize fs-18-mobile">{{ translate('New Customer')}}</h2>
                     <div class="mt-2" style="color: rgb(105 108 112 / var(--tw-text-opacity))">Be part of our growing family of new customers! Join us today and unlock a world of exclusive benefits, offers, and personalized experiences.</div>

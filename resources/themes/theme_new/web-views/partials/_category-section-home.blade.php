@@ -1,8 +1,8 @@
 @if ($categories->count() > 0 )
     <section class="pb-4 rtl">
-        <div class="container">
+        <div class="category-after-top">
             <div>
-                <div class="card h-100">
+                <div class="card h-100" style="border: none !important;">
                     <div class="card-body">
                         {{-- <div class="d-flex justify-content-between">
                             <div class="categories-title m-0">
@@ -25,7 +25,7 @@
                                                     <img alt="{{ $category->name }}"
                                                          src="{{ getValidImage(path: 'storage/app/public/category/'.$category->icon, type: 'category') }}">
                                                 </div>
-                                                <p class="text-center small mt-2">{{Str::limit($category->name, 12)}}</p>
+                                                <p class="text-center small mt-2" style="color: #000 !important;">{{Str::limit($category->name, 12)}}</p>
                                             </a>
                                         </div>
                                     @endif
@@ -42,7 +42,7 @@
                                                     <img alt="{{ $category->name }}"
                                                          src="{{ getValidImage(path: 'storage/app/public/category/'.$category->icon, type: 'category') }}">
                                                 </div>
-                                                <p class="text-center small mt-2">{{Str::limit($category->name, 12)}}</p>
+                                                <p class="text-center small mt-2" style="color: #000 !important;">{{Str::limit($category->name, 12)}}</p>
                                             </a>
                                         </div>
                                     @endif

@@ -1,6 +1,7 @@
 <section class="container rtl pb-4 px-max-sm-0">
     <div class="">
         <div class="__p-20px rounded  overflow-hidden" style="background: #fff;">
+            @if ($category['products'])
             <div class="d-flex __gap-6px flex-between px-sm-3">
                 <div class="category-product-view-title">
                     <span class="for-feature-title font-bold __text-20px text-uppercase">
@@ -43,6 +44,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </section>

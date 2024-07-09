@@ -105,12 +105,14 @@
         </div>
     </div> --}}
 
+    {{-- background-color: #d2ef9a; --}}
 
     <div class="navbar-sticky bg-light mobile-head">
-        <div class="navbar navbar-expand-md navbar-light" style="background-color: #d2ef9a; padding: 8px 0px;">
+        <div class="navbar navbar-expand-md navbar-light" style=" padding: 8px 0px;">
             <div class="container ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
+                    {{-- <span class="navbar-toggler-icon"></span> --}}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="#000" fill-rule="evenodd" d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75M2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8m0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg>
                 </button>
                 {{-- <a class="navbar-brand d-none d-sm-block mr-3 flex-shrink-0 __min-w-7rem"
                    href="{{route('home')}}">
@@ -125,21 +127,21 @@
                          alt="{{$web_config['name']->value}}"/>
                 </a> --}}
 
-                <div class="input-group-overlay search-form-mobile text-align-direction" style="width: 250px">
+                <div class="input-group-overlay search-form-mobile text-align-direction" style="width: 200px !important">
                     <div class="text-align-direction d-lg-none">
                         <button class="btn close-search-form-mobile">
                             <i class="tio-clear"></i>
                         </button>
                     </div>
                     <form action="{{ route('products') }}" type="submit" class="search_form"
-                        style="border-radius: 6px;">
+                        style="border-radius: 6px; margin-bottom: 0px !important;">
                         <button class="input-group-append-overlay search_button" type="submit"
                             style="position: absolute; top: 1px; width: 40px; left: 1px; padding: 0px; height: calc(100% - 2px); border: none; background: #fff; border-radius: 7px;">
                             <span class="input-group-text h-100">
                                 <i class="czi-search"></i>
                             </span>
                         </button>
-                        <input class="form-control" type="text" style="padding-left: 42px; font-size: 11px;"
+                        <input class="form-control" type="text" style="padding-left: 42px; font-size: 11px; width: 200px !important;"
                             autocomplete="off" placeholder="{{ translate('What are you looking for?') }}..."
                             name="name">
 
@@ -150,7 +152,7 @@
                         </diV>
                     </form>
                 </div>
-                <ul class="navbar-nav text-dark navbar-collapse theme_new_header collapse" id="navbarCollapse">
+                <ul class="navbar-nav text-dark navbar-collapse theme_new_header collapse" id="navbarCollapse" style="width: 100% !important; max-width: 100% !important;">
                     <div class="w-100 d-md-none text-align-direction">
                         <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="true">
                             <i class="tio-clear __text-26px"></i>
@@ -167,7 +169,7 @@
                             <ul
                                 class="text-align-direction dropdown-menu __dropdown-menu-sizing dropdown-menu-{{ Session::get('direction') === 'rtl' ? 'right' : 'left' }} scroll-bar">
                                 @foreach (\App\Utils\BrandManager::get_active_brands() as $brand)
-                                    <li class="__inline-17">
+                                    <li class="__inline-17" style="border: none !important;">
                                         <div>
                                             <a class="dropdown-item"
                                                 href="{{ route('products', ['id' => $brand['id'], 'data_from' => 'brand', 'page' => 1]) }}">
@@ -176,13 +178,12 @@
                                         </div>
                                         <div class="align-baseline">
                                             @if ($brand['brand_products_count'] > 0)
-                                                <span class="count-value px-2">( {{ $brand['brand_products_count'] }}
-                                                    )</span>
+                                                <span class="count-value px-2">({{ $brand['brand_products_count'] }})</span>
                                             @endif
                                         </div>
                                     </li>
                                 @endforeach
-                                <li class="__inline-17">
+                                <li class="__inline-17" style="border: none !important;">
                                     <div>
                                         <a class="dropdown-item web-text-primary" href="{{ route('brands') }}">
                                             {{ translate('view_more') }}
@@ -249,7 +250,7 @@
                                         <a class="dropdown-item text-capitalize" href="{{ route('shop.apply') }}">
                                             {{ translate('become_a_vendor') }}
                                         </a>
-                                        <div class="dropdown-divider"></div>
+                                        {{-- <div class="dropdown-divider"></div> --}}
                                         <a class="dropdown-item" href="{{ route('vendor.auth.login') }}">
                                             {{ translate('vendor_login') }}
                                         </a>
@@ -270,7 +271,8 @@
                     <div
                         class="navbar-tool open-search-form-mobile d-lg-none {{ Session::get('direction') === 'rtl' ? 'mr-md-2' : 'ml-md-2' }}">
                         <a class="navbar-tool-icon-box" href="javascript:">
-                            <i class="tio-search"></i>
+                            {{-- <i class="tio-search"></i> --}}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="" viewBox="0 0 24 24"><path fill="none" stroke="#000" stroke-linecap="round" stroke-width="2" d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z"/></svg>
                         </a>
                     </div>
                     
