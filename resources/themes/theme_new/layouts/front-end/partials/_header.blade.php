@@ -194,8 +194,8 @@
                         </li>
                     @endif
                     @php(
-    $discount_product = App\Models\Product::with(['reviews'])->active()->where('discount', '!=', 0)->count()
-)
+                        $discount_product = App\Models\Product::with(['reviews'])->active()->where('discount', '!=', 0)->count()
+                        )
                     @if ($discount_product > 0)
                         <li class="nav-item dropdown {{ request()->is('/') ? 'active' : '' }}">
                             <a class="nav-link text-capitalize"
@@ -239,8 +239,8 @@
                     @if ($businessMode == 'multi')
                         @if (getWebConfig(name: 'seller_registration'))
                             <li class="nav-item">
-                                <div class="dropdown dropdown-item">
-                                    <button class="btn dropdown-toggle text-white text-max-md-dark text-capitalize ps-2"
+                                <div class="dropdown dropdown-item px-1">
+                                    <button class="btn dropdown-toggle text-white text-max-md-dark text-capitalize px-2"
                                         type="button" id="dropdownMenuButton" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                         {{ translate('vendor_zone') }}
@@ -259,6 +259,59 @@
                             </li>
                         @endif
                     @endif
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle ps-0"
+                           href="javascript:" data-toggle="dropdown">
+                            {{-- <i class="czi-menu align-middle mt-n1 me-2"></i> --}}
+                            <span class="me-4">
+                                {{ translate('categories')}}
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu __dropdown-menu-3 __min-w-165px text-align-direction">
+                            @foreach($categories as $category)
+                                <li class="dropdown-item dropdown d-flex justify-content-between">
+
+                                    <a <?php if ($category->childes->count() > 0) echo "" ?>
+                                       href="{{route('products',['id'=> $category['id'],'data_from'=>'category','page'=>1])}}">
+                                        <span>{{$category['name']}}</span>
+
+                                    </a>
+                                    @if ($category->childes->count() > 0)
+                                        <a data-toggle='dropdown' class=''>
+                                            <i class="czi-arrow-{{Session::get('direction') === "rtl" ? 'left' : 'right'}} __inline-16"></i>
+                                        </a>
+                                    @endif
+
+                                    @if($category->childes->count()>0)
+                                        <ul class="dropdown-menu __dropdown-menu-3 __min-w-165px text-align-direction">
+                                            @foreach($category['childes'] as $subCategory)
+                                                <li class="dropdown-item">
+                                                    <a href="{{route('products',['id'=> $subCategory['id'],'data_from'=>'category','page'=>1])}}">
+                                                        <span>{{$subCategory['name']}}</span>
+                                                    </a>
+
+                                                    @if($subCategory->childes->count()>0)
+                                                        <a class="header-subcategories-links"
+                                                           data-toggle='dropdown'>
+                                                            <i class="czi-arrow-{{Session::get('direction') === "rtl" ? 'left' : 'right'}} __inline-16"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            @foreach($subCategory['childes'] as $subSubCategory)
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="{{route('products',['id'=> $subSubCategory['id'],'data_from'=>'category','page'=>1])}}">{{$subSubCategory['name']}}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
                 </ul>
                 <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
                     <a class="navbar-tool navbar-stuck-toggler d-md-none" href="#">
